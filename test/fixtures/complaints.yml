@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  observer_name: MyString
+  observer_address: MyText
+  observer_phone: MyString
+  election_district_name: 1
+  election_precinct_number: 1
+  category: 1
+  violation_type: 1
+  violation_time: 2012-09-17 23:13:57
+  witness: MyText
+  violator_info: MyText
+  other_info: MyText
+  status: MyString
+  complaint_author_name: MyString
+  complaint_author_phone: MyString
+  court_name: MyText
+  complaint_writing_time: 2012-09-17 23:13:57
+  request_in_complaint: MyText
+  response_date: 2012-09-17 23:13:57
+  complaint_result: MyText
+  additional_comment: MyText
+
+two:
+  observer_name: MyString
+  observer_address: MyText
+  observer_phone: MyString
+  election_district_name: 1
+  election_precinct_number: 1
+  category: 1
+  violation_type: 1
+  violation_time: 2012-09-17 23:13:57
+  witness: MyText
+  violator_info: MyText
+  other_info: MyText
+  status: MyString
+  complaint_author_name: MyString
+  complaint_author_phone: MyString
+  court_name: MyText
+  complaint_writing_time: 2012-09-17 23:13:57
+  request_in_complaint: MyText
+  response_date: 2012-09-17 23:13:57
+  complaint_result: MyText
+  additional_comment: MyText
