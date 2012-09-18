@@ -26,11 +26,11 @@ class ComplaintsController < ApplicationController
   def new
     @complaint = Complaint.new
 
-    @election_district_names = ['first', 'second', 'third']
-    @election_precinct_numbers = [1, 2, 3]
-    @categories = ['first cat', 'second cat', 'third cat']
-    @violation_types = ['first type', 'second type', 'third type']
-    @statuses = ['first status', 'second status', 'third status']
+    @election_district_names = ElectionDistrictName.all
+    @election_precinct_numbers = ElectionPrecinctNumber.all
+    @categories = Category.all
+    @violation_types = ViolationType.all
+    @statuses = Status.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,11 +42,11 @@ class ComplaintsController < ApplicationController
   def edit
     @complaint = Complaint.find(params[:id])
 
-    @election_district_names = [{:id => 1, :title => 'first'}, {:id => 2, :title => 'second'}, {:id => 3, :title => 'third'}]
-    @election_precinct_numbers = [{:id => 1, :title => '1'}, {:id => 2, :title => '2'}, {:id => 3, :title => '3'}]
-    @categories = [{:id => 1, :title => 'first'}, {:id => 2, :title => 'second'}, {:id => 3, :title => 'third'}]
-    @violation_types = [{:id => 1, :title => 'first'}, {:id => 2, :title => 'second'}, {:id => 3, :title => 'third'}]
-    @statuses = [{:id => 1, :title => 'first'}, {:id => 2, :title => 'second'}, {:id => 3, :title => 'third'}]
+    @election_district_names = ElectionDistrictName.all
+    @election_precinct_numbers = ElectionPrecinctNumber.all
+    @categories = Category.all
+    @violation_types = ViolationType.all
+    @statuses = Status.all
   end
 
   # POST /complaints
