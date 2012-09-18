@@ -4,28 +4,18 @@ BootstrapStarter::Application.routes.draw do
 	#--------------------------------
 	# all resources should be within the scope block below
 	#--------------------------------
-	scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+	
+	devise_for :users
 
-		devise_for :users
+	namespace :admin do
+		resources :users
+	end   
 
-		namespace :admin do
-			resources :users
-		end
+	match '/admin', :to => 'admin#index', :as => :admin, :via => :get
 
+	root :to => 'root#index'
 
-    resources :complaints
-
-
-
- 		match '/admin', :to => 'admin#index', :as => :admin, :via => :get
-
-
-
-		root :to => 'root#index'
-	  match "*path", :to => redirect("/#{I18n.default_locale}") # handles /en/fake/path/whatever
-	end
-
-	match '', :to => redirect("/#{I18n.default_locale}") # handles /
-	match '*path', :to => redirect("/#{I18n.default_locale}/%{path}") # handles /not-a-locale/anything
+	match '', :to => redirect("/") # handles /
+	match '*path', :to => redirect("/") # handles /not-a-locale/anything
 
 end

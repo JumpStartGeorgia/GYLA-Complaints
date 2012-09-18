@@ -8,13 +8,12 @@
       <%= link_to 'View Complaints', complaints_path %>
     </div>
     <div class="clear">
-      <%= link_to 'Latest Complaint', complaint_path(@latest_complaint) %>
+      <% if @latest_complaint %>
+         <%= link_to 'Latest Complaint', complaint_path(@latest_complaint) %>
+      <% end %>
     </div>
 
 	</div>
-
-
-
 
 
 	<div class="span3">
