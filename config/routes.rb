@@ -1,15 +1,11 @@
 BootstrapStarter::Application.routes.draw do
   resources :complaints
 
-	#--------------------------------
-	# all resources should be within the scope block below
-	#--------------------------------
-	
 	devise_for :users
 
 	namespace :admin do
 		resources :users
-	end   
+	end
 
 	match '/admin', :to => 'admin#index', :as => :admin, :via => :get
 
