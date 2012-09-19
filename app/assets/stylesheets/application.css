@@ -222,3 +222,8 @@ footer, footer ul li, footer div#right ul li {
   background-color: #eee;
   padding: 0.5em 1em;
 }
+
+
+.hidden {
+  display: none;
+}

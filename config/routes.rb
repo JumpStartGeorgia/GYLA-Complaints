@@ -7,14 +7,7 @@ BootstrapStarter::Application.routes.draw do
 		resources :users
 	end
 
-
-  resources :complaints
-
-
-
 	match '/admin', :to => 'admin#index', :as => :admin, :via => :get
-
-
 
 	root :to => 'root#index'
 
