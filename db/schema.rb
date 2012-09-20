@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918143608) do
+ActiveRecord::Schema.define(:version => 20120920135457) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -54,6 +54,23 @@ ActiveRecord::Schema.define(:version => 20120918143608) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pec_forms", :force => true do |t|
+    t.integer  "election_district_number"
+    t.integer  "election_precinct_number"
+    t.string   "observer_name"
+    t.integer  "current_number_of_complaints"
+    t.text     "complaint_author"
+    t.datetime "registration_time"
+    t.boolean  "do_you_give_complaint_to_higher_commission"
+    t.text     "violation_essence"
+    t.text     "request"
+    t.boolean  "was_complaint_setisfied"
+    t.text     "other_extra_comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "registered_or_not_complaint"
   end
 
   create_table "statuses", :force => true do |t|
