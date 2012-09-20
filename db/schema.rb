@@ -11,13 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918143608) do
+ActiveRecord::Schema.define(:version => 20120920185531) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "complaint_files", :force => true do |t|
+    t.integer  "complaint_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attachment_type"
+  end
+
+  add_index "complaint_files", ["complaint_id"], :name => "index_complaint_files_on_complaint_id"
 
   create_table "complaints", :force => true do |t|
     t.string   "observer_name"
@@ -42,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20120918143608) do
     t.text     "additional_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "level"
   end
 
   create_table "election_district_names", :force => true do |t|

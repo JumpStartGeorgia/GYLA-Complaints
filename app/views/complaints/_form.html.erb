@@ -1,4 +1,4 @@
-<%= form_for @complaint, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @complaint, :html => { :class => 'form-horizontal', :enctype => "multipart/form-data" } do |f| %>
   <div class="control-group">
     <%= f.label :observer_name, :class => 'control-label' %>
     <div class="controls">
@@ -67,26 +67,56 @@
   </div>
 
 
- <% if false %>
-  <h3>File Attachments</h3>
+  <div class="file_attachments">
+    <h3>File Attachments</h3>
 
-  <div id="observer_attachments">
-    <div class="control-group">
+    <% files = @complaint.complaint_files.observers %>
+    <% files_exist = (!files.nil? && !files.empty?) %>
+
+    <div class="file_files">
+      <% if files_exist %>
+        <% files.each do |file| %>
+          <div class="file_field control-group">
+            <div class="controls">
+              <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
+              <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>">Remove File</a>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="file_fields">
+      <% uniqi = files_exist ? (@complaint.complaint_files.count + 1) : 0;  %>
+
+      <div class="file_field control-group">
+        <div class="controls">
+          <input type="hidden" value="observer" name="complaint[complaint_files_attributes][new_<%= uniqi %>][attachment_type]" />
+          <input type="file" name="complaint[complaint_files_attributes][new_<%= uniqi %>][file]"
+                 class="text_field" data-uniqi="<%= uniqi %>" />
+          <a href="javascript:;" class="file_attachment_remove">Remove File</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="file_add_button control-group">
       <div class="controls">
-        <%= f.file_field 'obs_file_attachment(0)', :class => 'text_field' %>
-        <a href="javascript:;" class="observer_attachment_remover">Remove File</a>
+        <a href="javascript:;" data-type="observer" class="file_attachment_add">Add File</a>
       </div>
     </div>
   </div>
 
+
   <div class="control-group">
+    <%= f.label :level, :class => 'control-label' %>
     <div class="controls">
-      <a href="javascript:;" class="observer_attachment_add">Add File</a>
+      <%= f.select :level, [[], ['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['Court', 'court']] %>
     </div>
   </div>
- <% end %>
 
 
+  <% attr = (!@complaint.nil? && !@complaint.level.nil? && @complaint.level.length > 0) ? '' : 'style="display: none;"'.html_safe %>
+  <div class="after_level_select" <%= attr %>>
 
 
   <div class="control-group">
@@ -107,7 +137,7 @@
       <%= f.text_field :complaint_author_phone, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
+  <div class="hidden court control-group">
     <%= f.label :court_name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :court_name, :class => 'text_area', :rows => 3 %>
@@ -144,9 +174,55 @@
     </div>
   </div>
 
+
+  <div class="file_attachments">
+    <h3>File Attachments</h3>
+
+    <% files = @complaint.complaint_files.others %>
+    <% files_exist = (!files.nil? && !files.empty?) %>
+
+    <div class="file_files">
+      <% if files_exist %>
+        <% files.each do |file| %>
+          <div class="file_field control-group">
+            <div class="controls">
+              <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
+              <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>">Remove File</a>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="file_fields">
+      <% uniqi = uniqi + 1;  %>
+
+      <div class="file_field control-group">
+        <div class="controls">
+          <input type="hidden" value="other" name="complaint[complaint_files_attributes][new_<%= uniqi %>][attachment_type]" />
+          <input type="file" name="complaint[complaint_files_attributes][new_<%= uniqi %>][file]"
+                 class="text_field" data-uniqi="<%= uniqi %>" />
+          <a href="javascript:;" class="file_attachment_remove">Remove File</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="file_add_button control-group">
+      <div class="controls">
+        <a href="javascript:;" data-type="other" class="file_attachment_add">Add File</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  </div>
+
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 complaints_path, :class => 'btn' %>
   </div>
+
 <% end %>

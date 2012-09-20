@@ -52,7 +52,17 @@ class ComplaintsController < ApplicationController
   # POST /complaints
   # POST /complaints.json
   def create
+    
+
     @complaint = Complaint.new(params[:complaint])
+
+
+
+
+
+
+
+
 
     respond_to do |format|
       if @complaint.save
@@ -92,4 +102,17 @@ class ComplaintsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+  def unlink
+    c = ComplaintFile.find(params[:file_id])
+    c.file = nil
+    c.save
+    c.delete
+    respond_to do |format|
+      format.html { render json: true }
+      format.json { render json: true }
+    end
+  end
+
 end

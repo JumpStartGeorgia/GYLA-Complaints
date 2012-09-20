@@ -1,5 +1,8 @@
 BootstrapStarter::Application.routes.draw do
+
   resources :complaints
+
+  match '/unlink/:file_id', :to => 'complaints#unlink', :as => :unlink, :via => :get
 
 	devise_for :users
 
