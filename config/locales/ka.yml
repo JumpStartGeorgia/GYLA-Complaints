@@ -5,18 +5,18 @@ ka:
          pec_form: უბნის დამკვირვებლის ფორმა
       attributes:
          pec_form:
-            election_district_number: საარჩევნო ოლქის კომისიის ნომერი
-            election_precinct_number: საარჩევნო უბნის კომისიის ნომერი
-            observer_name: დამკვირვებლის სახელი
-            current_number_of_complaints: საჩივართა რაოდენობა ფორმის შევსების მომენტში
-            complaint_author: საჩივრის ავტორი
-            registered_or_not_complaint: დაარეგისტრირა თუ არა კომისიამ საჩივარი?
-            registration_time: რეგისტრაციის დრო
-            do_you_give_complaint_to_higher_commission: აპირებთ, თუ არა საჩივრის ზემდგომ საოლქო საარჩევნო კომისიაში გასაჩივრებას?
-            violation_essence: დარღვევის არსი
-            request: მოთხოვნა
+            election_district_number: 'საოლქო საარჩევნო კომისიის ნომერი:'
+            election_precinct_number: 'საუბნო საარჩევნო კომისიის ნომერი:'
+            observer_name: 'სიის დამკვირვებელი:'
+            current_number_of_complaints: ფორმის შევსების დროისათვის სულ რამდენი საჩივარი დაიწერა უბანზე?
+            complaint_author: 'საჩივრის ავტორი და მისი წარმდგენი სუბიექტი:'
+            registered_or_not_complaint: დაარეგისტრირა თუ არა საუბნო საარჩევნო კომისიამ საჩივარი?
+            registration_time: 'თუ დიახ, მიუთითეთ რეგისტრაციის დრო:'
+            do_you_give_complaint_to_higher_commission: თუ არა, აპირებდა თუ არა მომჩივანი გასაჩივრებას ზემდგომ საოლქო საარჩევნო კომისიაში?
+            violation_essence: 'დარღვევის არსი:'
+            request: 'მოთხოვნა:'
             was_complaint_setisfied: დაკმაყოფილდა თუ არა საჩივარი?
-            other_extra_comments: სხვა დამატებითი კომენტარები
+            other_extra_comments: 'სხვა დამატებითი კომენტარები:'
   pec_form:
       index:
          title: უბნის საჩივრების სტატისტიკა

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dec_total_complaints: 1
+  dec_journal_registration_yes_no: false
+  ped_entered_with_law: false
+  lonked_election_lists: false
+  complaints: false
+  get_send_act: false
+  describe_extra_env: MyText
+  was_canonical_procedures_done: false
+  where_props_filled: false
+  precinct_results_canel_proc: false
+  commission_summary_report_publicity: false
+  extra_env_describe: MyText
+  summed_up_or_not_summary_reports: false
+
+two:
+  dec_total_complaints: 1
+  dec_journal_registration_yes_no: false
+  ped_entered_with_law: false
+  lonked_election_lists: false
+  complaints: false
+  get_send_act: false
+  describe_extra_env: MyText
+  was_canonical_procedures_done: false
+  where_props_filled: false
+  precinct_results_canel_proc: false
+  commission_summary_report_publicity: false
+  extra_env_describe: MyText
+  summed_up_or_not_summary_reports: false

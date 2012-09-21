@@ -1,0 +1,86 @@
+<%= form_for @dec_form, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :dec_total_complaints, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :dec_total_complaints, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dec_journal_registration_yes_no, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :dec_journal_registration_yes_no, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ped_entered_with_law, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :ped_entered_with_law, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :lonked_election_lists, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :lonked_election_lists, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :complaints, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :complaints, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :get_send_act, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :get_send_act, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :describe_extra_env, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :describe_extra_env, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :was_canonical_procedures_done, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :was_canonical_procedures_done, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :where_props_filled, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :where_props_filled, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :precinct_results_canel_proc, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :precinct_results_canel_proc, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :commission_summary_report_publicity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :commission_summary_report_publicity, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :extra_env_describe, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :extra_env_describe, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :summed_up_or_not_summary_reports, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :summed_up_or_not_summary_reports, :class => 'check_box' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                dec_forms_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 BootstrapStarter::Application.routes.draw do
+  resources :dec_forms
+
   resources :pec_forms
 
   resources :complaints

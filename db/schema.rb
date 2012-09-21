@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920135457) do
+ActiveRecord::Schema.define(:version => 20120921144613) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -40,6 +40,24 @@ ActiveRecord::Schema.define(:version => 20120920135457) do
     t.datetime "response_date"
     t.text     "complaint_result"
     t.text     "additional_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dec_forms", :force => true do |t|
+    t.integer  "dec_total_complaints"
+    t.boolean  "dec_journal_registration_yes_no"
+    t.boolean  "ped_entered_with_law"
+    t.boolean  "lonked_election_lists"
+    t.boolean  "complaints"
+    t.boolean  "get_send_act"
+    t.text     "describe_extra_env"
+    t.boolean  "was_canonical_procedures_done"
+    t.boolean  "where_props_filled"
+    t.boolean  "precinct_results_canel_proc"
+    t.boolean  "commission_summary_report_publicity"
+    t.text     "extra_env_describe"
+    t.boolean  "summed_up_or_not_summary_reports"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
