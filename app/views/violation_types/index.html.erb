@@ -1,0 +1,23 @@
+<h1>Listing violation_types</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @violation_types.each do |violation_type| %>
+  <tr>
+    <td><%= violation_type.title %></td>
+    <td><%= link_to 'Show', violation_type %></td>
+    <td><%= link_to 'Edit', edit_violation_type_path(violation_type) %></td>
+    <td><%= link_to 'Destroy', violation_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Violation type', new_violation_type_path %>

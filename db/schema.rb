@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920185531) do
+ActiveRecord::Schema.define(:version => 20120921145607) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -36,15 +36,15 @@ ActiveRecord::Schema.define(:version => 20120920185531) do
     t.string   "observer_name"
     t.text     "observer_address"
     t.string   "observer_phone"
-    t.integer  "election_district_name"
-    t.integer  "election_precinct_number"
-    t.integer  "category"
-    t.integer  "violation_type"
+    t.integer  "election_district_name_id"
+    t.integer  "election_precinct_number_id"
+    t.integer  "category_id"
+    t.integer  "violation_type_id"
     t.datetime "violation_time"
     t.text     "witness"
     t.text     "violator_info"
     t.text     "other_info"
-    t.string   "status"
+    t.string   "status_id"
     t.string   "complaint_author_name"
     t.string   "complaint_author_phone"
     t.text     "court_name"

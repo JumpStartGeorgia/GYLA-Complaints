@@ -1,0 +1,9 @@
+<%= semantic_form_for @election_district_name do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :title %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

@@ -1,0 +1,23 @@
+<h1>Listing election_district_names</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @election_district_names.each do |election_district_name| %>
+  <tr>
+    <td><%= election_district_name.title %></td>
+    <td><%= link_to 'Show', election_district_name %></td>
+    <td><%= link_to 'Edit', edit_election_district_name_path(election_district_name) %></td>
+    <td><%= link_to 'Destroy', election_district_name, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Election district name', new_election_district_name_path %>

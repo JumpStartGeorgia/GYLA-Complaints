@@ -1,6 +1,7 @@
 <%- model_class = Complaint -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <% status = @complaint.status.nil? ? '' : @complaint.status.title %>
+  <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
 </div>
 
 <dl class="dl-horizontal">

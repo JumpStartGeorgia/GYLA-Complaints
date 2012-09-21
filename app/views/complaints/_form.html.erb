@@ -18,27 +18,27 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :election_district_name, :class => 'control-label' %>
+    <%= f.label :election_district_name_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :election_district_name, @election_district_names.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :election_district_name_id, [[]] + ElectionDistrictName.all.collect { |d| [d[:title], d[:id]] } %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :election_precinct_number, :class => 'control-label' %>
+    <%= f.label :election_precinct_number_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :election_precinct_number, @election_precinct_numbers.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :election_precinct_number_id, [[]] + ElectionPrecinctNumber.all.collect { |d| [d[:title], d[:id]] } %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :category, :class => 'control-label' %>
+    <%= f.label :category_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :category, @categories.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :category_id, [[]] + Category.all.collect { |d| [d[:title], d[:id]] } %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :violation_type, :class => 'control-label' %>
+    <%= f.label :violation_type_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :violation_type, @violation_types.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :violation_type_id, [[]] + ViolationType.all.collect { |d| [d[:title], d[:id]] } %>
     </div>
   </div>
   <div class="control-group">
@@ -120,9 +120,9 @@
 
 
   <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
+    <%= f.label :status_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :status, @statuses.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :status_id, [[]] + Status.all.collect { |d| [d[:title], d[:id]] } %>
     </div>
   </div>
   <div class="control-group">

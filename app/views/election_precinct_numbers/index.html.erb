@@ -1,0 +1,23 @@
+<h1>Listing election_precinct_numbers</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @election_precinct_numbers.each do |election_precinct_number| %>
+  <tr>
+    <td><%= election_precinct_number.title %></td>
+    <td><%= link_to 'Show', election_precinct_number %></td>
+    <td><%= link_to 'Edit', edit_election_precinct_number_path(election_precinct_number) %></td>
+    <td><%= link_to 'Destroy', election_precinct_number, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Election precinct number', new_election_precinct_number_path %>
