@@ -4,48 +4,176 @@
   <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:observer_name) %>:</strong></dt>
-  <dd><%= @complaint.observer_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:observer_address) %>:</strong></dt>
-  <dd><%= @complaint.observer_address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:observer_phone) %>:</strong></dt>
-  <dd><%= @complaint.observer_phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:election_district_name) %>:</strong></dt>
-  <dd><%= @complaint.election_district_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:election_precinct_number) %>:</strong></dt>
-  <dd><%= @complaint.election_precinct_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
-  <dd><%= @complaint.category %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:violation_type) %>:</strong></dt>
-  <dd><%= @complaint.violation_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:violation_time) %>:</strong></dt>
-  <dd><%= @complaint.violation_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:witness) %>:</strong></dt>
-  <dd><%= @complaint.witness %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:violator_info) %>:</strong></dt>
-  <dd><%= @complaint.violator_info %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:other_info) %>:</strong></dt>
-  <dd><%= @complaint.other_info %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @complaint.status %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:complaint_author_name) %>:</strong></dt>
-  <dd><%= @complaint.complaint_author_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:complaint_author_phone) %>:</strong></dt>
-  <dd><%= @complaint.complaint_author_phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:court_name) %>:</strong></dt>
-  <dd><%= @complaint.court_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:complaint_writing_time) %>:</strong></dt>
-  <dd><%= @complaint.complaint_writing_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:request_in_complaint) %>:</strong></dt>
-  <dd><%= @complaint.request_in_complaint %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:response_date) %>:</strong></dt>
-  <dd><%= @complaint.response_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:complaint_result) %>:</strong></dt>
-  <dd><%= @complaint.complaint_result %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:additional_comment) %>:</strong></dt>
-  <dd><%= @complaint.additional_comment %></dd>
-</dl>
+<h3>General Complaint Information</h3>
+
+<div class="complaint clear">
+  <div class="span5" style="text-align: right;">
+    <div class="">
+      დამკვირვებლის სახელი და გვარი
+    </div>
+    <div class="">
+      დამკვირვებლის მისამართი რეგისტრაციის ადგილის მიხედვით
+    </div>
+    <div class="">
+      დამკვირვებლის საკონტაქტო ტელეფონის ნომერი
+    </div>
+    <div class="">
+      საარჩევნო ოლქის სახელი
+    </div>
+    <div class="">
+      საარჩევნო უბნის ნომერი
+    </div>
+    <div class="">
+      კატეგორია
+    </div>
+    <div class="">
+      დარგვევის ტიპი
+    </div>
+    <div class="">
+      დარღვევის ჩადენის დრო
+    </div>
+    <div class="">
+      მოწმე
+    </div>
+    <div class="">
+      დამრღვევის დადგენის შემთხვევაში და დამრღვევის ახსნა-განმარტება
+    </div>
+    <div class="">
+      სხვა დამატებითი ინფორმაცია
+    </div>
+    <div class="">
+      მიმაგრებული ფაილები
+    </div>
+  </div>
+  <div class="span4">
+    <div class="">
+      <%= @complaint.observer_name %>
+    </div>
+    <div class="">
+      <%= @complaint.observer_address %>
+    </div>
+    <div class="">
+      <%= @complaint.observer_phone %>
+    </div>
+    <div class="">
+      <%= @complaint.election_district_name.title %>
+    </div>
+    <div class="">
+      <%= @complaint.election_precinct_number.title %>
+    </div>
+    <div class="">
+      <%= @complaint.category.title %>
+    </div>
+    <div class="">
+      <%= @complaint.violation_type.title %>
+    </div>
+    <div class="">
+      <%= @complaint.violation_time %>
+    </div>
+    <div class="">
+      <%= @complaint.witness %>
+    </div>
+    <div class="">
+      <%= @complaint.violator_info %>
+    </div>
+    <div class="">
+      <%= @complaint.other_info %>
+    </div>
+    <div class="">
+      <% files = @complaint.complaint_files.observers %>
+      <% files_exist = (!files.nil? && !files.empty?) %>
+      <% if files_exist %>
+        <% files.each do |file| %>
+            <div class="">
+              <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
+            </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+<h3>Complaint <%= @complaint.status.title.humanize %> Information</h3>
+
+<div class="complaint clear">
+  <div class="span5" style="text-align: right;">
+    <div class="">
+      საჩივრის მიმდინარეობა
+    </div>
+    <div class="">
+      საჩივრის ავტორი
+    </div>
+    <div class="">
+      საჩივრის ავტორის ტელეფონის ნომერი
+    </div>
+    <% attr = (!@complaint.level.nil? && @complaint.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
+    <div class="" <%= attr %>>
+      საქალაქო/სააპელაციო სასამართლოს დასახელება:
+    </div>
+    <div class="">
+      საჩივრის დაწერის დრო
+    </div>
+    <div class="">
+      საჩივარში დაყენებული მოთხოვნა
+    </div>
+    <div class="">
+      პასუხის მოსვლის დრო
+    </div>
+    <div class="">
+      საჩივრის შედეგი
+    </div>
+    <div class="">
+      დამატებითი კომენტარი
+    </div>
+    <div class="">
+      მიმაგრებული ფაილები
+    </div>
+  </div>
+  <div class="span4">
+    <div class="">
+      <%= status %>
+    </div>
+    <div class="">
+      <%= @complaint.complaint_author_name %>
+    </div>
+    <div class="">
+      <%= @complaint.complaint_author_phone %>
+    </div>
+    <div class="" <%= attr %>>
+      <%= @complaint.court_name %>
+    </div>
+    <div class="">
+      <%= @complaint.complaint_writing_time %>
+    </div>
+    <div class="">
+      <%= @complaint.request_in_complaint %>
+    </div>
+    <div class="">
+      <%= @complaint.response_date %>
+    </div>
+    <div class="">
+      <%= @complaint.complaint_result %>
+    </div>
+    <div class="">
+      <%= @complaint.additional_comment %>
+    </div>
+    <div class="">
+      <% files = @complaint.complaint_files.others %>
+      <% files_exist = (!files.nil? && !files.empty?) %>
+      <% if files_exist %>
+        <% files.each do |file| %>
+            <div class="">
+              <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
+            </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -57,4 +185,10 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+
+    <% if @complaint.level.downcase != 'court' %>
+      <%= link_to 'Move to higher level',
+                  move_to_higher_level_path(@complaint), :class => 'btn', :style => 'margin-left: 35px;' %>
+    <% end %>
+
 </div>

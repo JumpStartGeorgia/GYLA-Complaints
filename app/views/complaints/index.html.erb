@@ -12,7 +12,7 @@
   <tbody>
     <% @complaints.each do |complaint| %>
       <tr>
-        <td><%= link_to complaint.level.to_s.upcase + ' ' + complaint.status.to_s, complaint_path(complaint) %></td>
+        <td><%= link_to complaint.level.to_s.upcase + ' ' + complaint.status.title.to_s, complaint_path(complaint) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_complaint_path(complaint), :class => 'btn btn-mini' %>

@@ -12,6 +12,8 @@ BootstrapStarter::Application.routes.draw do
 
   resources :complaints
 
+  match '/move_to_higher_level/:id', :to => 'complaints#move_to_higher_level', :as => :move_to_higher_level, :via => :get
+
   match '/unlink/:file_id', :to => 'complaints#unlink', :as => :unlink, :via => :get
 
 	devise_for :users

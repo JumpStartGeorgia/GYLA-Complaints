@@ -115,4 +115,26 @@ class ComplaintsController < ApplicationController
     end
   end
 
+
+  def move_to_higher_level
+    c = Complaint.find(params[:id])
+
+    case c.level.downcase
+    when 'pec'
+      c.level = 'dec'
+    when 'dec'
+      c.level = 'cec'
+    when 'cec'
+      c.level = 'court'
+    when 'court'
+      redirect_to c, :alert => 'Complaint has highest level possible'
+    else
+      c.level = 'pec'
+    end
+
+    c.save
+
+    redirect_to c
+  end
+
 end
