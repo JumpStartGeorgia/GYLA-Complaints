@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cesko_complaint_author_sender: MyText
+  responder_district_election_commission: MyString
+  cesko_complaint_registration_time: 2012-09-22 21:27:52
+  veiolation_essence: MyText
+  request: MyText
+  cesko_complaint_discation_time: 2012-09-22 21:27:52
+  where_parties_invited_on_descation: false
+  complaint_discation_people: MyText
+  cesko_meeting_all_commission_members: false
+  cesko_meeting_report: false
+  cesko_meeting_testimony_research: false
+  extra_comment: MyText
+  cesko_desision: MyText
+  was_desision_grounded: false
+  was_complained_the_desision: false
+  was_web_announcement_made_on_complaint: false
+  if_not_then_precincts_and_reasons: MyText
+  describe_other_extra_environments: MyText
+
+two:
+  cesko_complaint_author_sender: MyText
+  responder_district_election_commission: MyString
+  cesko_complaint_registration_time: 2012-09-22 21:27:52
+  veiolation_essence: MyText
+  request: MyText
+  cesko_complaint_discation_time: 2012-09-22 21:27:52
+  where_parties_invited_on_descation: false
+  complaint_discation_people: MyText
+  cesko_meeting_all_commission_members: false
+  cesko_meeting_report: false
+  cesko_meeting_testimony_research: false
+  extra_comment: MyText
+  cesko_desision: MyText
+  was_desision_grounded: false
+  was_complained_the_desision: false
+  was_web_announcement_made_on_complaint: false
+  if_not_then_precincts_and_reasons: MyText
+  describe_other_extra_environments: MyText

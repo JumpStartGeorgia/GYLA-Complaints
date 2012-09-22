@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cesko_summary_report_input: false
+  if_not_precinct_name_and_num: MyText
+  cesko_election_summary_after_one_day: false
+  if_not_after_one_day_precinct_name_num: MyText
+  cesko_report_web_translition: false
+  if_not_the_reason: MyText
+  cesko_summary_process_transparently: false
+  description_how_transparent: MyText
+
+two:
+  cesko_summary_report_input: false
+  if_not_precinct_name_and_num: MyText
+  cesko_election_summary_after_one_day: false
+  if_not_after_one_day_precinct_name_num: MyText
+  cesko_report_web_translition: false
+  if_not_the_reason: MyText
+  cesko_summary_process_transparently: false
+  description_how_transparent: MyText

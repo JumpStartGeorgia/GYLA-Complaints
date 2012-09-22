@@ -1,0 +1,116 @@
+<%= form_for @cec_form_child, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :cesko_complaint_author_sender, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :cesko_complaint_author_sender, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :responder_district_election_commission, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :responder_district_election_commission, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cesko_complaint_registration_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :cesko_complaint_registration_time, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :veiolation_essence, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :veiolation_essence, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :request, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :request, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cesko_complaint_discation_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :cesko_complaint_discation_time, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :where_parties_invited_on_descation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :where_parties_invited_on_descation, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :complaint_discation_people, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :complaint_discation_people, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cesko_meeting_all_commission_members, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :cesko_meeting_all_commission_members, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cesko_meeting_report, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :cesko_meeting_report, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cesko_meeting_testimony_research, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :cesko_meeting_testimony_research, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :extra_comment, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :extra_comment, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cesko_desision, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :cesko_desision, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :was_desision_grounded, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :was_desision_grounded, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :was_complained_the_desision, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :was_complained_the_desision, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :was_web_announcement_made_on_complaint, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :was_web_announcement_made_on_complaint, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :if_not_then_precincts_and_reasons, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :if_not_then_precincts_and_reasons, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :describe_other_extra_environments, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :describe_other_extra_environments, :class => 'text_area' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                cec_form_children_path, :class => 'btn' %>
+  </div>
+<% end %>

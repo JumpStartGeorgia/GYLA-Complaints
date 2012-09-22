@@ -1,4 +1,10 @@
 BootstrapStarter::Application.routes.draw do
+  resources :cec_form_children
+
+  resources :cec_forms
+
+  resources :dec_form_children
+
   resources :dec_forms
 
   resources :pec_forms

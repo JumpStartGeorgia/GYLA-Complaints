@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  complaint_author_presentator: MyString
+  response_precinct_commission: MyString
+  complaint_district_registration_time: 2012-09-22 17:50:32
+  violation_essence: MyText
+  request: MyText
+  complaint_disscusion_time: 2012-09-22 17:50:32
+  where_parties_invited_to_disscusion: false
+  disscusion_people: MyText
+  all_commission_memebers_attended: false
+  report_while_meeting: false
+  testimonies_investigation_evaluation: false
+  extra_comments: MyText
+  dec_desision: MyText
+  was_desision_grounded: false
+  does_pary_plans_to_complaint: false
+  describe_other_extra_env: MyText
+
+two:
+  complaint_author_presentator: MyString
+  response_precinct_commission: MyString
+  complaint_district_registration_time: 2012-09-22 17:50:32
+  violation_essence: MyText
+  request: MyText
+  complaint_disscusion_time: 2012-09-22 17:50:32
+  where_parties_invited_to_disscusion: false
+  disscusion_people: MyText
+  all_commission_memebers_attended: false
+  report_while_meeting: false
+  testimonies_investigation_evaluation: false
+  extra_comments: MyText
+  dec_desision: MyText
+  was_desision_grounded: false
+  does_pary_plans_to_complaint: false
+  describe_other_extra_env: MyText

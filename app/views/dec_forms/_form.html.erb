@@ -1,4 +1,4 @@
-<%= form_for @dec_form, :html => { :class => 'form-horizontal' } do |f| %>
+<%= nested_form_for @dec_form, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :dec_total_complaints, :class => 'control-label' %>
     <div class="controls">
@@ -76,7 +76,10 @@
     <div class="controls">
       <%= f.check_box :summed_up_or_not_summary_reports, :class => 'check_box' %>
     </div>
-  </div>
+  </div>  
+
+   <%= f.fields_for :dec_form_children %>
+   <p><%= f.link_to_add "Add", :dec_form_children %></p>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
