@@ -1,5 +1,5 @@
 <%= form_for @pec_form, :html => { :class => 'form-horizontal' } do |f| %>
-   <table class="pec_form_table">
+   <table class="form_table">
       <tr>
          <td>1.</td>
          <td>
@@ -52,9 +52,9 @@
                    <%= f.label :registered_or_not_complaint, :class => 'control-label' %>
                    <div class="controls">
                      <%= f.radio_button :registered_or_not_complaint, true %>
-                     <%= f.label t('pec_form.radio_buttons.do_yes'), :for => 'pec_form_registered_or_not_complaint_true', :class => 'radio_label' %>
+                     <%= f.label t('form.radio_buttons.do_yes'), :for => 'pec_form_registered_or_not_complaint_true', :class => 'radio_label' %>
                      <%= f.radio_button :registered_or_not_complaint, false %>
-                     <%= f.label t('pec_form.radio_buttons.do_no'), :for => 'pec_form_registered_or_not_complaint_false', :class => 'radio_label' %>
+                     <%= f.label t('form.radio_buttons.do_no'), :for => 'pec_form_registered_or_not_complaint_false', :class => 'radio_label' %>
                    </div>
                  </div>
                  <div class="control-group registration-time">
@@ -67,9 +67,9 @@
                    <%= f.label :do_you_give_complaint_to_higher_commission, :class => 'control-label' %>
                    <div class="controls">
                      <%= f.radio_button :do_you_give_complaint_to_higher_commission, true %>
-                     <%= f.label t('pec_form.radio_buttons.do_yes'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_true', :class => 'radio_label' %>
+                     <%= f.label t('form.radio_buttons.do_yes'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_true', :class => 'radio_label' %>
                      <%= f.radio_button :do_you_give_complaint_to_higher_commission, false %>
-                     <%= f.label t('pec_form.radio_buttons.do_no'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_false', :class => 'radio_label' %>
+                     <%= f.label t('form.radio_buttons.do_no'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_false', :class => 'radio_label' %>
                    </div>
                  </div>   
          </td>
@@ -103,9 +103,9 @@
                 <%= f.label :was_complaint_setisfied, :class => 'control-label' %>
                 <div class="controls">
                   <%= f.radio_button :was_complaint_setisfied, true %>
-                  <%= f.label t("pec_form.radio_buttons.do_yes"), :for => 'pec_form_was_complaint_setisfied_true', :class => 'radio_label' %>
+                  <%= f.label t("form.radio_buttons.do_yes"), :for => 'pec_form_was_complaint_setisfied_true', :class => 'radio_label' %>
                   <%= f.radio_button :was_complaint_setisfied, false %>
-                  <%= f.label t("pec_form.radio_buttons.do_no"), :for => 'pec_form_was_complaint_setisfied_false', :class => 'radio_label' %>
+                  <%= f.label t("form.radio_buttons.do_no"), :for => 'pec_form_was_complaint_setisfied_false', :class => 'radio_label' %>
                 </div>
               </div>
          </td>
@@ -125,7 +125,7 @@
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('pec_form.buttons.cancel'),
+    <%= link_to t('form.buttons.cancel'),
                 pec_forms_path, :class => 'btn' %>
   </div>
 <% end %>

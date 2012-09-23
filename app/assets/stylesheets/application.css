@@ -222,3 +222,29 @@ footer, footer ul li, footer div#right ul li {
   background-color: #eee;
   padding: 0.5em 1em;
 }
+
+
+/* pec, dec, cec forms  */
+.form_table { 
+   width: 100%;
+}
+
+.form_table td {
+   border: 1px solid #000;
+}
+
+.number_field, .text_area {
+   margin-top: 10px;
+}
+
+
+input[type=radio] {
+   margin-top: 10px;
+}
+
+label.radio_label {
+   width: 30px;
+   margin: 0;   
+   padding-left: 20px;
+   margin-top: -17px;
+}
