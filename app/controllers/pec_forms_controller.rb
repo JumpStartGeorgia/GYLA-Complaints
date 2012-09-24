@@ -44,7 +44,7 @@ class PecFormsController < ApplicationController
 
     respond_to do |format|
       if @pec_form.save
-        format.html { redirect_to @pec_form, notice: 'Pec form was successfully created.' }
+        format.html { redirect_to pec_forms_path, notice: 'Pec form was successfully created.' }
         format.json { render json: @pec_form, status: :created, location: @pec_form }
       else
         format.html { render action: "new" }

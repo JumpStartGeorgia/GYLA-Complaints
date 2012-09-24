@@ -93,6 +93,7 @@ ka:
          cancel: გაუქმება
          new: ახალი
       radio_buttons:
+         do_partialy: ნაწილობრივ
          do_yes: დიახ
          do_no: არა
   app:

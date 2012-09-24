@@ -40,17 +40,19 @@ class CecFormsController < ApplicationController
   # POST /cec_forms
   # POST /cec_forms.json
   def create
+
     @cec_form = CecForm.new(params[:cec_form])
 
     respond_to do |format|
       if @cec_form.save
-        format.html { redirect_to @cec_form, notice: 'Cec form was successfully created.' }
+        format.html { redirect_to cec_forms_path, notice: 'Cec form was successfully created.' }
         format.json { render json: @cec_form, status: :created, location: @cec_form }
       else
         format.html { render action: "new" }
         format.json { render json: @cec_form.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PUT /cec_forms/1

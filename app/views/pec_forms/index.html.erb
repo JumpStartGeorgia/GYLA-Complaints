@@ -2,43 +2,24 @@
 <div class="page-header">
   <h1><%=t '.title', :default => t('pec_form.index.title').humanize %></h1>
 </div>
-<table class="table table-striped">
+
+<table class="table table-striped index_table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:election_district_number) %></th>
-      <th><%= model_class.human_attribute_name(:election_precinct_number) %></th>
-      <th><%= model_class.human_attribute_name(:observer_name) %></th>
       <th><%= model_class.human_attribute_name(:current_number_of_complaints) %></th>
-      <th><%= model_class.human_attribute_name(:complaint_author) %></th>
-      <th><%= model_class.human_attribute_name(:registration_time) %></th>
-      <th><%= model_class.human_attribute_name(:do_you_give_complaint_to_higher_commission) %></th>
-      <th><%= model_class.human_attribute_name(:violation_essence) %></th>
-      <th><%= model_class.human_attribute_name(:request) %></th>
-      <th><%= model_class.human_attribute_name(:was_complaint_setisfied) %></th>
-      <th><%= model_class.human_attribute_name(:other_extra_comments) %></th>
-      <th><%= model_class.human_attribute_name(:registered_or_not_complaint) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= model_class.human_attribute_name(:was_complaint_setisfied) %></th>      
     </tr>
   </thead>
   <tbody>
     <% @pec_forms.each do |pec_form| %>
       <tr>
-        <td><%= link_to pec_form.id, pec_form_path(pec_form) %></td>
-        <td><%= pec_form.election_district_number %></td>
-        <td><%= pec_form.election_precinct_number %></td>
-        <td><%= pec_form.observer_name %></td>
         <td><%= pec_form.current_number_of_complaints %></td>
-        <td><%= pec_form.complaint_author %></td>
-        <td><%= pec_form.registration_time %></td>
-        <td><%= pec_form.do_you_give_complaint_to_higher_commission %></td>
-        <td><%= pec_form.violation_essence %></td>
-        <td><%= pec_form.request %></td>
-        <td><%= pec_form.was_complaint_setisfied %></td>
-        <td><%= pec_form.other_extra_comments %></td>
-        <td><%= pec_form.registered_or_not_complaint %></td>
-        <td><%=l pec_form.created_at %></td>
+        <%if pec_form.was_complaint_setisfied %>
+           <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+            <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+        <% if false %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_pec_form_path(pec_form), :class => 'btn btn-mini' %>
@@ -48,11 +29,13 @@
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<% if false %>
 <%= link_to t('pec_form.buttons.new'),
             new_pec_form_path,
             :class => 'btn btn-primary' %>
+<% end %>

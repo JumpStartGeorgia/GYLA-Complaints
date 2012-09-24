@@ -2,11 +2,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped index_table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:dec_total_complaints) %></th>
+      <th><%= model_class.human_attribute_name(:dec_total_complaints) %></th>      
       <th><%= model_class.human_attribute_name(:dec_journal_registration_yes_no) %></th>
       <th><%= model_class.human_attribute_name(:ped_entered_with_law) %></th>
       <th><%= model_class.human_attribute_name(:lonked_election_lists) %></th>
@@ -18,29 +17,64 @@
       <th><%= model_class.human_attribute_name(:precinct_results_canel_proc) %></th>
       <th><%= model_class.human_attribute_name(:commission_summary_report_publicity) %></th>
       <th><%= model_class.human_attribute_name(:extra_env_describe) %></th>
-      <th><%= model_class.human_attribute_name(:summed_up_or_not_summary_reports) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <% if false %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <% @dec_forms.each do |dec_form| %>
       <tr>
-        <td><%= link_to dec_form.id, dec_form_path(dec_form) %></td>
         <td><%= dec_form.dec_total_complaints %></td>
-        <td><%= dec_form.dec_journal_registration_yes_no %></td>
-        <td><%= dec_form.ped_entered_with_law %></td>
-        <td><%= dec_form.lonked_election_lists %></td>
-        <td><%= dec_form.complaints %></td>
-        <td><%= dec_form.get_send_act %></td>
+        <%if dec_form.dec_journal_registration_yes_no %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+        <%if dec_form.ped_entered_with_law %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+        <%if dec_form.lonked_election_lists %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+        <%if dec_form.complaints %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>        
+        <%if dec_form.get_send_act %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+             
         <td><%= dec_form.describe_extra_env %></td>
-        <td><%= dec_form.was_canonical_procedures_done %></td>
-        <td><%= dec_form.where_props_filled %></td>
-        <td><%= dec_form.precinct_results_canel_proc %></td>
-        <td><%= dec_form.commission_summary_report_publicity %></td>
+        <%if dec_form.was_canonical_procedures_done === 1 %>
+            <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+        <%if dec_form.where_props_filled %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
+        <%if dec_form.precinct_results_canel_proc %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>        
+        <%if dec_form.commission_summary_report_publicity %>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% else %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% end %>
         <td><%= dec_form.extra_env_describe %></td>
-        <td><%= dec_form.summed_up_or_not_summary_reports %></td>
-        <td><%=l dec_form.created_at %></td>
+        <% if false %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_dec_form_path(dec_form), :class => 'btn btn-mini' %>
@@ -50,11 +84,14 @@
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% if false %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_dec_form_path,
             :class => 'btn btn-primary' %>
+<% end %>            

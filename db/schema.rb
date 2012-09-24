@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923124352) do
+ActiveRecord::Schema.define(:version => 20120924195736) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20120923124352) do
   create_table "cec_form_children", :force => true do |t|
     t.text     "cesko_complaint_author_sender"
     t.string   "responder_district_election_commission"
-    t.datetime "cesko_complaint_registration_time"
+    t.string   "cesko_complaint_registration_time"
     t.text     "veiolation_essence"
     t.text     "request"
-    t.datetime "cesko_complaint_discation_time"
+    t.string   "cesko_complaint_discation_time"
     t.boolean  "where_parties_invited_on_descation"
     t.text     "complaint_discation_people"
     t.boolean  "cesko_meeting_all_commission_members"
@@ -84,10 +84,10 @@ ActiveRecord::Schema.define(:version => 20120923124352) do
   create_table "dec_form_children", :force => true do |t|
     t.string   "complaint_author_presentator"
     t.string   "response_precinct_commission"
-    t.datetime "complaint_district_registration_time"
+    t.string   "complaint_district_registration_time"
     t.text     "violation_essence"
     t.text     "request"
-    t.datetime "complaint_disscusion_time"
+    t.string   "complaint_disscusion_time"
     t.boolean  "where_parties_invited_to_disscusion"
     t.text     "disscusion_people"
     t.boolean  "all_commission_memebers_attended"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20120923124352) do
     t.boolean  "complaints"
     t.boolean  "get_send_act"
     t.text     "describe_extra_env"
-    t.boolean  "was_canonical_procedures_done"
+    t.integer  "was_canonical_procedures_done"
     t.boolean  "where_props_filled"
     t.boolean  "precinct_results_canel_proc"
     t.boolean  "commission_summary_report_publicity"
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(:version => 20120923124352) do
     t.string   "observer_name"
     t.integer  "current_number_of_complaints"
     t.text     "complaint_author"
-    t.datetime "registration_time"
+    t.string   "registration_time"
     t.boolean  "do_you_give_complaint_to_higher_commission"
     t.text     "violation_essence"
     t.text     "request"

@@ -41,10 +41,10 @@ class DecFormsController < ApplicationController
   # POST /dec_forms.json
   def create
     @dec_form = DecForm.new(params[:dec_form])
-
+ 
     respond_to do |format|
       if @dec_form.save
-        format.html { redirect_to @dec_form, notice: 'Dec form was successfully created.' }
+        format.html { redirect_to dec_forms_path, notice: 'Dec form was successfully created.' }
         format.json { render json: @dec_form, status: :created, location: @dec_form }
       else
         format.html { render action: "new" }
