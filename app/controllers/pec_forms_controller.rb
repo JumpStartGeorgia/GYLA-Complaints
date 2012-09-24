@@ -1,4 +1,5 @@
 class PecFormsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /pec_forms
   # GET /pec_forms.json
   def index

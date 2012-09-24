@@ -1,4 +1,5 @@
 class DecFormChildrenController < ApplicationController
+  before_filter :authenticate_user!
   # GET /dec_form_children
   # GET /dec_form_children.json
   def index

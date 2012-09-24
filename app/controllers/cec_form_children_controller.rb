@@ -1,4 +1,5 @@
 class CecFormChildrenController < ApplicationController
+  before_filter :authenticate_user!
   # GET /cec_form_children
   # GET /cec_form_children.json
   def index
