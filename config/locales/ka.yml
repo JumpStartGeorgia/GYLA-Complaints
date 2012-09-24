@@ -1,5 +1,28 @@
 # encoding: utf-8
 ka:
+  activerecord:
+    models:
+      category: კატეგორია
+      complaint: საჩივარი
+      election_district_name: საარჩევნო ოლქის სახელი
+      election_precinct_number: საარჩევნო უბნის ნომერი
+      status: საჩივრის მიმდინარეობა
+      user: მომხმარებელი
+      violation_type: დარღვევის ტიპი
+    attributes:
+      category:
+        title: სახელი
+      complaint:
+        
+      election_district_name:
+        title: სახელი
+      election_precinct_number:
+        title: ნომერი
+      status:
+        title: სახელი
+      user:
+        email: ფოსტა
+      violation_type:
   app:
     language:
       en: English

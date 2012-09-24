@@ -1,6 +1,6 @@
 <%- model_class = Complaint -%>
 <div class="page-header">
-  <% status = @complaint.status.nil? ? '' : @complaint.status.title %>
+  <% status = (@complaint.complaint_additional_infos.latest.nil? || @complaint.complaint_additional_infos.latest.status.nil?) ? '' : @complaint.complaint_additional_infos.latest.status.title %>
   <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
 </div>
 
@@ -47,37 +47,37 @@
   </div>
   <div class="span4">
     <div class="">
-      <%= @complaint.observer_name %>
+      <%= @complaint.complaint_general_info.observer_name %>
     </div>
     <div class="">
-      <%= @complaint.observer_address %>
+      <%= @complaint.complaint_general_info.observer_address %>
     </div>
     <div class="">
-      <%= @complaint.observer_phone %>
+      <%= @complaint.complaint_general_info.observer_phone %>
     </div>
     <div class="">
-      <%= @complaint.election_district_name.nil? ? '' : @complaint.election_district_name.title %>
+      <%= @complaint.complaint_general_info.election_district_name.nil? ? '' : @complaint.complaint_general_info.election_district_name.title %>
     </div>
     <div class="">
-      <%= @complaint.election_precinct_number.nil? ? '' : @complaint.election_precinct_number.title %>
+      <%= @complaint.complaint_general_info.election_precinct_number.nil? ? '' : @complaint.complaint_general_info.election_precinct_number.title %>
     </div>
     <div class="">
-      <%= @complaint.category.nil? ? '' : @complaint.category.title %>
+      <%= @complaint.complaint_general_info.category.nil? ? '' : @complaint.complaint_general_info.category.title %>
     </div>
     <div class="">
-      <%= @complaint.violation_type.nil? ? '' : @complaint.violation_type.title %>
+      <%= @complaint.complaint_general_info.violation_type.nil? ? '' : @complaint.complaint_general_info.violation_type.title %>
     </div>
     <div class="">
-      <%= l @complaint.violation_time, :format => :long if @complaint.violation_time %>
+      <%= l @complaint.complaint_general_info.violation_time, :format => :long if @complaint.complaint_general_info.violation_time %>
     </div>
     <div class="">
-      <%= @complaint.witness %>
+      <%= @complaint.complaint_general_info.witness %>
     </div>
     <div class="">
-      <%= @complaint.violator_info %>
+      <%= @complaint.complaint_general_info.violator_info %>
     </div>
     <div class="">
-      <%= @complaint.other_info %>
+      <%= @complaint.complaint_general_info.other_info %>
     </div>
     <div class="">
       <% files = @complaint.complaint_files.observers %>
@@ -95,84 +95,87 @@
 </div>
 
 
-<h3>Complaint <%= @complaint.status.nil? ? '' : @complaint.status.title.humanize %> Information</h3>
+<% @complaint.complaint_additional_infos.each do |info| %>
+  <% status = (info.status.nil?) ? '' : info.status.title %>
+  <h3>Complaint <%= status %> Information</h3>
 
-<div class="complaint clear">
-  <div class="span5" style="text-align: right;">
-    <div class="">
-      საჩივრის მიმდინარეობა
+  <div class="complaint clear">
+    <div class="span5" style="text-align: right;">
+      <div class="">
+        საჩივრის მიმდინარეობა
+      </div>
+      <div class="">
+        საჩივრის ავტორი
+      </div>
+      <div class="">
+        საჩივრის ავტორის ტელეფონის ნომერი
+      </div>
+      <% attr = (!info.level.nil? && info.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
+      <div class="" <%= attr %>>
+        საქალაქო/სააპელაციო სასამართლოს დასახელება:
+      </div>
+      <div class="">
+        საჩივრის დაწერის დრო
+      </div>
+      <div class="">
+        საჩივარში დაყენებული მოთხოვნა
+      </div>
+      <div class="">
+        პასუხის მოსვლის დრო
+      </div>
+      <div class="">
+        საჩივრის შედეგი
+      </div>
+      <div class="">
+        დამატებითი კომენტარი
+      </div>
+      <div class="">
+        მიმაგრებული ფაილები
+      </div>
     </div>
-    <div class="">
-      საჩივრის ავტორი
-    </div>
-    <div class="">
-      საჩივრის ავტორის ტელეფონის ნომერი
-    </div>
-    <% attr = (!@complaint.level.nil? && @complaint.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
-    <div class="" <%= attr %>>
-      საქალაქო/სააპელაციო სასამართლოს დასახელება:
-    </div>
-    <div class="">
-      საჩივრის დაწერის დრო
-    </div>
-    <div class="">
-      საჩივარში დაყენებული მოთხოვნა
-    </div>
-    <div class="">
-      პასუხის მოსვლის დრო
-    </div>
-    <div class="">
-      საჩივრის შედეგი
-    </div>
-    <div class="">
-      დამატებითი კომენტარი
-    </div>
-    <div class="">
-      მიმაგრებული ფაილები
-    </div>
-  </div>
-  <div class="span4">
-    <div class="">
-      <%= status %>
-    </div>
-    <div class="">
-      <%= @complaint.complaint_author_name %>
-    </div>
-    <div class="">
-      <%= @complaint.complaint_author_phone %>
-    </div>
-    <div class="" <%= attr %>>
-      <%= @complaint.court_name %>
-    </div>
-    <div class="">
-      <%= l @complaint.complaint_writing_time, :format => :long if @complaint.complaint_writing_time %>
-    </div>
-    <div class="">
-      <%= @complaint.request_in_complaint %>
-    </div>
-    <div class="">
-      <%= l @complaint.response_date, :format => :long if @complaint.response_date %>
-    </div>
-    <div class="">
-      <%= @complaint.complaint_result %>
-    </div>
-    <div class="">
-      <%= @complaint.additional_comment %>
-    </div>
-    <div class="">
-      <% files = @complaint.complaint_files.others %>
-      <% files_exist = (!files.nil? && !files.empty?) %>
-      <% if files_exist %>
-        <% files.each do |file| %>
-            <div class="">
-              <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
-            </div>
+    <div class="span4">
+      <div class="">
+        <%= status %>
+      </div>
+      <div class="">
+        <%= info.complaint_author_name %>
+      </div>
+      <div class="">
+        <%= info.complaint_author_phone %>
+      </div>
+      <div class="" <%= attr %>>
+        <%= info.court_name %>
+      </div>
+      <div class="">
+        <%= l info.complaint_writing_time, :format => :long if info.complaint_writing_time %>
+      </div>
+      <div class="">
+        <%= info.request_in_complaint %>
+      </div>
+      <div class="">
+        <%= l info.response_date, :format => :long if info.response_date %>
+      </div>
+      <div class="">
+        <%= info.complaint_result %>
+      </div>
+      <div class="">
+        <%= info.additional_comment %>
+      </div>
+      <div class="">
+        <% files = @complaint.complaint_files.others %>
+        <% files_exist = (!files.nil? && !files.empty?) %>
+        <% if files_exist %>
+          <% files.each do |file| %>
+              <div class="">
+                <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
+              </div>
+          <% end %>
         <% end %>
-      <% end %>
 
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 
 <div class="form-actions">

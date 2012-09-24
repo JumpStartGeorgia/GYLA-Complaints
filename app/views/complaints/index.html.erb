@@ -15,7 +15,7 @@
         <td>
 					<% link_text = complaint.level.to_s.upcase
 							link_text << ' '
-						 link_text << complaint.status.title.to_s if complaint.status %>
+						 link_text << complaint.complaint_additional_infos.latest.title.to_s if complaint.complaint_additional_infos.latest %>
 					<%= link_to link_text, complaint_path(complaint) %>
 				</td>
         <td>

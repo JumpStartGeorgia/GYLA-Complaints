@@ -50,17 +50,15 @@ class ComplaintsController < ApplicationController
   def edit
     @complaint = Complaint.find(params[:id])
 
-    @election_district_names = ElectionDistrictName.all
-    @election_precinct_numbers = ElectionPrecinctNumber.all
-    @categories = Category.all
-    @violation_types = ViolationType.all
-    @statuses = Status.all
-
 		# to initialize the datetime fields
     gon.edit_complaint = true
-		gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time
-		gon.complaint_writing_time = @complaint.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if @complaint.complaint_writing_time
-		gon.response_date = @complaint.response_date.strftime('%m/%d/%Y %H:%M') if @complaint.response_date
+    info1 = @complaint.complaint_general_info
+    info2 = @complaint.complaint_additional_infos.latest
+		gon.violation_time = info1.violation_time.strftime('%m/%d/%Y %H:%M') if info1.violation_time
+		if info2
+		  gon.complaint_writing_time = info2.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if info2.complaint_writing_time
+		  gon.response_date = info2.response_date.strftime('%m/%d/%Y %H:%M') if info2.response_date
+		end
 
   end
 
@@ -70,6 +68,7 @@ class ComplaintsController < ApplicationController
 
 
     @complaint = Complaint.new(params[:complaint])
+    @complaint.original_level = params[:level]
 
 
 
