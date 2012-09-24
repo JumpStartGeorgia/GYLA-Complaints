@@ -32,6 +32,13 @@ class ComplaintsController < ApplicationController
     @violation_types = ViolationType.all
     @statuses = Status.all
 
+		# to initialize the datetime fields
+    gon.edit_complaint = true
+		gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time
+		gon.complaint_writing_time = @complaint.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if @complaint.complaint_writing_time
+		gon.response_date = @complaint.response_date.strftime('%m/%d/%Y %H:%M') if @complaint.response_date
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @complaint }
@@ -47,12 +54,19 @@ class ComplaintsController < ApplicationController
     @categories = Category.all
     @violation_types = ViolationType.all
     @statuses = Status.all
+
+		# to initialize the datetime fields
+    gon.edit_complaint = true
+		gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time
+		gon.complaint_writing_time = @complaint.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if @complaint.complaint_writing_time
+		gon.response_date = @complaint.response_date.strftime('%m/%d/%Y %H:%M') if @complaint.response_date
+
   end
 
   # POST /complaints
   # POST /complaints.json
   def create
-    
+
 
     @complaint = Complaint.new(params[:complaint])
 
@@ -69,6 +83,12 @@ class ComplaintsController < ApplicationController
         format.html { redirect_to @complaint, notice: 'Complaint was successfully created.' }
         format.json { render json: @complaint, status: :created, location: @complaint }
       else
+				# to initialize the datetime fields
+				gon.edit_complaint = true
+				gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time
+				gon.complaint_writing_time = @complaint.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if @complaint.complaint_writing_time
+				gon.response_date = @complaint.response_date.strftime('%m/%d/%Y %H:%M') if @complaint.response_date
+
         format.html { render action: "new" }
         format.json { render json: @complaint.errors, status: :unprocessable_entity }
       end
@@ -85,6 +105,12 @@ class ComplaintsController < ApplicationController
         format.html { redirect_to @complaint, notice: 'Complaint was successfully updated.' }
         format.json { head :ok }
       else
+				# to initialize the datetime fields
+				gon.edit_complaint = true
+				gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time
+				gon.complaint_writing_time = @complaint.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if @complaint.complaint_writing_time
+				gon.response_date = @complaint.response_date.strftime('%m/%d/%Y %H:%M') if @complaint.response_date
+
         format.html { render action: "edit" }
         format.json { render json: @complaint.errors, status: :unprocessable_entity }
       end

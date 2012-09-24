@@ -56,19 +56,19 @@
       <%= @complaint.observer_phone %>
     </div>
     <div class="">
-      <%= @complaint.election_district_name.title %>
+      <%= @complaint.election_district_name.nil? ? '' : @complaint.election_district_name.title %>
     </div>
     <div class="">
-      <%= @complaint.election_precinct_number.title %>
+      <%= @complaint.election_precinct_number.nil? ? '' : @complaint.election_precinct_number.title %>
     </div>
     <div class="">
-      <%= @complaint.category.title %>
+      <%= @complaint.category.nil? ? '' : @complaint.category.title %>
     </div>
     <div class="">
-      <%= @complaint.violation_type.title %>
+      <%= @complaint.violation_type.nil? ? '' : @complaint.violation_type.title %>
     </div>
     <div class="">
-      <%= @complaint.violation_time %>
+      <%= l @complaint.violation_time, :format => :long if @complaint.violation_time %>
     </div>
     <div class="">
       <%= @complaint.witness %>
@@ -95,7 +95,7 @@
 </div>
 
 
-<h3>Complaint <%= @complaint.status.title.humanize %> Information</h3>
+<h3>Complaint <%= @complaint.status.nil? ? '' : @complaint.status.title.humanize %> Information</h3>
 
 <div class="complaint clear">
   <div class="span5" style="text-align: right;">
@@ -145,13 +145,13 @@
       <%= @complaint.court_name %>
     </div>
     <div class="">
-      <%= @complaint.complaint_writing_time %>
+      <%= l @complaint.complaint_writing_time, :format => :long if @complaint.complaint_writing_time %>
     </div>
     <div class="">
       <%= @complaint.request_in_complaint %>
     </div>
     <div class="">
-      <%= @complaint.response_date %>
+      <%= l @complaint.response_date, :format => :long if @complaint.response_date %>
     </div>
     <div class="">
       <%= @complaint.complaint_result %>

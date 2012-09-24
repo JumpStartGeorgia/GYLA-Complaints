@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
 	require 'will_paginate/array'
   protect_from_forgery
 
-	before_filter :set_locale
 	before_filter :is_browser_supported?
 	before_filter :initialize_gon
 
@@ -42,18 +41,6 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 		end
 	end
 
-
-	def set_locale
-    if params[:locale] and I18n.available_locales.include?(params[:locale].to_sym)
-      I18n.locale = params[:locale]
-    else
-      I18n.locale = I18n.default_locale
-    end
-	end
-
-  def default_url_options(options={})
-    { :locale => I18n.locale }
-  end
 
 	def initialize_gon
 		gon.set = true

@@ -8,7 +8,9 @@
       <%= link_to 'View Complaints', complaints_path %>
     </div>
     <div class="clear">
+			<% if @latest_complaint %>
       <%= link_to 'Latest Complaint', complaint_path(@latest_complaint) %>
+			<% end %>
     </div>
 
 	</div>

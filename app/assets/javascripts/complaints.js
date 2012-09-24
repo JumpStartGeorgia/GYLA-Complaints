@@ -90,4 +90,45 @@ $(function ()
   });
 
 
+	if(gon.edit_complaint){
+		// load the date pickers
+		// violation_time
+		$('#complaint_violation_time').datetimepicker({
+				dateFormat: 'dd.mm.yy',
+				timeFormat: 'hh:mm',
+				separator: ' '
+		});
+		if (gon.violation_time !== undefined &&
+				gon.violation_time.length > 0)
+		{
+			$('#complaint_violation_time').datepicker("setDate", new Date(gon.violation_time));
+		}
+
+		// complaint_writing_time
+		$('#complaint_complaint_writing_time').datetimepicker({
+				dateFormat: 'dd.mm.yy',
+				timeFormat: 'hh:mm',
+				separator: ' '
+		});
+		if (gon.complaint_writing_time !== undefined &&
+				gon.complaint_writing_time.length > 0)
+		{
+			$('#complaint_complaint_writing_time').datepicker("setDate", new Date(gon.complaint_writing_time));
+		}
+
+		// response_date
+		$('#complaint_response_date').datetimepicker({
+				dateFormat: 'dd.mm.yy',
+				timeFormat: 'hh:mm',
+				separator: ' '
+		});
+		if (gon.response_date !== undefined &&
+				gon.response_date.length > 0)
+		{
+			$('#complaint_response_date').datepicker("setDate", new Date(gon.response_date));
+		}
+
+  }
+
+
 });
