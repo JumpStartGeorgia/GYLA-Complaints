@@ -5,6 +5,7 @@
 
  *= require formtastic
  *= require formtastic-bootstrap
+ *= require vendor
  *= require_tree .
  *= require_self
 */
@@ -225,7 +226,7 @@ footer, footer ul li, footer div#right ul li {
 
 
 /* pec, dec, cec forms  */
-.form_table { 
+.form_table {
    width: 100%;
 }
 
@@ -244,7 +245,7 @@ input[type=radio] {
 
 label.radio_label {
    width: 30px;
-   margin: 0;   
+   margin: 0;
    padding-left: 20px;
    margin-top: -17px;
 }
