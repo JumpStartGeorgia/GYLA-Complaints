@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
 	require 'will_paginate/array'
   protect_from_forgery
 
-	before_filter :set_locale
 	before_filter :is_browser_supported?
 	before_filter :initialize_gon
 
@@ -43,18 +42,6 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 	end
 
 
-	def set_locale
-    if params[:locale] and I18n.available_locales.include?(params[:locale].to_sym)
-      I18n.locale = params[:locale]
-    else
-      I18n.locale = I18n.default_locale
-    end
-	end
-
-  def default_url_options(options={})
-    { :locale => I18n.locale }
-  end
-
 	def initialize_gon
 		gon.set = true
 		gon.highlight_first_form_field = true
@@ -62,7 +49,7 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 
 	# after user logs in, go to admin page
 	def after_sign_in_path_for(resource)
-		admin_path
+		root_path
 	end
 
   #######################

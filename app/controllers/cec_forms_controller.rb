@@ -1,4 +1,5 @@
 class CecFormsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /cec_forms
   # GET /cec_forms.json
   def index

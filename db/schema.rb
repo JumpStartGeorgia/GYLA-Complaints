@@ -56,19 +56,32 @@ ActiveRecord::Schema.define(:version => 20120924195736) do
     t.datetime "updated_at"
   end
 
+  create_table "complaint_files", :force => true do |t|
+    t.integer  "complaint_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attachment_type"
+  end
+
+  add_index "complaint_files", ["complaint_id"], :name => "index_complaint_files_on_complaint_id"
+
   create_table "complaints", :force => true do |t|
     t.string   "observer_name"
     t.text     "observer_address"
     t.string   "observer_phone"
-    t.integer  "election_district_name"
-    t.integer  "election_precinct_number"
-    t.integer  "category"
-    t.integer  "violation_type"
+    t.integer  "election_district_name_id"
+    t.integer  "election_precinct_number_id"
+    t.integer  "category_id"
+    t.integer  "violation_type_id"
     t.datetime "violation_time"
     t.text     "witness"
     t.text     "violator_info"
     t.text     "other_info"
-    t.string   "status"
+    t.string   "status_id"
     t.string   "complaint_author_name"
     t.string   "complaint_author_phone"
     t.text     "court_name"
@@ -79,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20120924195736) do
     t.text     "additional_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "level"
   end
 
   create_table "dec_form_children", :force => true do |t|

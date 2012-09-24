@@ -1,9 +1,10 @@
 class DecFormsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /dec_forms
   # GET /dec_forms.json
   def index
     @dec_forms = DecForm.all
-      
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @dec_forms }

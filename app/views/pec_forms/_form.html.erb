@@ -8,19 +8,19 @@
                 <div class="controls">
                   <%= f.number_field :election_district_number, :class => 'number_field' %>
                 </div>
-              </div>          
+              </div>
               <div class="control-group">
                 <%= f.label :election_precinct_number, :class => 'control-label' %>
                 <div class="controls">
                   <%= f.number_field :election_precinct_number, :class => 'number_field' %>
                 </div>
-              </div> 
+              </div>
               <div class="control-group">
                 <%= f.label :observer_name, :class => 'control-label' %>
                 <div class="controls">
                   <%= f.text_field :observer_name, :class => 'text_field' %>
                 </div>
-              </div>  
+              </div>
          </td>
       </tr>
       <tr>
@@ -31,7 +31,7 @@
                 <div class="controls">
                   <%= f.number_field :current_number_of_complaints, :class => 'number_field' %>
                 </div>
-              </div>       
+              </div>
          </td>
       </tr>
       <tr>
@@ -42,7 +42,7 @@
                 <div class="controls">
                   <%= f.text_area :complaint_author, :class => 'text_area' %>
                 </div>
-              </div>     
+              </div>
          </td>
       </tr>
       <tr>
@@ -60,7 +60,7 @@
                  <div class="control-group registration-time">
                    <%= f.label :registration_time, :class => 'control-label' %>
                    <div class="controls">
-                     <%= f.datetime_select :registration_time, :class => 'datetime_select' %>
+                     <%= f.text_field :registration_time %>
                    </div>
                  </div>
                  <div class="control-group give-complaint-to-higher">
@@ -71,7 +71,7 @@
                      <%= f.radio_button :do_you_give_complaint_to_higher_commission, false %>
                      <%= f.label t('form.radio_buttons.do_no'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_false', :class => 'radio_label' %>
                    </div>
-                 </div>   
+                 </div>
          </td>
       </tr>
       <tr>
@@ -118,7 +118,7 @@
                 <div class="controls">
                   <%= f.text_area :other_extra_comments, :class => 'text_area' %>
                 </div>
-              </div>          
+              </div>
          </td>
       </tr>
    </table>
@@ -129,5 +129,3 @@
                 pec_forms_path, :class => 'btn' %>
   </div>
 <% end %>
-
-
