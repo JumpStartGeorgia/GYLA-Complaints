@@ -49,8 +49,13 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 
 	# after user logs in, go to admin page
 	def after_sign_in_path_for(resource)
-		admin_path
+		root_path
 	end
+
+  def valid_role?(role)
+    redirect_to root_path, :notice => t('app.msgs.not_authorized') if !current_user || !current_user.role?(role)
+  end
+
 
   #######################
 	def render_not_found(exception)

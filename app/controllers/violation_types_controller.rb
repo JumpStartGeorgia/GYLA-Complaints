@@ -1,4 +1,5 @@
 class ViolationTypesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /violation_types
   # GET /violation_types.json
   def index

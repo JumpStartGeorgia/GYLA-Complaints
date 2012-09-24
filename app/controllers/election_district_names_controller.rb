@@ -1,4 +1,5 @@
 class ElectionDistrictNamesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /election_district_names
   # GET /election_district_names.json
   def index
