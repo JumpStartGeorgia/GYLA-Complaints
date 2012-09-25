@@ -1,3 +1,14 @@
+var urlParams = {};
+(function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
 
 function file_attachment_remove_handler ()
 {
@@ -73,6 +84,10 @@ $(function ()
 
     if (val.length > 0)
     {
+			// set level value in hidden form
+			$("input[id*='_level']").val($(this).val());
+
+			// show/hide fields
       if (val == 'court')
       {
         c.find('.court').removeClass('hidden');
@@ -91,10 +106,17 @@ $(function ()
 
 
 	if(gon.edit_complaint){
+		// if moving to next level, set focus on level drop down
+		if (urlParams["next_level"] === "true"){
+			$("select[id*='_level']:last")[0].focus();
+			// set this var so the default focusing to first form field does not override
+			gon.alread_set_focus = true;
+		}
+
 		// load the date pickers
 		// violation_time
 		$('#complaint_violation_time').datetimepicker({
-				dateFormat: 'dd.mm.yy',
+				dateFormat: 'yy-mm-dd',
 				timeFormat: 'hh:mm',
 				separator: ' '
 		});
@@ -105,28 +127,33 @@ $(function ()
 		}
 
 		// complaint_writing_time
-		$('#complaint_complaint_writing_time').datetimepicker({
-				dateFormat: 'dd.mm.yy',
+		$("input[id*='_complaint_writing_time']").live('click', function() {
+	    $(this).datetimepicker('destroy').datetimepicker({
+				showOn:'focus',
+				dateFormat: 'yy-mm-dd',
 				timeFormat: 'hh:mm',
 				separator: ' '
-		});
-		if (gon.complaint_writing_time !== undefined &&
-				gon.complaint_writing_time.length > 0)
-		{
-			$('#complaint_complaint_writing_time').datepicker("setDate", new Date(gon.complaint_writing_time));
-		}
+			}).focus();
+			if ($(this).val() !== undefined && $(this).val().length > 0)
+			{
+				$(this).datepicker("setDate", new Date($(this).val().replace(" UTC", "")));
+			}
+    });
+
 
 		// response_date
-		$('#complaint_response_date').datetimepicker({
-				dateFormat: 'dd.mm.yy',
+		$("input[id*='_response_date']").live('click', function() {
+	    $(this).datetimepicker('destroy').datetimepicker({
+				showOn:'focus',
+				dateFormat: 'yy-mm-dd',
 				timeFormat: 'hh:mm',
 				separator: ' '
-		});
-		if (gon.response_date !== undefined &&
-				gon.response_date.length > 0)
-		{
-			$('#complaint_response_date').datepicker("setDate", new Date(gon.response_date));
-		}
+			}).focus();
+			if ($(this).val() !== undefined && $(this).val().length > 0)
+			{
+				$(this).datepicker("setDate", new Date($(this).val().replace(" UTC", "")));
+			}
+    });
 
   }
 

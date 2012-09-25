@@ -45,6 +45,7 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 	def initialize_gon
 		gon.set = true
 		gon.highlight_first_form_field = true
+		gon.alread_set_focus = nil
 	end
 
 	# after user logs in, go to admin page

@@ -209,17 +209,17 @@ footer, footer ul li, footer div#right ul li {
 
 
 /* nested form styles */
-#nested_form_container {
+.nested_form_container {
 	margin: 0.5em 0;
   padding: 1em;
   background-color: #ddd;
 }
 
-#nested_form_container h3 {
+.nested_form_container h3 {
 
 }
 
-#nested_form_container .nested_form_item {
+.nested_form_container .nested_form_item {
   background-color: #eee;
   padding: 0.5em 1em;
 }

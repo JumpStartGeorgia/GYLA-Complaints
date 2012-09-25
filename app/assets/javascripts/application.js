@@ -10,12 +10,13 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require twitter/bootstrap
+//= require jquery_nested_form
 //= require vendor
 //= require_tree .
 
 // set focus to first text box on page
 $(document).ready(function(){
-	if (gon.highlight_first_form_field){
+	if (gon.highlight_first_form_field && !gon.alread_set_focus){
 	  $(":input:visible:enabled:first").focus();
 	}
 });

@@ -31,10 +31,10 @@
 				  <%= complaint.additional.latest.status.title if complaint.additional.latest && complaint.additional.latest.status %>
 				</td>
 				<td>
-				  <%= complaint.additional.latest.complaint_writing_time.strftime('%m/%d/%Y %H:%M') if complaint.additional.latest %>
+				  <%= l complaint.additional.latest.complaint_writing_time, :format => :long if complaint.additional.latest && complaint.additional.latest.complaint_writing_time %>
 				</td>
 				<td>
-				  <%= complaint.violation_time.strftime('%m/%d/%Y %H:%M') %>
+				  <%= l complaint.violation_time, :format => :long if complaint.violation_time %>
 				</td>
         <td>
           <%= link_to t('app.buttons.edit', :default => t("helpers.links.edit")),

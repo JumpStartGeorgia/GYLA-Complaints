@@ -56,10 +56,10 @@
       <%= @complaint.observer_phone %>
     </div>
     <div class="">
-      <%= @complaint.election_district_name.nil? ? '' : @complaint.election_district_name.title %>
+      <%= @complaint.election_district_name %>
     </div>
     <div class="">
-      <%= @complaint.election_precinct_number.nil? ? '' : @complaint.election_precinct_number.title %>
+      <%= @complaint.election_precinct_number %>
     </div>
     <div class="">
       <%= @complaint.category.nil? ? '' : @complaint.category.title %>
@@ -136,7 +136,7 @@
       <div class="">
         მიმაგრებული ფაილები
       </div>
---> 
+-->
     </div>
     <div class="span4">
       <div class="">
@@ -198,9 +198,9 @@
               :data => { :confirm => t('app.buttons.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 
-    <% if @complaint.level.downcase != 'court' %>
+    <% if @complaint.level && @complaint.level.downcase != 'court' %>
       <%= link_to 'Move to higher level',
-                  move_to_higher_level_path(@complaint), :class => 'btn', :style => 'margin-left: 35px;' %>
+                  edit_complaint_path(@complaint, :next_level => true), :class => 'btn', :style => 'margin-left: 35px;' %>
     <% end %>
 
 </div>
