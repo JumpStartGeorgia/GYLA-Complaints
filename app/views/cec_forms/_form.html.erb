@@ -5,28 +5,28 @@
          <td>1.</td>
          <td>
             <div class="control-group">
-                <%= f.label :cesko_summary_report_input, :class => 'control-label' %>          
+                <%= f.label :cesko_summary_report_input, :class => 'control-label' %>
             </div>
          </td>
          <td>
-            <div class="controls">               
+            <div class="controls">
                <%= f.radio_button :cesko_summary_report_input, true %>
                <%= f.label :cesko_summary_report_input_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :cesko_summary_report_input, false %>
                <%= f.label :cesko_summary_report_input_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
-             </div>        
+             </div>
          </td>
-      </tr>   
+      </tr>
       <tr>
          <td></td>
          <td>
             <div class="control-group">
-                <%= f.label :if_not_precinct_name_and_num, :class => 'control-label' %>                
-            </div>          
+                <%= f.label :if_not_precinct_name_and_num, :class => 'control-label' %>
+            </div>
          </td>
          <td>
             <div class="controls">
-               <%= f.text_area :if_not_precinct_name_and_num, :class => 'text_area' %>
+               <%= f.text_area :if_not_precinct_name_and_num, :class => 'text_area span6', :rows => "5" %>
              </div>
          </td>
       </tr>
@@ -34,40 +34,40 @@
          <td>2.</td>
          <td>
             <div class="control-group">
-                <%= f.label :cesko_election_summary_after_one_day, :class => 'control-label' %>          
+                <%= f.label :cesko_election_summary_after_one_day, :class => 'control-label' %>
             </div>
          </td>
-         <td>  
-            <div class="controls">               
+         <td>
+            <div class="controls">
                <%= f.radio_button :cesko_election_summary_after_one_day, true %>
                <%= f.label :cesko_election_summary_after_one_day_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :cesko_election_summary_after_one_day, false %>
                <%= f.label :cesko_election_summary_after_one_day_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
-             </div>        
+             </div>
          </td>
       </tr>
       <tr>
          <td></td>
          <td>
             <div class="control-group">
-                <%= f.label :if_not_after_one_day_precinct_name_num, :class => 'control-label' %>          
+                <%= f.label :if_not_after_one_day_precinct_name_num, :class => 'control-label' %>
             </div>
          </td>
          <td>
             <div class="controls">
-               <%= f.text_area :if_not_after_one_day_precinct_name_num, :class => 'text_area' %>
-             </div>        
+               <%= f.text_area :if_not_after_one_day_precinct_name_num, :class => 'text_area span6', :rows => "5" %>
+             </div>
          </td>
       </tr>
       <tr>
          <td>3.</td>
          <td>
              <div class="control-group">
-                <%= f.label :cesko_report_web_translition, :class => 'control-label' %>                          
+                <%= f.label :cesko_report_web_translition, :class => 'control-label' %>
              </div>
          </td>
          <td>
-            <div class="controls">               
+            <div class="controls">
                <%= f.radio_button :cesko_report_web_translition, true %>
                <%= f.label :cesko_report_web_translition_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :cesko_report_web_translition, false %>
@@ -84,19 +84,19 @@
          </td>
          <td>
             <div class="controls">
-               <%= f.text_area :if_not_the_reason, :class => 'text_area' %>
-             </div>        
+               <%= f.text_area :if_not_the_reason, :class => 'text_area span6', :rows => "5" %>
+             </div>
          </td>
       </tr>
       <tr>
          <td>4.</td>
          <td>
             <div class="control-group">
-                <%= f.label :cesko_summary_process_transparently, :class => 'control-label' %>           
+                <%= f.label :cesko_summary_process_transparently, :class => 'control-label' %>
             </div>
          </td>
          <td>
-            <div class="controls">               
+            <div class="controls">
                <%= f.radio_button :cesko_summary_process_transparently, true %>
                <%= f.label :cesko_summary_process_transparently_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :cesko_summary_process_transparently, false %>
@@ -108,17 +108,17 @@
          <td></td>
          <td>
             <div class="control-group">
-                <%= f.label :description_how_transparent, :class => 'control-label' %>          
+                <%= f.label :description_how_transparent, :class => 'control-label' %>
             </div>
          </td>
          <td>
             <div class="controls">
-               <%= f.text_area :description_how_transparent, :class => 'text_area' %>
+               <%= f.text_area :description_how_transparent, :class => 'text_area span6', :rows => "5" %>
              </div>
          </td>
       </tr>
    </table>
-  
+
   <%= f.fields_for :cec_form_children %>
   <p><%= f.link_to_add "Add", :cec_form_children %></p>
 
