@@ -64,7 +64,7 @@ ka:
             if_not_the_reason: უარყოფითი პასუხის შემთხვევაში, ახსენით მიზეზი
             cesko_summary_process_transparently: ობიექტურად და გამჭვირვალედ მიმდინარეობდა თუ არა ცესკოში შედეგების შეჯამების პროცესი?
             description_how_transparent: აღწერეთ რამდენად საჯაროდ მიმდინარეობდა შედეგების შეჯამება, რამდენად გქონდათ შესაძლებლობა უშუალოდ განგეხორციელებინათ დაკვირვება
-         cec_form_child: 
+         cec_form_child:
             complaint_important_aspect: საჩივრის განხილვის მნიშვნელოვანი ასპექტები
             cec_complaint: 'ცენტრალურ საარჩევნო კომისიაში წარდგენილი საჩივარი:'
             cesko_complaint_author_sender: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი'
@@ -116,7 +116,7 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
     common:
-      app_name: Bootstrap Starter Project
+      app_name: GYLA Election Complaints/Observations
   layouts:
     application:
       admin: ადმინისტრატო
