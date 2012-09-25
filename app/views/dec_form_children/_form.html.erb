@@ -1,6 +1,6 @@
 <%= form_for @dec_form_child, :html => { :class => 'form-horizontal' } do |f| %>
 
-   
+
      <div class="control-group">
        <%= f.label :complaint_author_presentator, :class => 'control-label' %>
        <div class="controls">
@@ -16,7 +16,7 @@
      <div class="control-group">
        <%= f.label :complaint_district_registration_time, :class => 'control-label' %>
        <div class="controls">
-         <%= f.datetime_select :complaint_district_registration_time, :class => 'datetime_select' %>
+         <%= f.text_field :complaint_district_registration_time %>
        </div>
      </div>
      <div class="control-group">
@@ -34,7 +34,7 @@
      <div class="control-group">
        <%= f.label :complaint_disscusion_time, :class => 'control-label' %>
        <div class="controls">
-         <%= f.datetime_select :complaint_disscusion_time, :class => 'datetime_select' %>
+         <%= f.text_field :complaint_disscusion_time %>
        </div>
      </div>
      <div class="control-group">
@@ -109,6 +109,5 @@
           <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                       dec_form_children_path, :class => 'btn' %>
         </div>
-     <% end %> 
+     <% end %>
 <% end %>
-

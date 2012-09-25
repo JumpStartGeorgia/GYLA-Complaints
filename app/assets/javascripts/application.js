@@ -20,5 +20,3 @@ $(document).ready(function(){
 	  $(":input:visible:enabled:first").focus();
 	}
 });
-
-$("#pec_form_observer_name").datetimepicker();

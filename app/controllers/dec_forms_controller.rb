@@ -26,6 +26,7 @@ class DecFormsController < ApplicationController
   # GET /dec_forms/new.json
   def new
     @dec_form = DecForm.new
+    gon.edit_dec_form = true
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,18 +37,20 @@ class DecFormsController < ApplicationController
   # GET /dec_forms/1/edit
   def edit
     @dec_form = DecForm.find(params[:id])
+    gon.edit_dec_form = true
   end
 
   # POST /dec_forms
   # POST /dec_forms.json
   def create
     @dec_form = DecForm.new(params[:dec_form])
- 
+
     respond_to do |format|
       if @dec_form.save
         format.html { redirect_to dec_forms_path, notice: 'Dec form was successfully created.' }
         format.json { render json: @dec_form, status: :created, location: @dec_form }
       else
+		    gon.edit_dec_form = true
         format.html { render action: "new" }
         format.json { render json: @dec_form.errors, status: :unprocessable_entity }
       end
@@ -64,6 +67,7 @@ class DecFormsController < ApplicationController
         format.html { redirect_to @dec_form, notice: 'Dec form was successfully updated.' }
         format.json { head :ok }
       else
+		    gon.edit_dec_form = true
         format.html { render action: "edit" }
         format.json { render json: @dec_form.errors, status: :unprocessable_entity }
       end

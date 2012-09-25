@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924195736) do
+ActiveRecord::Schema.define(:version => 20120925105241) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20120924195736) do
   create_table "cec_form_children", :force => true do |t|
     t.text     "cesko_complaint_author_sender"
     t.string   "responder_district_election_commission"
-    t.string   "cesko_complaint_registration_time"
+    t.datetime "cesko_complaint_registration_time"
     t.text     "veiolation_essence"
     t.text     "request"
-    t.string   "cesko_complaint_discation_time"
+    t.datetime "cesko_complaint_discation_time"
     t.boolean  "where_parties_invited_on_descation"
     t.text     "complaint_discation_people"
     t.boolean  "cesko_meeting_all_commission_members"
@@ -56,6 +56,22 @@ ActiveRecord::Schema.define(:version => 20120924195736) do
     t.datetime "updated_at"
   end
 
+  create_table "complaint_additional_infos", :force => true do |t|
+    t.integer  "complaint_id"
+    t.string   "level"
+    t.integer  "status_id"
+    t.string   "complaint_author_name"
+    t.string   "complaint_author_phone"
+    t.text     "court_name"
+    t.datetime "complaint_writing_time"
+    t.text     "request_in_complaint"
+    t.datetime "response_date"
+    t.text     "complaint_result"
+    t.text     "additional_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "complaint_files", :force => true do |t|
     t.integer  "complaint_id"
     t.string   "file_file_name"
@@ -69,39 +85,37 @@ ActiveRecord::Schema.define(:version => 20120924195736) do
 
   add_index "complaint_files", ["complaint_id"], :name => "index_complaint_files_on_complaint_id"
 
-  create_table "complaints", :force => true do |t|
+  create_table "complaint_general_infos", :force => true do |t|
+    t.integer  "complaint_id"
     t.string   "observer_name"
     t.text     "observer_address"
     t.string   "observer_phone"
-    t.integer  "election_district_name_id"
-    t.integer  "election_precinct_number_id"
+    t.string   "election_district_name"
+    t.string   "election_precinct_number"
     t.integer  "category_id"
     t.integer  "violation_type_id"
     t.datetime "violation_time"
     t.text     "witness"
     t.text     "violator_info"
     t.text     "other_info"
-    t.string   "status_id"
-    t.string   "complaint_author_name"
-    t.string   "complaint_author_phone"
-    t.text     "court_name"
-    t.datetime "complaint_writing_time"
-    t.text     "request_in_complaint"
-    t.datetime "response_date"
-    t.text     "complaint_result"
-    t.text     "additional_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "complaints", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "level"
+    t.string   "original_level"
   end
 
   create_table "dec_form_children", :force => true do |t|
     t.string   "complaint_author_presentator"
     t.string   "response_precinct_commission"
-    t.string   "complaint_district_registration_time"
+    t.datetime "complaint_district_registration_time"
     t.text     "violation_essence"
     t.text     "request"
-    t.string   "complaint_disscusion_time"
+    t.datetime "complaint_disscusion_time"
     t.boolean  "where_parties_invited_to_disscusion"
     t.text     "disscusion_people"
     t.boolean  "all_commission_memebers_attended"
@@ -154,7 +168,7 @@ ActiveRecord::Schema.define(:version => 20120924195736) do
     t.string   "observer_name"
     t.integer  "current_number_of_complaints"
     t.text     "complaint_author"
-    t.string   "registration_time"
+    t.datetime "registration_time"
     t.boolean  "do_you_give_complaint_to_higher_commission"
     t.text     "violation_essence"
     t.text     "request"

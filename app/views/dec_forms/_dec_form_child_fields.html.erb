@@ -7,8 +7,8 @@
 
 <table class="form_table">
    <tr>
-     <td>1.</td> 
-     <td>   
+     <td>1.</td>
+     <td>
        <p><%= t('activerecord.attributes.dec_form_child.the_dec_complaint') %></p>
        <div class="control-group">
             <%= f.label :complaint_author_presentator, t('activerecord.attributes.dec_form_child.complaint_author_presentator'), :class => 'control-label' %>
@@ -21,7 +21,7 @@
              <div class="controls">
                   <%= f.text_field :response_precinct_commission, :class => 'text_field' %>
              </div>
-        </div>    
+        </div>
      </td>
    </tr>
    <tr>
@@ -30,9 +30,9 @@
          <div class="control-group">
              <%= f.label :complaint_district_registration_time, t('activerecord.attributes.dec_form_child.complaint_district_registration_time'), :class => 'control-label' %>
              <div class="controls">
-               <%= f.datetime_select :complaint_district_registration_time, :class => 'datetime_select' %>
+               <%= f.text_field :complaint_district_registration_time %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -43,7 +43,7 @@
              <div class="controls">
                <%= f.text_area :violation_essence, :class => 'text_area' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -63,7 +63,7 @@
          <div class="control-group">
              <%= f.label :complaint_disscusion_time, t('activerecord.attributes.dec_form_child.complaint_disscusion_time'), :class => 'control-label' %>
              <div class="controls">
-               <%= f.datetime_select :complaint_disscusion_time, :class => 'datetime_select' %>
+               <%= f.text_field :complaint_disscusion_time %>
              </div>
            </div>
       </td>
@@ -73,13 +73,13 @@
       <td>
             <div class="control-group">
              <%= f.label :where_parties_invited_to_disscusion, t('activerecord.attributes.dec_form_child.where_parties_invited_to_disscusion'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :where_parties_invited_to_disscusion, true %>
                <%= f.label :where_parties_invited_to_disscusion_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :where_parties_invited_to_disscusion, false %>
                <%= f.label :where_parties_invited_to_disscusion_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>         
+           </div>
       </td>
    </tr>
    <tr>
@@ -104,13 +104,13 @@
       <td>
          <div class="control-group">
              <%= f.label :all_commission_memebers_attended, t('activerecord.attributes.dec_form_child.all_commission_memebers_attended'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :all_commission_memebers_attended, true %>
                <%= f.label :all_commission_memebers_attended_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :all_commission_memebers_attended, false %>
                <%= f.label :all_commission_memebers_attended_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -118,13 +118,13 @@
       <td>
          <div class="control-group">
              <%= f.label :report_while_meeting, t('activerecord.attributes.dec_form_child.report_while_meeting'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :report_while_meeting, true %>
                <%= f.label :report_while_meeting_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :report_while_meeting, false %>
                <%= f.label :report_while_meeting_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -132,13 +132,13 @@
       <td>
          <div class="control-group">
              <%= f.label :testimonies_investigation_evaluation, t('activerecord.attributes.dec_form_child.testimonies_investigation_evaluation'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :testimonies_investigation_evaluation, true %>
                <%= f.label :testimonies_investigation_evaluation_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :testimonies_investigation_evaluation, false %>
                <%= f.label :testimonies_investigation_evaluation_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -149,7 +149,7 @@
              <div class="controls">
                <%= f.text_area :extra_comments, :class => 'text_area' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -157,7 +157,7 @@
       <td>
          <div class="control-group">
              <%= f.label :complaint_satisfied, t('activerecord.attributes.dec_form_child.complaint_satisfied'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :complaint_satisfied, true %>
                <%= f.label :complaint_satisfied_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :complaint_satisfied, false %>
@@ -165,7 +165,7 @@
              </div>
            </div>
       </td>
-   </tr>   
+   </tr>
    <tr>
       <td>10.</td>
       <td>
@@ -182,13 +182,13 @@
       <td>
          <div class="control-group">
              <%= f.label :was_desision_grounded, t('activerecord.attributes.dec_form_child.was_desision_grounded'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :was_desision_grounded, true %>
                <%= f.label :was_desision_grounded_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :was_desision_grounded, false %>
-               <%= f.label :was_desision_grounded_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>               
+               <%= f.label :was_desision_grounded_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -196,13 +196,13 @@
       <td>
          <div class="control-group">
              <%= f.label :does_pary_plans_to_complaint, t('activerecord.attributes.dec_form_child.does_pary_plans_to_complaint'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :does_pary_plans_to_complaint, true %>
                <%= f.label :does_pary_plans_to_complaint_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :does_pary_plans_to_complaint, false %>
                <%= f.label :does_pary_plans_to_complaint_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>    
+           </div>
       </td>
    </tr>
    <tr>
@@ -213,21 +213,7 @@
              <div class="controls">
                <%= f.text_area :describe_other_extra_env, :class => 'text_area' %>
              </div>
-           </div>        
+           </div>
       </td>
    </tr>
 </table>         
-
-
-
-
-     
-          
-     
-     
-     
-
-     
-     
-
-

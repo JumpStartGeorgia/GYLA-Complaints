@@ -4,7 +4,7 @@
      <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
                                     :default => "#{model_class.model_name.human}") %></h1>
    </div>
-   
+
  <table class="form_table">
    <tr>
       <td>1.</td>
@@ -15,7 +15,7 @@
           <div class="controls">
             <%= f.text_area :cesko_complaint_author_sender, :class => 'text_area' %>
           </div>
-        </div>       
+        </div>
         <div class="control-group">
           <%= f.label :responder_district_election_commission, t('activerecord.attributes.cec_form_child.responder_district_election_commission'), :class => 'control-label' %>
           <div class="controls">
@@ -30,9 +30,9 @@
          <div class="control-group">
           <%= f.label :cesko_complaint_registration_time, t('activerecord.attributes.cec_form_child.cesko_complaint_registration_time'), :class => 'control-label' %>
           <div class="controls">
-            <%= f.datetime_select :cesko_complaint_registration_time, :class => 'datetime_select' %>
+            <%= f.text_field :cesko_complaint_registration_time %>
           </div>
-        </div>       
+        </div>
       </td>
    </tr>
    <tr>
@@ -43,7 +43,7 @@
              <div class="controls">
                <%= f.text_area :veiolation_essence, :class => 'text_area' %>
              </div>
-           </div>       
+           </div>
       </td>
    </tr>
    <tr>
@@ -54,7 +54,7 @@
              <div class="controls">
                <%= f.text_area :request, :class => 'text_area' %>
              </div>
-           </div>       
+           </div>
       </td>
    </tr>
    <tr>
@@ -63,9 +63,9 @@
          <div class="control-group">
              <%= f.label :cesko_complaint_discation_time, t('activerecord.attributes.cec_form_child.cesko_complaint_discation_time'), :class => 'control-label' %>
              <div class="controls">
-               <%= f.datetime_select :cesko_complaint_discation_time, :class => 'datetime_select' %>
+               <%= f.text_field :cesko_complaint_discation_time %>
              </div>
-           </div>       
+           </div>
       </td>
    </tr>
    <tr>
@@ -83,7 +83,7 @@
       </td>
    </tr>
    <tr>
-      <td>7.</td>      
+      <td>7.</td>
       <td>
          <div class="control-group">
           <%= f.label :complaint_discation_people, t('activerecord.attributes.cec_form_child.complaint_discation_people'), :class => 'control-label' %>
@@ -93,10 +93,10 @@
         </div>
       </td>
    </tr>
-   <tr>      
+   <tr>
       <td>8.</td>
       <td>
-            <p><%= t('activerecdord.attributes.cec_form_child.complaint_important_aspect') %></p>    
+            <p><%= t('activerecdord.attributes.cec_form_child.complaint_important_aspect') %></p>
       </td>
    </tr>
    <tr>
@@ -110,7 +110,7 @@
             <%= f.radio_button :cesko_meeting_all_commission_members, false %>
             <%= f.label :cesko_meeting_all_commission_members_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
           </div>
-        </div>       
+        </div>
       </td>
    </tr>
    <tr>
@@ -118,7 +118,7 @@
       <td>
           <div class="control-group">
              <%= f.label :cesko_meeting_report, t('activerecord.attributes.cec_form_child.cesko_meeting_report'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :cesko_meeting_report, true %>
                <%= f.label :cesko_meeting_report_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :cesko_meeting_report, false %>
@@ -132,13 +132,13 @@
       <td>
             <div class="control-group">
              <%= f.label :cesko_meeting_testimony_research, t('activerecord.attributes.cec_form_child.cesko_meeting_testimony_research'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :cesko_meeting_testimony_research, true %>
                <%= f.label :cesko_meeting_testimony_research_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :cesko_meeting_testimony_research, false %>
                <%= f.label :cesko_meeting_testimony_research_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>       
+           </div>
       </td>
    </tr>
    <tr>
@@ -168,7 +168,7 @@
       <td>
          <div class="control-group">
              <%= f.label :was_desision_grounded, t('activerecord.attributes.cec_form_child.was_desision_grounded'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :was_desision_grounded, true %>
                <%= f.label :was_desision_grounded_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :was_desision_grounded, false %>
@@ -182,13 +182,13 @@
       <td>
          <div class="control-group">
              <%= f.label :was_complained_the_desision, t('activerecord.attributes.cec_form_child.was_complained_the_desision'), :class => 'control-label' %>
-             <div class="controls">               
+             <div class="controls">
                <%= f.radio_button :was_complained_the_desision, true %>
                <%= f.label :was_complained_the_desision_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :was_complained_the_desision, false %>
                <%= f.label :was_complained_the_desision_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
              </div>
-           </div>       
+           </div>
       </td>
    </tr>
    <tr>
@@ -196,13 +196,13 @@
       <td>
          <div class="control-group">
           <%= f.label :was_web_announcement_made_on_complaint, t('activerecord.attributes.cec_form_child.was_web_announcement_made_on_complaint'), :class => 'control-label' %>
-          <div class="controls">            
+          <div class="controls">
             <%= f.radio_button :was_web_announcement_made_on_complaint, true %>
             <%= f.label :was_web_announcement_made_on_complaint_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
             <%= f.radio_button :was_web_announcement_made_on_complaint, false %>
             <%= f.label :was_web_announcement_made_on_complaint_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
           </div>
-        </div>       
+        </div>
       </td>
    </tr>
    <tr>
@@ -213,7 +213,7 @@
              <div class="controls">
                <%= f.text_area :if_not_then_precincts_and_reasons, :class => 'text_area' %>
              </div>
-           </div>       
+           </div>
       </td>
    </tr>
    <tr>
@@ -228,6 +228,3 @@
       </td>
    </tr>
  </table>
-  
-  
-  
