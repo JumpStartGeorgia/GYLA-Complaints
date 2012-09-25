@@ -54,6 +54,7 @@ ka:
       list: იხილეთ სრულად
       admin: ადმინისტრატორის განყოფილება
       delete: წაშლა
+      destroy: წაშლა
       edit: შეცვლა
       show: ჩვენება
       cancel: გაუქმება
@@ -69,7 +70,7 @@ ka:
       empty: ცარიელია
   layouts:
     application:
-      admin: ადმინისტრატო
+      admin: ადმინისტრატორი
       sign_out: გასვლა
       js_link_title: "ეწვიეთ ჯამპსტარტ ჯორჯიას ვებ-გვერდს"
       js_link_text: აგებულია
