@@ -13,7 +13,9 @@ ka:
       category:
         title: სახელი
       complaint:
-        
+        violation_time: დარღვევის ჩადენის დრო
+      complaint_additional_info:
+        complaint_writing_time: საჩივრის დაწერის დრო
       election_district_name:
         title: სახელი
       election_precinct_number:

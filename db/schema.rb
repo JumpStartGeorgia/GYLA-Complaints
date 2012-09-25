@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924195529) do
+ActiveRecord::Schema.define(:version => 20120925140827) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -48,28 +48,22 @@ ActiveRecord::Schema.define(:version => 20120924195529) do
 
   add_index "complaint_files", ["complaint_id"], :name => "index_complaint_files_on_complaint_id"
 
-  create_table "complaint_general_infos", :force => true do |t|
-    t.integer  "complaint_id"
+  create_table "complaints", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "level"
+    t.string   "original_level"
     t.string   "observer_name"
     t.text     "observer_address"
     t.string   "observer_phone"
-    t.string   "election_district_name"
-    t.string   "election_precinct_number"
+    t.integer  "election_district_name"
+    t.integer  "election_precinct_number"
     t.integer  "category_id"
     t.integer  "violation_type_id"
     t.datetime "violation_time"
     t.text     "witness"
     t.text     "violator_info"
     t.text     "other_info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "complaints", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "level"
-    t.string   "original_level"
   end
 
   create_table "election_district_names", :force => true do |t|

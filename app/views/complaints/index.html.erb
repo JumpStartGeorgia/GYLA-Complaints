@@ -5,7 +5,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Status</th>
+      <th>დონე</th>
+      <th>სტატუსი</th>
+      <th><%= t('activerecord.attributes.complaint_additional_info.complaint_writing_time') %></th>
+      <th><%= t('activerecord.attributes.complaint.violation_time') %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -13,10 +16,25 @@
     <% @complaints.each do |complaint| %>
       <tr>
         <td>
-					<% link_text = complaint.level.to_s.upcase
-							link_text << ' '
-						 link_text << complaint.complaint_additional_infos.latest.title.to_s if complaint.complaint_additional_infos.latest %>
+					<% link_text = complaint.original_level.to_s.upcase + ' '
+            #link_text << t('activerecord.attributes.complaint.violation_time') + ': '
+            #link_text << complaint.violation_time.to_s + ' '
+             if complaint.additional.latest
+               latest = complaint.additional.latest
+            #  link_text << t('activerecord.attributes.complaint_additional_info.complaint_writing_time') + ': '
+            #  link_text << latest.complaint_writing_time.to_s + ' '
+             end
+          %>
 					<%= link_to link_text, complaint_path(complaint) %>
+				</td>
+				<td>
+				  <%= complaint.additional.latest.status.title if complaint.additional.latest && complaint.additional.latest.status %>
+				</td>
+				<td>
+				
+				</td>
+				<td>
+				
 				</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

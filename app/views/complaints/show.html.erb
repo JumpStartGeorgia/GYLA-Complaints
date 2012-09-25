@@ -1,6 +1,6 @@
 <%- model_class = Complaint -%>
 <div class="page-header">
-  <% status = (@complaint.complaint_additional_infos.latest.nil? || @complaint.complaint_additional_infos.latest.status.nil?) ? '' : @complaint.complaint_additional_infos.latest.status.title %>
+  <% status = (@complaint.additional.latest.nil? || @complaint.additional.latest.status.nil?) ? '' : @complaint.additional.latest.status.title %>
   <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
 </div>
 
@@ -47,37 +47,37 @@
   </div>
   <div class="span4">
     <div class="">
-      <%= @complaint.complaint_general_info.observer_name %>
+      <%= @complaint.general.observer_name %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.observer_address %>
+      <%= @complaint.general.observer_address %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.observer_phone %>
+      <%= @complaint.general.observer_phone %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.election_district_name.nil? ? '' : @complaint.complaint_general_info.election_district_name.title %>
+      <%= @complaint.general.election_district_name.nil? ? '' : @complaint.general.election_district_name.title %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.election_precinct_number.nil? ? '' : @complaint.complaint_general_info.election_precinct_number.title %>
+      <%= @complaint.general.election_precinct_number.nil? ? '' : @complaint.general.election_precinct_number.title %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.category.nil? ? '' : @complaint.complaint_general_info.category.title %>
+      <%= @complaint.general.category.nil? ? '' : @complaint.general.category.title %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.violation_type.nil? ? '' : @complaint.complaint_general_info.violation_type.title %>
+      <%= @complaint.general.violation_type.nil? ? '' : @complaint.general.violation_type.title %>
     </div>
     <div class="">
-      <%= l @complaint.complaint_general_info.violation_time, :format => :long if @complaint.complaint_general_info.violation_time %>
+      <%= l @complaint.general.violation_time, :format => :long if @complaint.general.violation_time %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.witness %>
+      <%= @complaint.general.witness %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.violator_info %>
+      <%= @complaint.general.violator_info %>
     </div>
     <div class="">
-      <%= @complaint.complaint_general_info.other_info %>
+      <%= @complaint.general.other_info %>
     </div>
     <div class="">
       <% files = @complaint.complaint_files.observers %>
@@ -95,7 +95,7 @@
 </div>
 
 
-<% @complaint.complaint_additional_infos.each do |info| %>
+<% @complaint.additional.each do |info| %>
   <% status = (info.status.nil?) ? '' : info.status.title %>
   <h3>Complaint <%= status %> Information</h3>
 
