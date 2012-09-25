@@ -118,6 +118,23 @@ ka:
       new: ახალი
     common:
       app_name: GYLA-ს საარჩევნო საჩივრები/დაკვირვებები
+  helpers:
+    links:
+      back: უკან
+      list: იხილეთ სრულად
+      admin: ადმინისტრატორის განყოფილება
+      delete: წაშლა
+      edit: შეცვლა
+      show: ჩვენება
+      cancel: გაუქმება
+      update: განახლება
+      save: შენახვა
+      create: შექმნა
+      reset: საწყის კონფიგურაციაზე დაბრუნება
+      remove: მოშორება
+      confirm: დარწმუნებული ხართ?
+      new: ახალი
+      destroy: წაშლა
   layouts:
     application:
       admin: ადმინისტრატო
