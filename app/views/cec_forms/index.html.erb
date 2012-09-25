@@ -2,7 +2,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped index_table">
+<script>
+   var ids = new Array;
+</script>
+<table class="table table-striped index_table" id="cec-form-table">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:cesko_summary_report_input) %></th>
@@ -13,22 +16,48 @@
       <th><%= model_class.human_attribute_name(:if_not_the_reason) %></th>
       <th><%= model_class.human_attribute_name(:cesko_summary_process_transparently) %></th>
       <th><%= model_class.human_attribute_name(:description_how_transparent) %></th>
+      
       <% if false %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>
     </tr>
   </thead>
   <tbody>
-    <% @cec_forms.each do |cec_form| %>
+    <% @cec_forms.each do |cec_form| %>      
+      <script>
+         ids.push('<%= cec_form.id %>');
+      </script>
       <tr>
-        <td><%= cec_form.cesko_summary_report_input %></td>
+        <% if cec_form.cesko_summary_report_input %>
+            <td>დიახ</td>
+        <% else %>
+            <td>არა</td>
+        <% end %>
+        
         <td><%= cec_form.if_not_precinct_name_and_num %></td>
-        <td><%= cec_form.cesko_election_summary_after_one_day %></td>
+        
+        <% if cec_form.cesko_election_summary_after_one_day %>
+            <td>დიახ</td>
+        <% else %>
+            <td>არა</td>
+        <% end %>
+        
         <td><%= cec_form.if_not_after_one_day_precinct_name_num %></td>
-        <td><%= cec_form.cesko_report_web_translition %></td>
+        <% if cec_form.cesko_report_web_translition %>
+            <td>დიახ</td>
+        <% else %>
+            <td>არა</td>
+        <% end %>
+        
         <td><%= cec_form.if_not_the_reason %></td>
-        <td><%= cec_form.cesko_summary_process_transparently %></td>
+        <% if cec_form.cesko_summary_process_transparently %>
+            <td>დიახ</td>
+        <% else %>
+            <td>არა</td>
+        <% end %>
+        
         <td><%= cec_form.description_how_transparent %></td>
+        
         <% if false %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

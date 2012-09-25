@@ -12,6 +12,11 @@
    font-size: 15px;
 }
 
+.index_table tbody tr:hover {
+   cursor: pointer;
+   background: #CCC;
+}
+
 .index_table th, .index_table td, .form_table td {
    border: 1px solid #000 !important;   
    font-size: 12px;
@@ -33,4 +38,19 @@ label.radio_label {
    margin-top: -17px;
 }
 
+
+
+.dl-show dt {
+   width: 500px;
+   text-align: left;
+   word-wrap: break-word;
+}
+
+.dl-show dd {
+   height: 20px;
+}
+
+.dl-show {
+   line-height: 20px;
+}
 

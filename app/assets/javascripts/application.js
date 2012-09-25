@@ -21,4 +21,11 @@ $(document).ready(function(){
 	}
 });
 
-$("#pec_form_observer_name").datetimepicker();
+
+$(function(){
+   $('#pec-index-table tbody, #dec-form-table tbody, #cec-form-table tbody').find('tr').each(function(index, value){
+      $(value).click(function(){
+         window.location = window.location.href+'/'+ids[index];
+      });
+   });
+});

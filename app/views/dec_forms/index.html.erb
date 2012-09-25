@@ -2,7 +2,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped index_table">
+<script>
+   var ids = new Array;
+</script>
+<table class="table table-striped index_table" id="dec-form-table">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:dec_total_complaints) %></th>      
@@ -17,6 +20,7 @@
       <th><%= model_class.human_attribute_name(:precinct_results_canel_proc) %></th>
       <th><%= model_class.human_attribute_name(:commission_summary_report_publicity) %></th>
       <th><%= model_class.human_attribute_name(:extra_env_describe) %></th>
+      <th>რამდენი საჩივარი დაკმაყოფილდა?</th>
       <% if false %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>
@@ -24,6 +28,9 @@
   </thead>
   <tbody>
     <% @dec_forms.each do |dec_form| %>
+      <script>
+         ids.push('<%= dec_form.id %>');
+      </script>
       <tr>
         <td><%= dec_form.dec_total_complaints %></td>
         <%if dec_form.dec_journal_registration_yes_no %>
@@ -55,6 +62,8 @@
         <td><%= dec_form.describe_extra_env %></td>
         <%if dec_form.was_canonical_procedures_done === 1 %>
             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% elsif dec_form.was_canonical_procedures_done === 2 %>
+            <td><%= t('form.radio_buttons.do_partialy') %></td>
         <% else %>
              <td><%= t('form.radio_buttons.do_no') %></td>
         <% end %>
@@ -74,6 +83,19 @@
              <td><%= t('form.radio_buttons.do_no') %></td>
         <% end %>
         <td><%= dec_form.extra_env_describe %></td>
+        
+        
+        <% 
+         i=0
+         dec_form.dec_form_children.each do |dec_form_child|
+            if dec_form_child.complaint_satisfied
+               i=i+1
+            end
+         end
+        %>
+        
+        <td><%= i.to_s+'/'+dec_form.dec_form_children.length.to_s %></td>
+        
         <% if false %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
