@@ -6,7 +6,7 @@ $(function(){
 		// load the date pickers
 		// registration_time
 		$('#pec_form_registration_time').datetimepicker({
-				dateFormat: 'dd.mm.yy',
+				dateFormat: 'yy-mm-dd',
 				timeFormat: 'hh:mm',
 				separator: ' '
 		});
@@ -32,5 +32,4 @@ $(function(){
       }
    });*/
 });
-
 

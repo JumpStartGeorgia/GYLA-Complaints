@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925124342) do
+ActiveRecord::Schema.define(:version => 20120925145124) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20120925124342) do
   create_table "cec_form_children", :force => true do |t|
     t.text     "cesko_complaint_author_sender"
     t.string   "responder_district_election_commission"
-    t.string   "cesko_complaint_registration_time"
+    t.datetime "cesko_complaint_registration_time"
     t.text     "veiolation_essence"
     t.text     "request"
-    t.string   "cesko_complaint_discation_time"
+    t.datetime "cesko_complaint_discation_time"
     t.boolean  "where_parties_invited_on_descation"
     t.text     "complaint_discation_people"
     t.boolean  "cesko_meeting_all_commission_members"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120925124342) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cec_form_id"
+    t.boolean  "was_complaint_satisfied"
   end
 
   create_table "cec_forms", :force => true do |t|
@@ -84,10 +85,10 @@ ActiveRecord::Schema.define(:version => 20120925124342) do
   create_table "dec_form_children", :force => true do |t|
     t.string   "complaint_author_presentator"
     t.string   "response_precinct_commission"
-    t.string   "complaint_district_registration_time"
+    t.datetime "complaint_district_registration_time"
     t.text     "violation_essence"
     t.text     "request"
-    t.string   "complaint_disscusion_time"
+    t.datetime "complaint_disscusion_time"
     t.boolean  "where_parties_invited_to_disscusion"
     t.text     "disscusion_people"
     t.boolean  "all_commission_memebers_attended"
@@ -122,6 +123,13 @@ ActiveRecord::Schema.define(:version => 20120925124342) do
     t.datetime "updated_at"
   end
 
+  create_table "district_id_names", :force => true do |t|
+    t.integer  "district_id"
+    t.string   "district_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "election_district_names", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -141,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20120925124342) do
     t.integer  "current_number_of_complaints"
     t.text     "complaint_author"
     t.boolean  "registered_or_not_complaint"
-    t.string   "registration_time"
+    t.datetime "registration_time"
     t.boolean  "do_you_give_complaint_to_higher_commission"
     t.text     "violation_essence"
     t.text     "request"

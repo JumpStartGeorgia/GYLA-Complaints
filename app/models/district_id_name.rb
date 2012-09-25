@@ -1,2 +1,2 @@
-class DistrictIdName < ActiveRecord::Base
+class DistrictIdName < ActiveRecord::Base   
 end

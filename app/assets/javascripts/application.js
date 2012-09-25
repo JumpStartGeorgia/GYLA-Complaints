@@ -21,7 +21,6 @@ $(document).ready(function(){
 	}
 });
 
-
 $(function(){
    $('#pec-index-table tbody, #dec-form-table tbody, #cec-form-table tbody').find('tr').each(function(index, value){
       $(value).click(function(){
@@ -29,3 +28,4 @@ $(function(){
       });
    });
 });
+

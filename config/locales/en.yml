@@ -18,12 +18,12 @@ en:
             was_complaint_setisfied: Was complaint satisfied
             other_extra_comments: Other extra comments
   pec_form:
-      index:   
+      index:
          title: precinct complaint statistic
       buttons:
          cancel: cancel
-         new: new 
-      radio_buttons: 
+         new: new
+      radio_buttons:
          do_yes: yes
          do_no: no
   app:
@@ -46,7 +46,7 @@ en:
       confirm: Are you sure?
       new: New
     common:
-      app_name: Bootstrap Starter Project
+      app_name: GYLA Election Complaints/Observations
   layouts:
     application:
       admin: Admin

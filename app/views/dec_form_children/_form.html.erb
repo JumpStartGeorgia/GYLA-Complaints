@@ -1,6 +1,6 @@
 <%= form_for @dec_form_child, :html => { :class => 'form-horizontal' } do |f| %>
 
-   
+
      <div class="control-group">
        <%= f.label :complaint_author_presentator, :class => 'control-label' %>
        <div class="controls">
@@ -16,25 +16,25 @@
      <div class="control-group">
        <%= f.label :complaint_district_registration_time, :class => 'control-label' %>
        <div class="controls">
-         <%= f.datetime_select :complaint_district_registration_time, :class => 'datetime_select' %>
+         <%= f.text_field :complaint_district_registration_time %>
        </div>
      </div>
      <div class="control-group">
        <%= f.label :violation_essence, :class => 'control-label' %>
        <div class="controls">
-         <%= f.text_area :violation_essence, :class => 'text_area' %>
+         <%= f.text_area :violation_essence, :class => 'text_area span6', :rows => "5" %>
        </div>
      </div>
      <div class="control-group">
        <%= f.label :request, :class => 'control-label' %>
        <div class="controls">
-         <%= f.text_area :request, :class => 'text_area' %>
+         <%= f.text_area :request, :class => 'text_area span6', :rows => "5" %>
        </div>
      </div>
      <div class="control-group">
        <%= f.label :complaint_disscusion_time, :class => 'control-label' %>
        <div class="controls">
-         <%= f.datetime_select :complaint_disscusion_time, :class => 'datetime_select' %>
+         <%= f.text_field :complaint_disscusion_time %>
        </div>
      </div>
      <div class="control-group">
@@ -46,7 +46,7 @@
      <div class="control-group">
        <%= f.label :disscusion_people, :class => 'control-label' %>
        <div class="controls">
-         <%= f.text_area :disscusion_people, :class => 'text_area' %>
+         <%= f.text_area :disscusion_people, :class => 'text_area span6', :rows => "5" %>
        </div>
      </div>
      <div class="control-group">
@@ -70,13 +70,13 @@
      <div class="control-group">
        <%= f.label :extra_comments, :class => 'control-label' %>
        <div class="controls">
-         <%= f.text_area :extra_comments, :class => 'text_area' %>
+         <%= f.text_area :extra_comments, :class => 'text_area span6', :rows => "5" %>
        </div>
      </div>
      <div class="control-group">
        <%= f.label :dec_desision, :class => 'control-label' %>
        <div class="controls">
-         <%= f.text_area :dec_desision, :class => 'text_area' %>
+         <%= f.text_area :dec_desision, :class => 'text_area span6', :rows => "5" %>
        </div>
      </div>
      <div class="control-group">
@@ -94,7 +94,7 @@
      <div class="control-group">
        <%= f.label :describe_other_extra_env, :class => 'control-label' %>
        <div class="controls">
-         <%= f.text_area :describe_other_extra_env, :class => 'text_area' %>
+         <%= f.text_area :describe_other_extra_env, :class => 'text_area span6', :rows => "5" %>
        </div>
      </div>
      <div class="control-group">
@@ -109,6 +109,5 @@
           <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                       dec_form_children_path, :class => 'btn' %>
         </div>
-     <% end %> 
+     <% end %>
 <% end %>
-

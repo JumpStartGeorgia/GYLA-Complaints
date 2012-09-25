@@ -1,6 +1,6 @@
 <%- model_class = CecForm -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 <script>
    var ids = new Array;
@@ -16,7 +16,8 @@
       <th><%= model_class.human_attribute_name(:if_not_the_reason) %></th>
       <th><%= model_class.human_attribute_name(:cesko_summary_process_transparently) %></th>
       <th><%= model_class.human_attribute_name(:description_how_transparent) %></th>
-      
+      <th>დაკმაყოფილდა თუ არა საჩივარი?</th>
+      <th>იყო თუ არა გადაწყვეტილება დასაბუთებული?</th>
       <% if false %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>
@@ -57,6 +58,22 @@
         <% end %>
         
         <td><%= cec_form.description_how_transparent %></td>
+        
+        <% 
+         i=0
+         j=0
+         cec_form.cec_form_children.each do |cec_form_child|
+            if cec_form_child.was_complaint_satisfied
+               i=i+1
+            end
+            if cec_form_child.was_desision_grounded
+               j=j+1
+            end 
+         end
+        %>
+        
+        <td><%= i.to_s+'/'+cec_form.cec_form_children.length.to_s %></td>
+        <td><%= j.to_s+'/'+cec_form.cec_form_children.length.to_s %></td>
         
         <% if false %>
         <td>

@@ -26,6 +26,7 @@ class CecFormsController < ApplicationController
   # GET /cec_forms/new.json
   def new
     @cec_form = CecForm.new
+    gon.edit_cec_form = true
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,7 @@ class CecFormsController < ApplicationController
   # GET /cec_forms/1/edit
   def edit
     @cec_form = CecForm.find(params[:id])
+    gon.edit_cec_form = true
   end
 
   # POST /cec_forms
@@ -49,11 +51,12 @@ class CecFormsController < ApplicationController
         format.html { redirect_to cec_forms_path, notice: 'Cec form was successfully created.' }
         format.json { render json: @cec_form, status: :created, location: @cec_form }
       else
+		    gon.edit_cec_form = true
         format.html { render action: "new" }
         format.json { render json: @cec_form.errors, status: :unprocessable_entity }
       end
     end
-    
+
   end
 
   # PUT /cec_forms/1
@@ -66,6 +69,7 @@ class CecFormsController < ApplicationController
         format.html { redirect_to @cec_form, notice: 'Cec form was successfully updated.' }
         format.json { head :ok }
       else
+		    gon.edit_cec_form = true
         format.html { render action: "edit" }
         format.json { render json: @cec_form.errors, status: :unprocessable_entity }
       end

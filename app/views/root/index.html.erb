@@ -1,11 +1,15 @@
 <div class="row">
-	<div class="span3">
+   
 
-    <div class="clear">
-      <%= link_to 'New Complaint', new_complaint_path %>
+	<div class="span2 complaints">
+    <div class="complaints_header">
+      <strong>საჩივრები</strong>
     </div>
     <div class="clear">
-      <%= link_to 'View Complaints', complaints_path %>
+      <%= link_to 'ახალი საჩივარი', new_complaint_path %>
+    </div>
+    <div class="clear">
+      <%= link_to 'საჩივრები', complaints_path %>
     </div>
     <div class="clear">
       <% if @latest_complaint %>
@@ -16,30 +20,33 @@
 	</div>
 
 
-	<div class="span3">
+	<div class="span9 observations">
+	   <div class="observations_header">
+	      <strong>დეკვირვებები</strong>
+	   </div>
       <div class="clear">
-         <%= link_to 'New PEC', new_pec_form_path %>
+         <%= link_to 'ახალი PEC', new_pec_form_path %>
       </div>
       <div class="clear">
-         <%= link_to 'View precinct complaint statistics', pec_forms_path %>
+         <%= link_to 'უბნების საჩივრების სტატისტიკა', pec_forms_path %>
       </div>
-	</div>
 
-	<div class="span3">
+
+
 	   <div class="clear">
-         <%= link_to 'New DEC', new_dec_form_path %>
+         <%= link_to 'ახალი DEC', new_dec_form_path %>
       </div>
       <div class="clear">
-         <%= link_to 'View destrict complaint statistics', dec_forms_path %>
+         <%= link_to 'ოლქების საჩივრების სტატისტიკა', dec_forms_path %>
       </div>
-	</div>
+
 	
-	<div class="span3">
+
 	   <div class="clear">
-         <%= link_to 'New CEC', new_cec_form_path %>
+         <%= link_to 'ახალი CEC', new_cec_form_path %>
       </div>
       <div class="clear">
-         <%= link_to 'View election center complaint statistics', cec_forms_path %>
+         <%= link_to 'ცესკოს საჩივრების სტატისტიკა', cec_forms_path %>
       </div>
 	</div>
 </div>

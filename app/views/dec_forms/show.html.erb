@@ -87,6 +87,25 @@
   <% else %>
       <dd>არა</dd>
   <% end %>
+  
+  <% 
+         i=0
+         j=0
+         @dec_form.dec_form_children.each do |dec_form_child|
+            if dec_form_child.complaint_satisfied
+               i=i+1
+            end
+            if dec_form_child.was_desision_grounded
+               j=j+1
+            end 
+         end
+        %>
+  
+  <dt><strong>რამდენი საჩივარი დაკმაყოფილდა?</strong></dt>
+  <dd><%= i.to_s+'/'+@dec_form.dec_form_children.length.to_s %></dd>
+  
+  <dt><strong>იყო თუ არა გადაწყვეტილება დასაბუთებული?</strong></dt>
+  <dd><%= j.to_s+'/'+@dec_form.dec_form_children.length.to_s %></dd>
 </dl>
 
 

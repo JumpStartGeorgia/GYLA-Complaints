@@ -41,6 +41,27 @@
   
   <dt><strong><%= model_class.human_attribute_name(:description_how_transparent) %>:</strong></dt>
   <dd><%= @cec_form.description_how_transparent %></dd>
+  
+  
+  <% 
+         i=0
+         j=0
+         @cec_form.cec_form_children.each do |cec_form_child|
+            if cec_form_child.was_complaint_satisfied
+               i=i+1
+            end
+            if cec_form_child.was_desision_grounded
+               j=j+1
+            end 
+         end
+        %>
+  
+  <dt><strong>რამდენი საჩივარი დაკმაყოფილდა?</strong></dt>
+  <dd><%= i.to_s+'/'+@cec_form.cec_form_children.length.to_s %></dd>
+  
+  <dt><strong>იყო თუ არა გადაწყვეტილება დასაბუთებული?</strong></dt>
+  <dd><%= j.to_s+'/'+@cec_form.cec_form_children.length.to_s %></dd>
+  
 </dl>
 
 
