@@ -4,42 +4,42 @@
   <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
 </div>
 
-<h3>General Complaint Information</h3>
+<h3>ძირითადი ინფორმაცია</h3>
 
 <div class="complaint clear">
   <div class="span5" style="text-align: right;">
     <div class="">
-      დამკვირვებლის სახელი და გვარი
+      <%= t('activerecord.attributes.complaint.observer_name') %>
     </div>
     <div class="">
-      დამკვირვებლის მისამართი რეგისტრაციის ადგილის მიხედვით
+      <%= t('activerecord.attributes.complaint.observer_address') %>
     </div>
     <div class="">
-      დამკვირვებლის საკონტაქტო ტელეფონის ნომერი
+      <%= t('activerecord.attributes.complaint.observer_phone') %>
     </div>
     <div class="">
-      საარჩევნო ოლქის სახელი
+      <%= t('activerecord.attributes.complaint.election_district_name') %>
     </div>
     <div class="">
-      საარჩევნო უბნის ნომერი
+      <%= t('activerecord.attributes.complaint.election_precinct_number') %>
     </div>
     <div class="">
-      კატეგორია
+      <%= t('activerecord.attributes.complaint.category') %>
     </div>
     <div class="">
-      დარგვევის ტიპი
+      <%= t('activerecord.attributes.complaint.violation_type') %>
     </div>
     <div class="">
-      დარღვევის ჩადენის დრო
+      <%= t('activerecord.attributes.complaint.violation_time') %>
     </div>
     <div class="">
-      მოწმე
+      <%= t('activerecord.attributes.complaint.witness') %>
     </div>
     <div class="">
-      დამრღვევის დადგენის შემთხვევაში და დამრღვევის ახსნა-განმარტება
+      <%= t('activerecord.attributes.complaint.violator_info') %>
     </div>
     <div class="">
-      სხვა დამატებითი ინფორმაცია
+      <%= t('activerecord.attributes.complaint.other_info') %>
     </div>
     <div class="">
       მიმაგრებული ფაილები
@@ -97,41 +97,46 @@
 
 <% @complaint.additional.each do |info| %>
   <% status = (info.status.nil?) ? '' : info.status.title %>
-  <h3>Complaint <%= status %> Information</h3>
+  <h3><%= info.level.upcase + ' ' + status %></h3>
 
   <div class="complaint clear">
     <div class="span5" style="text-align: right;">
       <div class="">
-        საჩივრის მიმდინარეობა
+        <%= t('activerecord.attributes.complaint_additional_info.status') %>
       </div>
       <div class="">
-        საჩივრის ავტორი
+        <%= t('activerecord.attributes.complaint_additional_info.complaint_author_name') %>
       </div>
       <div class="">
-        საჩივრის ავტორის ტელეფონის ნომერი
+        <%= t('activerecord.attributes.complaint_additional_info.complaint_author_phone') %>
       </div>
       <% attr = (!info.level.nil? && info.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
       <div class="" <%= attr %>>
-        საქალაქო/სააპელაციო სასამართლოს დასახელება:
+        <%= t('activerecord.attributes.complaint_additional_info.court_name') %>
       </div>
       <div class="">
-        საჩივრის დაწერის დრო
+        <%= t('activerecord.attributes.complaint_additional_info.complaint_writing_time') %>
       </div>
       <div class="">
-        საჩივარში დაყენებული მოთხოვნა
+        <%= t('activerecord.attributes.complaint_additional_info.request_in_complaint') %>
       </div>
       <div class="">
-        პასუხის მოსვლის დრო
+        <%= t('activerecord.attributes.complaint_additional_info.response_date') %>
       </div>
       <div class="">
         საჩივრის შედეგი
+        <%= t('activerecord.attributes.complaint_additional_info.complaint_result') %>
       </div>
       <div class="">
-        დამატებითი კომენტარი
+        <%= t('activerecord.attributes.complaint_additional_info.additional_comment') %>
       </div>
+<!--################################################
+  let's leave this for now
+  until the nested stuff is done
       <div class="">
         მიმაგრებული ფაილები
       </div>
+--> 
     </div>
     <div class="span4">
       <div class="">
@@ -161,6 +166,9 @@
       <div class="">
         <%= info.additional_comment %>
       </div>
+<!--######################################################
+  let's leave this for now
+  until the nested stuff is done
       <div class="">
         <% files = @complaint.complaint_files.others %>
         <% files_exist = (!files.nil? && !files.empty?) %>
@@ -173,6 +181,7 @@
         <% end %>
 
       </div>
+-->
     </div>
   </div>
 <% end %>
