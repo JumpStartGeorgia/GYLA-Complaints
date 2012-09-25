@@ -19,6 +19,43 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.datetime "updated_at"
   end
 
+  create_table "cec_form_children", :force => true do |t|
+    t.text     "cesko_complaint_author_sender"
+    t.string   "responder_district_election_commission"
+    t.string   "cesko_complaint_registration_time"
+    t.text     "veiolation_essence"
+    t.text     "request"
+    t.string   "cesko_complaint_discation_time"
+    t.boolean  "where_parties_invited_on_descation"
+    t.text     "complaint_discation_people"
+    t.boolean  "cesko_meeting_all_commission_members"
+    t.boolean  "cesko_meeting_report"
+    t.boolean  "cesko_meeting_testimony_research"
+    t.text     "extra_comment"
+    t.text     "cesko_desision"
+    t.boolean  "was_desision_grounded"
+    t.boolean  "was_complained_the_desision"
+    t.boolean  "was_web_announcement_made_on_complaint"
+    t.text     "if_not_then_precincts_and_reasons"
+    t.text     "describe_other_extra_environments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cec_form_id"
+  end
+
+  create_table "cec_forms", :force => true do |t|
+    t.boolean  "cesko_summary_report_input"
+    t.text     "if_not_precinct_name_and_num"
+    t.boolean  "cesko_election_summary_after_one_day"
+    t.text     "if_not_after_one_day_precinct_name_num"
+    t.boolean  "cesko_report_web_translition"
+    t.text     "if_not_the_reason"
+    t.boolean  "cesko_summary_process_transparently"
+    t.text     "description_how_transparent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "complaint_additional_infos", :force => true do |t|
     t.integer  "complaint_id"
     t.string   "level"
@@ -66,6 +103,47 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.text     "other_info"
   end
 
+  create_table "dec_form_children", :force => true do |t|
+    t.string   "complaint_author_presentator"
+    t.string   "response_precinct_commission"
+    t.string   "complaint_district_registration_time"
+    t.text     "violation_essence"
+    t.text     "request"
+    t.string   "complaint_disscusion_time"
+    t.boolean  "where_parties_invited_to_disscusion"
+    t.text     "disscusion_people"
+    t.boolean  "all_commission_memebers_attended"
+    t.boolean  "report_while_meeting"
+    t.boolean  "testimonies_investigation_evaluation"
+    t.text     "extra_comments"
+    t.text     "dec_desision"
+    t.boolean  "was_desision_grounded"
+    t.boolean  "does_pary_plans_to_complaint"
+    t.text     "describe_other_extra_env"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "dec_form_id"
+    t.boolean  "complaint_satisfied"
+  end
+
+  create_table "dec_forms", :force => true do |t|
+    t.integer  "dec_total_complaints"
+    t.boolean  "dec_journal_registration_yes_no"
+    t.boolean  "ped_entered_with_law"
+    t.boolean  "lonked_election_lists"
+    t.boolean  "complaints"
+    t.boolean  "get_send_act"
+    t.text     "describe_extra_env"
+    t.integer  "was_canonical_procedures_done"
+    t.boolean  "where_props_filled"
+    t.boolean  "precinct_results_canel_proc"
+    t.boolean  "commission_summary_report_publicity"
+    t.text     "extra_env_describe"
+    t.boolean  "summed_up_or_not_summary_reports"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "election_district_names", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -76,6 +154,23 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pec_forms", :force => true do |t|
+    t.integer  "election_district_number"
+    t.integer  "election_precinct_number"
+    t.string   "observer_name"
+    t.integer  "current_number_of_complaints"
+    t.text     "complaint_author"
+    t.string   "registration_time"
+    t.boolean  "do_you_give_complaint_to_higher_commission"
+    t.text     "violation_essence"
+    t.text     "request"
+    t.boolean  "was_complaint_setisfied"
+    t.text     "other_extra_comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "registered_or_not_complaint"
   end
 
   create_table "statuses", :force => true do |t|
