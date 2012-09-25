@@ -47,37 +47,37 @@
   </div>
   <div class="span4">
     <div class="">
-      <%= @complaint.general.observer_name %>
+      <%= @complaint.observer_name %>
     </div>
     <div class="">
-      <%= @complaint.general.observer_address %>
+      <%= @complaint.observer_address %>
     </div>
     <div class="">
-      <%= @complaint.general.observer_phone %>
+      <%= @complaint.observer_phone %>
     </div>
     <div class="">
-      <%= @complaint.general.election_district_name.nil? ? '' : @complaint.general.election_district_name.title %>
+      <%= @complaint.election_district_name.nil? ? '' : @complaint.election_district_name.title %>
     </div>
     <div class="">
-      <%= @complaint.general.election_precinct_number.nil? ? '' : @complaint.general.election_precinct_number.title %>
+      <%= @complaint.election_precinct_number.nil? ? '' : @complaint.election_precinct_number.title %>
     </div>
     <div class="">
-      <%= @complaint.general.category.nil? ? '' : @complaint.general.category.title %>
+      <%= @complaint.category.nil? ? '' : @complaint.category.title %>
     </div>
     <div class="">
-      <%= @complaint.general.violation_type.nil? ? '' : @complaint.general.violation_type.title %>
+      <%= @complaint.violation_type.nil? ? '' : @complaint.violation_type.title %>
     </div>
     <div class="">
-      <%= l @complaint.general.violation_time, :format => :long if @complaint.general.violation_time %>
+      <%= l @complaint.violation_time, :format => :long if @complaint.violation_time %>
     </div>
     <div class="">
-      <%= @complaint.general.witness %>
+      <%= @complaint.witness %>
     </div>
     <div class="">
-      <%= @complaint.general.violator_info %>
+      <%= @complaint.violator_info %>
     </div>
     <div class="">
-      <%= @complaint.general.other_info %>
+      <%= @complaint.other_info %>
     </div>
     <div class="">
       <% files = @complaint.complaint_files.observers %>
