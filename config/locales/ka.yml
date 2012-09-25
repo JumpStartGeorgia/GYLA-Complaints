@@ -21,7 +21,9 @@ ka:
         election_district_name: საარჩევნო ოლქის სახელი
         election_precinct_number: საარჩევნო უბნის ნომერი
         category: კატეგორია
+        category_id: კატეგორია
         violation_type: დარღვევის ტიპი
+        violation_type_id: დარღვევის ტიპი
         witness: მოწმე (არსებობის შემთხვევაში)
         violator_info: დამრღვევის დადგენის შემთხვევაში (მისი ის მონაცემები, რომელთა დადგენაც შესაძლებელი გახდა) და დამრღვევის ახსნა-განმარტება (ასეთის არსებობის შემთხვევაში)
         other_info: სხვა დამატებითი ინფორმაცია
@@ -65,6 +67,8 @@ ka:
       remove: მოშორება
       confirm: დარწმუნებული ხართ?
       new: ახალი
+      add_file: ფაილის დამატება
+      remove_file: ფაილის წაშლა
     common:
       app_name: Bootstrap Starter Project
       empty: ცარიელია

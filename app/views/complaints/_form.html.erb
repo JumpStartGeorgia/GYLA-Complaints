@@ -76,7 +76,7 @@
           <div class="file_field control-group">
             <div class="controls">
               <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
-              <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>">Remove File</a>
+              <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>"><%= t('app.buttons.remove_file') %></a>
             </div>
           </div>
         <% end %>
@@ -91,14 +91,14 @@
           <input type="hidden" value="observer" name="complaint[complaint_files_attributes][new_<%= uniqi %>][attachment_type]" />
           <input type="file" name="complaint[complaint_files_attributes][new_<%= uniqi %>][file]"
                  class="text_field" data-uniqi="<%= uniqi %>" />
-          <a href="javascript:;" class="file_attachment_remove">Remove File</a>
+          <a href="javascript:;" class="file_attachment_remove"><%= t('app.buttons.remove_file') %></a>
         </div>
       </div>
     </div>
 
     <div class="file_add_button control-group">
       <div class="controls">
-        <a href="javascript:;" data-type="observer" class="file_attachment_add">Add File</a>
+        <a href="javascript:;" data-type="observer" class="file_attachment_add"><%= t('app.buttons.add_file') %></a>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@
           <div class="file_field control-group">
             <div class="controls">
               <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
-              <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>">Remove File</a>
+              <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>"><%= t('app.buttons.remove_file') %></a>
             </div>
           </div>
         <% end %>
@@ -201,14 +201,14 @@
           <input type="hidden" value="other" name="complaint[complaint_files_attributes][new_<%= uniqi %>][attachment_type]" />
           <input type="file" name="complaint[complaint_files_attributes][new_<%= uniqi %>][file]"
                  class="text_field" data-uniqi="<%= uniqi %>" />
-          <a href="javascript:;" class="file_attachment_remove">Remove File</a>
+          <a href="javascript:;" class="file_attachment_remove"><%= t('app.buttons.remove_file') %></a>
         </div>
       </div>
     </div>
 
     <div class="file_add_button control-group">
       <div class="controls">
-        <a href="javascript:;" data-type="other" class="file_attachment_add">Add File</a>
+        <a href="javascript:;" data-type="other" class="file_attachment_add"><%= t('app.buttons.add_file') %></a>
       </div>
     </div>
   </div>

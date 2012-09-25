@@ -10,7 +10,7 @@ function file_attachment_remove_handler ()
 
 function file_attachment_remove_perm_handler ()
 {
-  if (!confirm('Are you sure?'))
+  if (!confirm('დარწმუნებული ხართ?'))
   {
     return false;
   }
@@ -56,7 +56,7 @@ $(function ()
     var last = $(this)
         .closest('.file_attachments')
         .find('.file_fields')
-        .append('<div class=\'file_field control-group hidden\'><div class=\'controls\'><input type=\'hidden\' value=\'observer\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][' + type + ']\' /><input class=\'text_field\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][file]\' type=\'file\'> <a href=\'javascript:;\' class=\'file_attachment_remove\'>Remove File</a></div></div>')
+        .append('<div class=\'file_field control-group hidden\'><div class=\'controls\'><input type=\'hidden\' value=\'observer\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][' + type + ']\' /><input class=\'text_field\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][file]\' type=\'file\'> <a href=\'javascript:;\' class=\'file_attachment_remove\'>ფაილის წაშლა</a></div></div>')
         .children()
         .last();
 
