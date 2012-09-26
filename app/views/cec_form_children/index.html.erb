@@ -1,0 +1,70 @@
+<%- model_class = CecFormChild -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_complaint_author_sender) %></th>
+      <th><%= model_class.human_attribute_name(:responder_district_election_commission) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_complaint_registration_time) %></th>
+      <th><%= model_class.human_attribute_name(:veiolation_essence) %></th>
+      <th><%= model_class.human_attribute_name(:request) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_complaint_discation_time) %></th>
+      <th><%= model_class.human_attribute_name(:where_parties_invited_on_descation) %></th>
+      <th><%= model_class.human_attribute_name(:complaint_discation_people) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_meeting_all_commission_members) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_meeting_report) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_meeting_testimony_research) %></th>
+      <th><%= model_class.human_attribute_name(:extra_comment) %></th>
+      <th><%= model_class.human_attribute_name(:cesko_desision) %></th>
+      <th><%= model_class.human_attribute_name(:was_desision_grounded) %></th>
+      <th><%= model_class.human_attribute_name(:was_complained_the_desision) %></th>
+      <th><%= model_class.human_attribute_name(:was_web_announcement_made_on_complaint) %></th>
+      <th><%= model_class.human_attribute_name(:if_not_then_precincts_and_reasons) %></th>
+      <th><%= model_class.human_attribute_name(:describe_other_extra_environments) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cec_form_children.each do |cec_form_child| %>
+      <tr>
+        <td><%= link_to cec_form_child.id, cec_form_child_path(cec_form_child) %></td>
+        <td><%= cec_form_child.cesko_complaint_author_sender %></td>
+        <td><%= cec_form_child.responder_district_election_commission %></td>
+        <td><%= cec_form_child.cesko_complaint_registration_time %></td>
+        <td><%= cec_form_child.veiolation_essence %></td>
+        <td><%= cec_form_child.request %></td>
+        <td><%= cec_form_child.cesko_complaint_discation_time %></td>
+        <td><%= cec_form_child.where_parties_invited_on_descation %></td>
+        <td><%= cec_form_child.complaint_discation_people %></td>
+        <td><%= cec_form_child.cesko_meeting_all_commission_members %></td>
+        <td><%= cec_form_child.cesko_meeting_report %></td>
+        <td><%= cec_form_child.cesko_meeting_testimony_research %></td>
+        <td><%= cec_form_child.extra_comment %></td>
+        <td><%= cec_form_child.cesko_desision %></td>
+        <td><%= cec_form_child.was_desision_grounded %></td>
+        <td><%= cec_form_child.was_complained_the_desision %></td>
+        <td><%= cec_form_child.was_web_announcement_made_on_complaint %></td>
+        <td><%= cec_form_child.if_not_then_precincts_and_reasons %></td>
+        <td><%= cec_form_child.describe_other_extra_environments %></td>
+        <td><%=l cec_form_child.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_cec_form_child_path(cec_form_child), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      cec_form_child_path(cec_form_child),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cec_form_child_path,
+            :class => 'btn btn-primary' %>

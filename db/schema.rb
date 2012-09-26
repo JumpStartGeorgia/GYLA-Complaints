@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925140827) do
+ActiveRecord::Schema.define(:version => 20120925145124) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cec_form_id"
+    t.boolean  "was_complaint_satisfied"
   end
 
   create_table "cec_forms", :force => true do |t|
@@ -144,6 +145,13 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.datetime "updated_at"
   end
 
+  create_table "district_id_names", :force => true do |t|
+    t.integer  "district_id"
+    t.string   "district_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "election_district_names", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -162,6 +170,7 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.string   "observer_name"
     t.integer  "current_number_of_complaints"
     t.text     "complaint_author"
+    t.boolean  "registered_or_not_complaint"
     t.datetime "registration_time"
     t.boolean  "do_you_give_complaint_to_higher_commission"
     t.text     "violation_essence"
@@ -170,7 +179,6 @@ ActiveRecord::Schema.define(:version => 20120925140827) do
     t.text     "other_extra_comments"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "registered_or_not_complaint"
   end
 
   create_table "statuses", :force => true do |t|

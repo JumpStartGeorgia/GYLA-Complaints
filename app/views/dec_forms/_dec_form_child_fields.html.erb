@@ -1,0 +1,219 @@
+
+      <%- model_class = DecFormChild -%>
+      <div class="page-header">
+        <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                       :default => "#{model_class.model_name.human}") %></h1>
+      </div>
+
+<table class="form_table">
+   <tr>
+     <td>1.</td>
+     <td>
+       <p><%= t('activerecord.attributes.dec_form_child.the_dec_complaint') %></p>
+       <div class="control-group">
+            <%= f.label :complaint_author_presentator, t('activerecord.attributes.dec_form_child.complaint_author_presentator'), :class => 'control-label' %>
+           <div class="controls">
+             <%= f.text_field :complaint_author_presentator, :class => 'text_field' %>
+           </div>
+        </div>
+        <div class="control-group">
+             <%= f.label :response_precinct_commission, t('activerecord.attributes.dec_form_child.response_precinct_commission'), :class => 'control-label' %>
+             <div class="controls">
+                  <%= f.text_field :response_precinct_commission, :class => 'text_field' %>
+             </div>
+        </div>
+     </td>
+   </tr>
+   <tr>
+      <td>2.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :complaint_district_registration_time, t('activerecord.attributes.dec_form_child.complaint_district_registration_time'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_field :complaint_district_registration_time %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>3.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :violation_essence, t('activerecord.attributes.dec_form_child.violation_essence'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_area :violation_essence, :class => 'text_area span6', :rows => "5" %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>4.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :request, t('activerecord.attributes.dec_form_child.request'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_area :request, :class => 'text_area span6', :rows => "5" %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>5.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :complaint_disscusion_time, t('activerecord.attributes.dec_form_child.complaint_disscusion_time'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_field :complaint_disscusion_time %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>6.</td>
+      <td>
+            <div class="control-group">
+             <%= f.label :where_parties_invited_to_disscusion, t('activerecord.attributes.dec_form_child.where_parties_invited_to_disscusion'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :where_parties_invited_to_disscusion, true %>
+               <%= f.label :where_parties_invited_to_disscusion_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :where_parties_invited_to_disscusion, false %>
+               <%= f.label :where_parties_invited_to_disscusion_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>7.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :disscusion_people, t('activerecord.attributes.dec_form_child.disscusion_people'),:class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_area :disscusion_people, :class => 'text_area span6', :rows => "5" %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>8.</td>
+      <td>
+         <p><%= t('activerecord.attributes.dec_form_child.important_aspect_of_complaint_dicussion') %></p>
+      </td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>
+         <div class="control-group">
+             <%= f.label :all_commission_memebers_attended, t('activerecord.attributes.dec_form_child.all_commission_memebers_attended'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :all_commission_memebers_attended, true %>
+               <%= f.label :all_commission_memebers_attended_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :all_commission_memebers_attended, false %>
+               <%= f.label :all_commission_memebers_attended_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>
+         <div class="control-group">
+             <%= f.label :report_while_meeting, t('activerecord.attributes.dec_form_child.report_while_meeting'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :report_while_meeting, true %>
+               <%= f.label :report_while_meeting_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :report_while_meeting, false %>
+               <%= f.label :report_while_meeting_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>
+         <div class="control-group">
+             <%= f.label :testimonies_investigation_evaluation, t('activerecord.attributes.dec_form_child.testimonies_investigation_evaluation'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :testimonies_investigation_evaluation, true %>
+               <%= f.label :testimonies_investigation_evaluation_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :testimonies_investigation_evaluation, false %>
+               <%= f.label :testimonies_investigation_evaluation_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>
+         <div class="control-group">
+             <%= f.label :extra_comments, t('activerecord.attributes.dec_form_child.extra_comments'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_area :extra_comments, :class => 'text_area span6', :rows => "5" %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>9.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :complaint_satisfied, t('activerecord.attributes.dec_form_child.complaint_satisfied'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :complaint_satisfied, true %>
+               <%= f.label :complaint_satisfied_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :complaint_satisfied, false %>
+               <%= f.label :complaint_satisfied_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>10.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :dec_desision, t('activerecord.attributes.dec_form_child.dec_desision'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_area :dec_desision, :class => 'text_area span6', :rows => "5" %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>11.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :was_desision_grounded, t('activerecord.attributes.dec_form_child.was_desision_grounded'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :was_desision_grounded, true %>
+               <%= f.label :was_desision_grounded_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :was_desision_grounded, false %>
+               <%= f.label :was_desision_grounded_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>12.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :does_pary_plans_to_complaint, t('activerecord.attributes.dec_form_child.does_pary_plans_to_complaint'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.radio_button :does_pary_plans_to_complaint, true %>
+               <%= f.label :does_pary_plans_to_complaint_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :does_pary_plans_to_complaint, false %>
+               <%= f.label :does_pary_plans_to_complaint_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+           </div>
+      </td>
+   </tr>
+   <tr>
+      <td>13.</td>
+      <td>
+         <div class="control-group">
+             <%= f.label :describe_other_extra_env, t('activerecord.attributes.dec_form_child.describe_other_extra_env'), :class => 'control-label' %>
+             <div class="controls">
+               <%= f.text_area :describe_other_extra_env, :class => 'text_area span6', :rows => "5" %>
+             </div>
+           </div>
+      </td>
+   </tr>
+</table>         

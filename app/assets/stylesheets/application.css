@@ -7,6 +7,7 @@
  *= require formtastic-bootstrap
  *= require vendor
  *= require_tree .
+ *= require vendor
  *= require_self
 */
 
@@ -227,4 +228,89 @@ footer, footer ul li, footer div#right ul li {
 
 .hidden {
   display: none;
+
+/* pec, dec, cec forms  */
+.form_table {
+   width: 100%;
+}
+
+.form_table td {
+   border: 1px solid #000;
+}
+
+.number_field, .text_area {
+   margin-top: 10px;
+}
+
+
+input[type=radio] {
+   margin-top: 10px;
+}
+
+label.radio_label {
+   width: 30px;
+   margin: 0;
+   padding-left: 20px;
+   margin-top: -17px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+
+.span12 {
+   overflow:
+}
+
+.complaints {
+   background: #CCC;
+   border-bottom: 1px solid #000;
+   border-left: 1px solid #000;
+   border-right: 1px solid #000;
+   float: left;
+   line-height: 20px;
+}
+
+.complaints_header {
+   text-align: center;
+   font-size: 20px;
+   width: 100%;
+   height: 30px;
+   background: #FFF;
+   border-top: 1px solid #000;
+   border-right: 1px solid #000;
+}
+
+
+.observations {
+   float: left;
+   line-height: 20px;
+   width: 300px;
+   margin-left: 100px;
+   background: #CCC;
+   border-bottom: 1px solid #000;
+   border-left: 1px solid #000;
+   border-right: 1px solid #000;
+}
+
+.observations_header{
+   background: #FFF;
+   font-size: 20px;
+   width: 100%;
+   height: 30px;
+   text-align: center;
+   border-top: 1px solid #000;
+   border-right: 1px solid #000;
+
 }

@@ -1,0 +1,113 @@
+<%= form_for @dec_form_child, :html => { :class => 'form-horizontal' } do |f| %>
+
+
+     <div class="control-group">
+       <%= f.label :complaint_author_presentator, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_field :complaint_author_presentator, :class => 'text_field' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :response_precinct_commission, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_field :response_precinct_commission, :class => 'text_field' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :complaint_district_registration_time, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_field :complaint_district_registration_time %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :violation_essence, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_area :violation_essence, :class => 'text_area span6', :rows => "5" %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :request, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_area :request, :class => 'text_area span6', :rows => "5" %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :complaint_disscusion_time, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_field :complaint_disscusion_time %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :where_parties_invited_to_disscusion, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :where_parties_invited_to_disscusion, :class => 'check_box' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :disscusion_people, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_area :disscusion_people, :class => 'text_area span6', :rows => "5" %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :all_commission_memebers_attended, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :all_commission_memebers_attended, :class => 'check_box' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :report_while_meeting, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :report_while_meeting, :class => 'check_box' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :testimonies_investigation_evaluation, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :testimonies_investigation_evaluation, :class => 'check_box' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :extra_comments, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_area :extra_comments, :class => 'text_area span6', :rows => "5" %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :dec_desision, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_area :dec_desision, :class => 'text_area span6', :rows => "5" %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :was_desision_grounded, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :was_desision_grounded, :class => 'check_box' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :does_pary_plans_to_complaint, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :does_pary_plans_to_complaint, :class => 'check_box' %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :describe_other_extra_env, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.text_area :describe_other_extra_env, :class => 'text_area span6', :rows => "5" %>
+       </div>
+     </div>
+     <div class="control-group">
+       <%= f.label :dec_form_id, :class => 'control-label' %>
+       <div class="controls">
+         <%= f.number_field :dec_form_id, :class => 'number_field' %>
+       </div>
+     </div>
+      <% if false %>
+        <div class="form-actions">
+          <%= f.submit nil, :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                      dec_form_children_path, :class => 'btn' %>
+        </div>
+     <% end %>
+<% end %>

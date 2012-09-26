@@ -1,0 +1,131 @@
+<%= form_for @pec_form, :html => { :class => 'form-horizontal' } do |f| %>
+   <table class="form_table">
+      <tr>
+         <td>1.</td>
+         <td>
+             <div class="control-group">
+                <%= f.label :election_district_number, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.number_field :election_district_number, :class => 'number_field' %>
+                </div>
+              </div>
+              <div class="control-group">
+                <%= f.label :election_precinct_number, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.number_field :election_precinct_number, :class => 'number_field' %>
+                </div>
+              </div>
+              <div class="control-group">
+                <%= f.label :observer_name, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.text_field :observer_name, :class => 'text_field' %>
+                </div>
+              </div>
+         </td>
+      </tr>
+      <tr>
+         <td>2.</td>
+         <td>
+               <div class="control-group">
+                <%= f.label :current_number_of_complaints, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.number_field :current_number_of_complaints, :class => 'number_field' %>
+                </div>
+              </div>
+         </td>
+      </tr>
+      <tr>
+         <td>3.</td>
+         <td>
+                <div class="control-group">
+                <%= f.label :complaint_author, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.text_area :complaint_author, :class => 'text_area span6', :rows => "5" %>
+                </div>
+              </div>
+         </td>
+      </tr>
+      <tr>
+         <td>4.</td>
+         <td>
+               <div class="control-group">
+                   <%= f.label :registered_or_not_complaint, :class => 'control-label' %>
+                   <div class="controls">
+                     <%= f.radio_button :registered_or_not_complaint, true %>
+                     <%= f.label t('form.radio_buttons.do_yes'), :for => 'pec_form_registered_or_not_complaint_true', :class => 'radio_label' %>
+                     <%= f.radio_button :registered_or_not_complaint, false %>
+                     <%= f.label t('form.radio_buttons.do_no'), :for => 'pec_form_registered_or_not_complaint_false', :class => 'radio_label' %>
+                   </div>
+                 </div>
+                 <div class="control-group registration-time">
+                   <%= f.label :registration_time, :class => 'control-label' %>
+                   <div class="controls">
+                     <%= f.text_field :registration_time %>
+                   </div>
+                 </div>
+                 <div class="control-group give-complaint-to-higher">
+                   <%= f.label :do_you_give_complaint_to_higher_commission, :class => 'control-label' %>
+                   <div class="controls">
+                     <%= f.radio_button :do_you_give_complaint_to_higher_commission, true %>
+                     <%= f.label t('form.radio_buttons.do_yes'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_true', :class => 'radio_label' %>
+                     <%= f.radio_button :do_you_give_complaint_to_higher_commission, false %>
+                     <%= f.label t('form.radio_buttons.do_no'), :for => 'pec_form_do_you_give_complaint_to_higher_commission_false', :class => 'radio_label' %>
+                   </div>
+                 </div>
+         </td>
+      </tr>
+      <tr>
+         <td>5.</td>
+         <td>
+             <div class="control-group">
+                <%= f.label :violation_essence, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.text_area :violation_essence, :class => 'text_area span6', :rows => "5" %>
+                </div>
+              </div>
+         </td>
+      </tr>
+      <tr>
+         <td>6.</td>
+         <td>
+             <div class="control-group">
+                <%= f.label :request, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.text_area :request, :class => 'text_area span6', :rows => "5" %>
+                </div>
+              </div>
+         </td>
+      </tr>
+      <tr>
+         <td>7.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :was_complaint_setisfied, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.radio_button :was_complaint_setisfied, true %>
+                  <%= f.label t("form.radio_buttons.do_yes"), :for => 'pec_form_was_complaint_setisfied_true', :class => 'radio_label' %>
+                  <%= f.radio_button :was_complaint_setisfied, false %>
+                  <%= f.label t("form.radio_buttons.do_no"), :for => 'pec_form_was_complaint_setisfied_false', :class => 'radio_label' %>
+                </div>
+              </div>
+         </td>
+      </tr>
+      <tr>
+         <td>8.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :other_extra_comments, :class => 'control-label' %>
+                <div class="controls">
+                  <%= f.text_area :other_extra_comments, :class => 'text_area span6', :rows => "5" %>
+                </div>
+              </div>
+         </td>
+      </tr>
+   </table>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('form.buttons.cancel'),
+                pec_forms_path, :class => 'btn' %>
+  </div>
+<% end %>

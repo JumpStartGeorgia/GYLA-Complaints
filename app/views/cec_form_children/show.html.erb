@@ -1,0 +1,55 @@
+<%- model_class = CecFormChild -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:cesko_complaint_author_sender) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_complaint_author_sender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:responder_district_election_commission) %>:</strong></dt>
+  <dd><%= @cec_form_child.responder_district_election_commission %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cesko_complaint_registration_time) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_complaint_registration_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:veiolation_essence) %>:</strong></dt>
+  <dd><%= @cec_form_child.veiolation_essence %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:request) %>:</strong></dt>
+  <dd><%= @cec_form_child.request %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cesko_complaint_discation_time) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_complaint_discation_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:where_parties_invited_on_descation) %>:</strong></dt>
+  <dd><%= @cec_form_child.where_parties_invited_on_descation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complaint_discation_people) %>:</strong></dt>
+  <dd><%= @cec_form_child.complaint_discation_people %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cesko_meeting_all_commission_members) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_meeting_all_commission_members %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cesko_meeting_report) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_meeting_report %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cesko_meeting_testimony_research) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_meeting_testimony_research %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:extra_comment) %>:</strong></dt>
+  <dd><%= @cec_form_child.extra_comment %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cesko_desision) %>:</strong></dt>
+  <dd><%= @cec_form_child.cesko_desision %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:was_desision_grounded) %>:</strong></dt>
+  <dd><%= @cec_form_child.was_desision_grounded %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:was_complained_the_desision) %>:</strong></dt>
+  <dd><%= @cec_form_child.was_complained_the_desision %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:was_web_announcement_made_on_complaint) %>:</strong></dt>
+  <dd><%= @cec_form_child.was_web_announcement_made_on_complaint %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:if_not_then_precincts_and_reasons) %>:</strong></dt>
+  <dd><%= @cec_form_child.if_not_then_precincts_and_reasons %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:describe_other_extra_environments) %>:</strong></dt>
+  <dd><%= @cec_form_child.describe_other_extra_environments %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              cec_form_children_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_cec_form_child_path(@cec_form_child), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              cec_form_child_path(@cec_form_child),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

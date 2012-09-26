@@ -1,5 +1,31 @@
 # encoding: utf-8
 en:
+  activerecord:
+      models:
+         pec_form: Pec Form
+      attributes:
+         pec_form:
+            election_district_number: Election district number
+            election_precinct_number: Election precinct number
+            observer_name: Observer name
+            current_number_of_complaints: Current number of complaints
+            complaint_author: Complaint author
+            registered_or_not_complaint: Registered or not the complaint?
+            registration_time: Registration time
+            do_you_give_complaint_to_higher_commission: Do you plan to give complaint to higher commission
+            violation_essence: Violation essence
+            request: Request
+            was_complaint_setisfied: Was complaint satisfied
+            other_extra_comments: Other extra comments
+  pec_form:
+      index:
+         title: precinct complaint statistic
+      buttons:
+         cancel: cancel
+         new: new
+      radio_buttons:
+         do_yes: yes
+         do_no: no
   app:
     language:
       en: English
@@ -20,7 +46,7 @@ en:
       confirm: Are you sure?
       new: New
     common:
-      app_name: Bootstrap Starter Project
+      app_name: GYLA Election Complaints/Observations
   layouts:
     application:
       admin: Admin

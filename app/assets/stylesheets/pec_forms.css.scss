@@ -1,0 +1,56 @@
+// Place all the styles related to the PECForms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.page-header h1 {
+   color: #555 !important;
+}
+
+.form_table, .index_table { 
+   width: 100%;
+   font-size: 15px;
+}
+
+.index_table tbody tr:hover {
+   cursor: pointer;
+   background: #CCC;
+}
+
+.index_table th, .index_table td, .form_table td {
+   border: 1px solid #000 !important;   
+   font-size: 12px;
+}
+
+.number_field, .text_area {
+   margin-top: 10px;
+}
+
+
+input[type=radio] {
+   margin-top: 10px;
+}
+
+label.radio_label {
+   width: 30px;
+   margin: 0;   
+   padding-left: 20px;
+   margin-top: -17px;
+}
+
+
+
+.dl-show dt {
+   width: 500px;
+   text-align: left;
+   word-wrap: break-word;
+}
+
+.dl-show dd {
+   height: 20px;
+}
+
+.dl-show {
+   line-height: 20px;
+}
+

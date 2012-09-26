@@ -1,0 +1,216 @@
+<%= nested_form_for @dec_form, :html => { :class => 'form-horizontal' } do |f| %>
+   <table class="form_table">
+      <tr>
+         <td>1.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :dec_total_complaints, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.number_field :dec_total_complaints, :class => 'number_field' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td>2.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :dec_journal_registration_yes_no, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+               <div class="controls">
+                  <%= f.radio_button :dec_journal_registration_yes_no, true %>
+                  <%= f.label :dec_journal_registration_yes_no_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+                  <%= f.radio_button :dec_journal_registration_yes_no, false %>
+                  <%= f.label :dec_journal_registration_yes_no_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+                </div>
+         </td>
+      </tr>
+      <tr>
+         <td>3.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :ped_entered_with_law, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :ped_entered_with_law, true %>
+               <%= f.label :ped_entered_with_law_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :ped_entered_with_law, false %>
+               <%= f.label :ped_entered_with_law_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+                <%= f.label :lonked_election_lists, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :lonked_election_lists, true %>
+               <%= f.label :lonked_election_lists_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :lonked_election_lists, false %>
+               <%= f.label :lonked_election_lists_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+               <%= f.label :complaints, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :complaints, true %>
+               <%= f.label :complaints_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :complaints, false %>
+               <%= f.label :complaints_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+               <%= f.label :get_send_act, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :get_send_act, true %>
+               <%= f.label :get_send_act_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :get_send_act, false %>
+               <%= f.label :get_send_act_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+               <%= f.label :describe_extra_env, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.text_area :describe_extra_env, :class => 'text_area span6', :rows => "5" %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td>4.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :was_canonical_procedures_done, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+
+            <div class="controls">               
+               <%= f.radio_button :was_canonical_procedures_done, 1 %>
+               <%= f.label :was_canonical_procedures_done_1, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :was_canonical_procedures_done, 2 %>
+               <%= f.label :was_canonical_procedures_done_2, t("form.radio_buttons.do_partialy"), :class => 'radio_label' %>
+               <%= f.radio_button :was_canonical_procedures_done, 0 %>
+               <%= f.label :was_canonical_procedures_done_0, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>        
+
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+                <%= f.label :where_props_filled, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :where_props_filled, true %>
+               <%= f.label :where_props_filled_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :where_props_filled, false %>
+               <%= f.label :where_props_filled_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+                <%= f.label :precinct_results_canel_proc, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :precinct_results_canel_proc, true %>
+               <%= f.label :precinct_results_canel_proc_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :precinct_results_canel_proc, false %>
+               <%= f.label :precinct_results_canel_proc_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+               <%= f.label :commission_summary_report_publicity, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :commission_summary_report_publicity, true %>
+               <%= f.label :commission_summary_report_publicity_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :commission_summary_report_publicity, false %>
+               <%= f.label :commission_summary_report_publicity_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <div class="control-group">
+               <%= f.label :extra_env_describe, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.text_area :extra_env_describe, :class => 'text_area span6', :rows => "5" %>
+             </div>
+         </td>
+      </tr>
+      <tr>
+         <td>5.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :summed_up_or_not_summary_reports, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.radio_button :summed_up_or_not_summary_reports, true %>
+               <%= f.label :summed_up_or_not_summary_reports_true, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
+               <%= f.radio_button :summed_up_or_not_summary_reports, false %>
+               <%= f.label :summed_up_or_not_summary_reports_false, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
+             </div>
+         </td>
+      </tr>
+   </table>
+
+   <%= f.fields_for :dec_form_children %>
+   <p><%= f.link_to_add "Add", :dec_form_children, :class => 'btn btn-primary' %></p>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                dec_forms_path, :class => 'btn' %>
+  </div>
+<% end %>

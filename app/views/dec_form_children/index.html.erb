@@ -1,0 +1,68 @@
+<%- model_class = DecFormChild -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:complaint_author_presentator) %></th>
+      <th><%= model_class.human_attribute_name(:response_precinct_commission) %></th>
+      <th><%= model_class.human_attribute_name(:complaint_district_registration_time) %></th>
+      <th><%= model_class.human_attribute_name(:violation_essence) %></th>
+      <th><%= model_class.human_attribute_name(:request) %></th>
+      <th><%= model_class.human_attribute_name(:complaint_disscusion_time) %></th>
+      <th><%= model_class.human_attribute_name(:where_parties_invited_to_disscusion) %></th>
+      <th><%= model_class.human_attribute_name(:disscusion_people) %></th>
+      <th><%= model_class.human_attribute_name(:all_commission_memebers_attended) %></th>
+      <th><%= model_class.human_attribute_name(:report_while_meeting) %></th>
+      <th><%= model_class.human_attribute_name(:testimonies_investigation_evaluation) %></th>
+      <th><%= model_class.human_attribute_name(:extra_comments) %></th>
+      <th><%= model_class.human_attribute_name(:dec_desision) %></th>
+      <th><%= model_class.human_attribute_name(:was_desision_grounded) %></th>
+      <th><%= model_class.human_attribute_name(:does_pary_plans_to_complaint) %></th>
+      <th><%= model_class.human_attribute_name(:describe_other_extra_env) %></th>
+      <th><%= model_class.human_attribute_name(:dec_form_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dec_form_children.each do |dec_form_child| %>
+      <tr>
+        <td><%= link_to dec_form_child.id, dec_form_child_path(dec_form_child) %></td>
+        <td><%= dec_form_child.complaint_author_presentator %></td>
+        <td><%= dec_form_child.response_precinct_commission %></td>
+        <td><%= dec_form_child.complaint_district_registration_time %></td>
+        <td><%= dec_form_child.violation_essence %></td>
+        <td><%= dec_form_child.request %></td>
+        <td><%= dec_form_child.complaint_disscusion_time %></td>
+        <td><%= dec_form_child.where_parties_invited_to_disscusion %></td>
+        <td><%= dec_form_child.disscusion_people %></td>
+        <td><%= dec_form_child.all_commission_memebers_attended %></td>
+        <td><%= dec_form_child.report_while_meeting %></td>
+        <td><%= dec_form_child.testimonies_investigation_evaluation %></td>
+        <td><%= dec_form_child.extra_comments %></td>
+        <td><%= dec_form_child.dec_desision %></td>
+        <td><%= dec_form_child.was_desision_grounded %></td>
+        <td><%= dec_form_child.does_pary_plans_to_complaint %></td>
+        <td><%= dec_form_child.describe_other_extra_env %></td>
+        <td><%= dec_form_child.dec_form_id %></td>
+        <td><%=l dec_form_child.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_dec_form_child_path(dec_form_child), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      dec_form_child_path(dec_form_child),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_dec_form_child_path,
+            :class => 'btn btn-primary' %>

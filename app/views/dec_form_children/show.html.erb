@@ -1,0 +1,53 @@
+<%- model_class = DecFormChild -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:complaint_author_presentator) %>:</strong></dt>
+  <dd><%= @dec_form_child.complaint_author_presentator %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:response_precinct_commission) %>:</strong></dt>
+  <dd><%= @dec_form_child.response_precinct_commission %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complaint_district_registration_time) %>:</strong></dt>
+  <dd><%= @dec_form_child.complaint_district_registration_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:violation_essence) %>:</strong></dt>
+  <dd><%= @dec_form_child.violation_essence %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:request) %>:</strong></dt>
+  <dd><%= @dec_form_child.request %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complaint_disscusion_time) %>:</strong></dt>
+  <dd><%= @dec_form_child.complaint_disscusion_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:where_parties_invited_to_disscusion) %>:</strong></dt>
+  <dd><%= @dec_form_child.where_parties_invited_to_disscusion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:disscusion_people) %>:</strong></dt>
+  <dd><%= @dec_form_child.disscusion_people %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:all_commission_memebers_attended) %>:</strong></dt>
+  <dd><%= @dec_form_child.all_commission_memebers_attended %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:report_while_meeting) %>:</strong></dt>
+  <dd><%= @dec_form_child.report_while_meeting %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:testimonies_investigation_evaluation) %>:</strong></dt>
+  <dd><%= @dec_form_child.testimonies_investigation_evaluation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:extra_comments) %>:</strong></dt>
+  <dd><%= @dec_form_child.extra_comments %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dec_desision) %>:</strong></dt>
+  <dd><%= @dec_form_child.dec_desision %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:was_desision_grounded) %>:</strong></dt>
+  <dd><%= @dec_form_child.was_desision_grounded %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:does_pary_plans_to_complaint) %>:</strong></dt>
+  <dd><%= @dec_form_child.does_pary_plans_to_complaint %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:describe_other_extra_env) %>:</strong></dt>
+  <dd><%= @dec_form_child.describe_other_extra_env %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dec_form_id) %>:</strong></dt>
+  <dd><%= @dec_form_child.dec_form_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              dec_form_children_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_dec_form_child_path(@dec_form_child), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              dec_form_child_path(@dec_form_child),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

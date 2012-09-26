@@ -16,16 +16,26 @@ BootstrapStarter::Application.routes.draw do
 
   match '/unlink/:file_id', :to => 'complaints#unlink', :as => :unlink, :via => :get
 
-	devise_for :users
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  resources :cec_form_children
+
+  resources :cec_forms
+
+  resources :dec_form_children
+
+  resources :dec_forms
+
+  resources :pec_forms
+
+  resources :complaints
 
 	namespace :admin do
 		resources :users
 	end
 
-	match '/admin', :to => 'admin#index', :as => :admin, :via => :get
+	devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
 	root :to => 'root#index'
 
