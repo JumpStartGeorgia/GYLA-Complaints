@@ -31,6 +31,7 @@ BootstrapStarter::Application.routes.draw do
 	namespace :admin do
 		resources :users
 	end
+	match '/admin', :to => 'admin#index', :as => :admin, :via => :get
 
 	devise_for :users
   devise_scope :user do
