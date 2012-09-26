@@ -65,7 +65,6 @@
   </div>
 
 
-	<hr />
   <h3>File Attachments</h3>
 
   <% files = @complaint.complaint_files.observers %>
@@ -106,23 +105,20 @@
 	<hr />
 
 	<h3><%= "Complaint" %></h3>
-	<div class="nested_form_container">
-		<% if @complaint.complaint_additional_infos.length == 1 && @complaint.complaint_additional_infos.first.level.nil? %>
+	<% if @complaint.complaint_additional_infos.length == 1 && @complaint.complaint_additional_infos.first.level.nil? %>
+		<%= render :partial => "complaints/complaint_additional_info_fields",
+				:locals => {:type => 'new', :form => f, :record => @complaint.complaint_additional_infos.first} %>
+	<% else %>
+		<% @complaint.complaint_additional_infos.each do |additional_info| %>
 			<%= render :partial => "complaints/complaint_additional_info_fields",
-					:locals => {:type => 'new', :form => f, :record => @complaint.complaint_additional_infos.first} %>
-		<% else %>
-			<% @complaint.complaint_additional_infos.each do |additional_info| %>
-				<%= render :partial => "complaints/complaint_additional_info_fields",
-						:locals => {:type => 'edit', :form => f, :record => additional_info} %>
-				<hr />
-			<% end %>
-			<% if @complaint.available_levels && !@complaint.available_levels.empty? %>
-				<%= render :partial => "complaints/complaint_additional_info_fields",
-						:locals => {:type => 'next_level', :form => f, :record => @complaint.complaint_additional_infos.build} %>
-			<% end %>
+					:locals => {:type => 'edit', :form => f, :record => additional_info} %>
+			<hr />
 		<% end %>
-
-	</div>
+		<% if @complaint.available_levels && !@complaint.available_levels.empty? %>
+			<%= render :partial => "complaints/complaint_additional_info_fields",
+					:locals => {:type => 'next_level', :form => f, :record => @complaint.complaint_additional_infos.build} %>
+		<% end %>
+	<% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

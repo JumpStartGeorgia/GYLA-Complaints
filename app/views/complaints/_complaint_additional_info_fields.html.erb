@@ -3,7 +3,7 @@
 	  <div class="control-group">
 	    <%= form.label :level, :class => 'control-label' %>
 	    <div class="controls">
-	      <%= form.select :level, Complaint::LEVELS %>
+	      <%= form.select :level, Complaint::LEVELS, :include_blank => true %>
 	    </div>
 	  </div>
 	<% end %>
@@ -19,7 +19,7 @@
 			<div class="control-group">
 				<%= additional_info.label :level, :class => 'control-label' %>
 				<div class="controls">
-				  <%= additional_info.select :level, @complaint.available_levels %>
+				  <%= additional_info.select :level, @complaint.available_levels, :include_blank => true %>
 				</div>
 			</div>
 		<% else %>

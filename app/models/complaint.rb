@@ -38,9 +38,7 @@ class Complaint < ActiveRecord::Base
 	# get all of the levels that are not in use
 	def available_levels
 		in_use = self.complaint_additional_infos.collect(&:level)
-logger.debug "in use = #{in_use}"
 		if in_use && !in_use.empty?
-logger.debug " - records are in use, checking for avilable"
 
 			available_levels = []
 			LEVELS.each do |level|
@@ -48,11 +46,8 @@ logger.debug " - records are in use, checking for avilable"
 					available_levels << level
 				end
 			end
-logger.debug " - available levels = #{available_levels}"
-			# add empty record at front
-			return available_levels.insert(0,[]) if !available_levels.empty?
+			return available_levels if !available_levels.empty?
 		else
-logger.debug " - all levels available"
 			# all levels are available
 			return LEVELS
 		end
