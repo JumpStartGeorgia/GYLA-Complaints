@@ -48,7 +48,7 @@ class CecFormsController < ApplicationController
 
     respond_to do |format|
       if @cec_form.save
-        format.html { redirect_to cec_forms_path, notice: 'Cec form was successfully created.' }
+        format.html { redirect_to cec_forms_path, notice: I18n.t('cec_form.notice.create') }
         format.json { render json: @cec_form, status: :created, location: @cec_form }
       else
 		    gon.edit_cec_form = true
@@ -66,7 +66,7 @@ class CecFormsController < ApplicationController
 
     respond_to do |format|
       if @cec_form.update_attributes(params[:cec_form])
-        format.html { redirect_to @cec_form, notice: 'Cec form was successfully updated.' }
+        format.html { redirect_to @cec_form, notice: I18n.t('cec_form.notice.update') }
         format.json { head :ok }
       else
 		    gon.edit_cec_form = true

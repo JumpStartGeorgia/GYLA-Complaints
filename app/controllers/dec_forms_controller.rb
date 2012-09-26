@@ -47,7 +47,7 @@ class DecFormsController < ApplicationController
 
     respond_to do |format|
       if @dec_form.save
-        format.html { redirect_to dec_forms_path, notice: 'Dec form was successfully created.' }
+        format.html { redirect_to dec_forms_path, notice: I18n.t('dec_form.notice.create') }
         format.json { render json: @dec_form, status: :created, location: @dec_form }
       else
 		    gon.edit_dec_form = true
@@ -64,7 +64,7 @@ class DecFormsController < ApplicationController
 
     respond_to do |format|
       if @dec_form.update_attributes(params[:dec_form])
-        format.html { redirect_to @dec_form, notice: 'Dec form was successfully updated.' }
+        format.html { redirect_to @dec_form, notice: I18n.t('dec_form.notice.update') }
         format.json { head :ok }
       else
 		    gon.edit_dec_form = true

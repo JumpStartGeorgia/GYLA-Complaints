@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925145124) do
+ActiveRecord::Schema.define(:version => 20120926141151) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(:version => 20120925145124) do
     t.text     "description_how_transparent"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cesko_list_observer"
+    t.string   "monitoring_time"
+    t.string   "organization_name"
   end
 
   create_table "complaint_additional_infos", :force => true do |t|
@@ -143,6 +146,10 @@ ActiveRecord::Schema.define(:version => 20120925145124) do
     t.boolean  "summed_up_or_not_summary_reports"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "district_name_id"
+    t.string   "observer_name"
+    t.string   "monitoring_time"
+    t.string   "organisation_name"
   end
 
   create_table "district_id_names", :force => true do |t|

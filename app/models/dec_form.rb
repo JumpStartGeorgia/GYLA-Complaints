@@ -1,8 +1,14 @@
 class DecForm < ActiveRecord::Base
    has_many :dec_form_children, :dependent => :destroy
    accepts_nested_attributes_for :dec_form_children, :allow_destroy => true
-
-  attr_accessible :dec_form_children_attributes,
+   
+  validates :district_name_id, :presence => true
+   
+  attr_accessible :district_name_id,
+      :observer_name,
+      :monitoring_time,
+      :organisation_name,
+      :dec_form_children_attributes,      
 		:dec_total_complaints,
 		:dec_journal_registration_yes_no,
 		:ped_entered_with_law,
@@ -17,4 +23,12 @@ class DecForm < ActiveRecord::Base
 		:extra_env_describe,
 		:summed_up_or_not_summary_reports
 
+   def district_name
+      district = DistrictIdName.where("district_id = ?", self.district_name_id)
+      if district.length > 0
+         return district[0].district_name
+      else
+         return 0
+      end
+   end   
 end

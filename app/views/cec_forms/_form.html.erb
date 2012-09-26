@@ -1,8 +1,47 @@
 <%= nested_form_for @cec_form, :html => { :class => 'form-horizontal' } do |f| %>
-
+   <%= f.error_messages %>
    <table class="form_table">
       <tr>
          <td>1.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :cesko_list_observer, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>  
+            <div class="controls">
+                <%= f.text_field :cesko_list_observer, :class => 'text_field' %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>2.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :monitoring_time, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>  
+            <div class="controls">
+                <%= f.text_field :monitoring_time, :class => 'text_field' %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>3.</td>
+         <td>
+            <div class="control-group">
+                <%= f.label :organization_name, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>  
+            <div class="controls">
+                <%= f.text_field :organization_name, :class => 'text_field' %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>4.</td>
          <td>
             <div class="control-group">
                 <%= f.label :cesko_summary_report_input, :class => 'control-label' %>
@@ -31,7 +70,7 @@
          </td>
       </tr>
       <tr>
-         <td>2.</td>
+         <td>5.</td>
          <td>
             <div class="control-group">
                 <%= f.label :cesko_election_summary_after_one_day, :class => 'control-label' %>
@@ -60,7 +99,7 @@
          </td>
       </tr>
       <tr>
-         <td>3.</td>
+         <td>6.</td>
          <td>
              <div class="control-group">
                 <%= f.label :cesko_report_web_translition, :class => 'control-label' %>
@@ -89,7 +128,7 @@
          </td>
       </tr>
       <tr>
-         <td>4.</td>
+         <td>7.</td>
          <td>
             <div class="control-group">
                 <%= f.label :cesko_summary_process_transparently, :class => 'control-label' %>
@@ -120,7 +159,7 @@
    </table>
 
   <%= f.fields_for :cec_form_children %>
-  <p><%= f.link_to_add "Add", :cec_form_children, :class => 'btn btn-primary' %></p>
+  <p><%= f.link_to_add t('form.buttons.add'), :cec_form_children, :class => 'btn btn-primary' %></p>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
