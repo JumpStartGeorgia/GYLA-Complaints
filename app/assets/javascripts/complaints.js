@@ -54,20 +54,22 @@ $(function ()
 
   $('.file_attachment_add').click(function ()
   {
-    var type = $(this).data('type');
-    if (type == 'observer')
-    {
-    }
-    else if (type == 'other')
-    {
-    }
-
     uniqi ++;
+
+    var type = $(this).data('type');
+    if (type != 'general')
+    {
+      hiddenval = '<input type="hidden" value="' + $(this).data('additionalid') + '" name="complaint[complaint_files_attributes][new_' + uniqi + '][additional_info_id]" />';
+    }
+    else
+    {
+      hiddenval = '';
+    }
 
     var last = $(this)
         .closest('.file_attachments')
         .find('.file_fields')
-        .append('<div class=\'file_field control-group hidden\'><div class=\'controls\'><input type=\'hidden\' value=\'observer\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][' + type + ']\' /><input class=\'text_field\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][file]\' type=\'file\'> <a href=\'javascript:;\' class=\'file_attachment_remove\'>ფაილის წაშლა</a></div></div>')
+        .append('<div class=\'file_field control-group hidden\'><div class=\'controls span5\'><input type=\'hidden\' value=\'' + type + '\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][attachment_type]\' />' + hiddenval + '<input class=\'text_field left\' name=\'complaint[complaint_files_attributes][new_' + uniqi + '][file]\' type=\'file\'> <a href=\'javascript:;\' class=\'file_attachment_remove right\'>ფაილის წაშლა</a></div></div>')
         .children()
         .last();
 

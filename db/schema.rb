@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925145124) do
+ActiveRecord::Schema.define(:version => 20120926194627) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120925145124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment_type"
+    t.string   "additional_info_id"
   end
 
   add_index "complaint_files", ["complaint_id"], :name => "index_complaint_files_on_complaint_id"

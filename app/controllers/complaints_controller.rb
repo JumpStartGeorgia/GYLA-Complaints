@@ -58,9 +58,12 @@ class ComplaintsController < ApplicationController
     @complaint = Complaint.new(params[:complaint])
 logger.debug "------- add info records = #{params[:complaint][:complaint_additional_infos_attributes]}"
 
+    saved = @complaint.save
+
+    update_files if saved
 
     respond_to do |format|
-      if @complaint.save
+      if saved
         format.html { redirect_to @complaint, notice: 'Complaint was successfully created.' }
         format.json { render json: @complaint, status: :created, location: @complaint }
       else
@@ -79,8 +82,12 @@ logger.debug "------- add info records = #{params[:complaint][:complaint_additio
   def update
     @complaint = Complaint.find(params[:id])
 
+    updated = @complaint.update_attributes(params[:complaint])
+
+    update_files if updated
+
     respond_to do |format|
-      if @complaint.update_attributes(params[:complaint])
+      if updated
         format.html { redirect_to @complaint, notice: 'Complaint was successfully updated.' }
         format.json { head :ok }
       else
@@ -115,6 +122,29 @@ logger.debug "------- add info records = #{params[:complaint][:complaint_additio
     respond_to do |format|
       format.html { render json: true }
       format.json { render json: true }
+    end
+  end
+
+
+  def update_files
+    attr = params[:complaint][:complaint_additional_infos_attributes]
+    level = attr[(attr.length - 1).to_s][:level]
+    if !level.nil? && (['dec', 'pec', 'cec', 'court'].include? level.downcase)
+      ne = @complaint.complaint_files.not_existing
+      if !ne.empty?
+        ne.each do |c|
+          c.additional_info_id = @complaint.additional.last.id
+          c.save
+        end
+      end
+    end
+    ne = @complaint.complaint_files.not_existing
+    if !ne.empty?
+      ne.each do |c|
+        c.file = nil
+        c.save
+        c.delete
+      end
     end
   end
 

@@ -13,7 +13,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= t('activerecord.attributes.complaint.original_level') %></th>
+      <th><%= t('activerecord.attributes.complaint.level') %></th>
       <th><%= t('activerecord.attributes.complaint_additional_info.status') %></th>
       <th><%= t('activerecord.attributes.complaint_additional_info.complaint_writing_time') %></th>
       <th><%= t('activerecord.attributes.complaint.violation_time') %></th>
@@ -24,7 +24,7 @@
     <% @complaints.each do |complaint| %>
       <tr>
         <td>
-          <% link_text = complaint.original_level.to_s.length > 0 ? complaint.original_level.to_s.upcase : t('app.common.empty') %>
+          <% link_text = complaint.additional.latest.level.to_s.length > 0 ? complaint.additional.latest.level.to_s.upcase : t('app.common.empty') %>
 					<%= link_to link_text, complaint_path(complaint) %>
 				</td>
 				<td>

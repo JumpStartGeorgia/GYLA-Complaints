@@ -1,0 +1,11 @@
+.file_attachments .controls .left {
+  display: block;
+  float: left;
+}
+
+.file_attachments .controls .right {
+  display: block;
+  float: right;
+}
+
+

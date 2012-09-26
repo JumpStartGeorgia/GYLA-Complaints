@@ -35,8 +35,13 @@ class Complaint < ActiveRecord::Base
   end
 
 	LEVELS = [['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['Court', 'court']]
-	# get all of the levels that are not in use
+	# get all of the levels that are higher than the current one
 	def available_levels
+
+    l = ['pec', 'dec', 'cec', 'court']
+    return LEVELS[(l.index(self.additional.latest.level.downcase) + 1)..3]
+
+=begin
 		in_use = self.complaint_additional_infos.collect(&:level)
 		if in_use && !in_use.empty?
 
@@ -51,6 +56,7 @@ class Complaint < ActiveRecord::Base
 			# all levels are available
 			return LEVELS
 		end
+=end
 	end
 
 end

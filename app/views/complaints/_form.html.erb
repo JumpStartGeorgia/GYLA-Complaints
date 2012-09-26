@@ -1,6 +1,12 @@
 <%= form_for @complaint, :html => { :class => 'form-horizontal', :enctype => "multipart/form-data" } do |f| %>
 
-	<h3><%= "General Information" %></h3>
+	<h3><%= t('form.headers.general_information') %></h3>
+  <div class="control-group">
+    <%= f.label :observer_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :observer_name, :class => 'text_field' %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :observer_address, :class => 'control-label' %>
     <div class="controls">
@@ -64,48 +70,50 @@
     </div>
   </div>
 
+  <div class="file_attachments">
+    <h4><%= t('form.headers.file_attachments') %></h4>
 
-  <h3>File Attachments</h3>
+    <% files = @complaint.complaint_files.general %>
+    <%# abort files.inspect %>
+    <% files_exist = (!files.nil? && !files.empty?) %>
 
-  <% files = @complaint.complaint_files.observers %>
-  <% files_exist = (!files.nil? && !files.empty?) %>
-
-  <div class="file_files">
-    <% if files_exist %>
-      <% files.each do |file| %>
-        <div class="file_field control-group">
-          <div class="controls">
-            <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
-            <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>"><%= t('app.buttons.remove_file') %></a>
+    <div class="file_files">
+      <% if files_exist %>
+        <% files.each do |file| %>
+          <div class="file_field control-group">
+            <div class="controls span5">
+              <%= link_to file.file_file_name, file.file.url, :target => '_blank', :class => 'left' %>
+              <a href="javascript:;" class="file_attachment_remove perm right" data-id="<%= file.id %>"><%= t('app.buttons.remove_file') %></a>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-
-  <div class="file_fields">
-    <% @uniqi = files_exist ? (@complaint.complaint_files.count + 1) : 0;  %>
-
-    <div class="file_field control-group">
-      <div class="controls">
-        <input type="hidden" value="observer" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][attachment_type]" />
-        <input type="file" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][file]"
-               class="text_field" data-uniqi="<%= @uniqi %>" />
-        <a href="javascript:;" class="file_attachment_remove"><%= t('app.buttons.remove_file') %></a>
-      </div>
-
     </div>
-  </div>
 
-  <div class="file_add_button control-group">
-    <div class="controls">
-      <a href="javascript:;" data-type="observer" class="file_attachment_add"><%= t('app.buttons.add_file') %></a>
+    <div class="file_fields">
+      <% @uniqi = files_exist ? (@complaint.complaint_files.count + 1) : 0;  %>
+
+      <div class="file_field control-group">
+        <div class="controls span5">
+          <input type="hidden" value="general" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][attachment_type]" />
+          <input type="file" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][file]"
+                 class="text_field left" data-uniqi="<%= @uniqi %>" />
+          <a href="javascript:;" class="file_attachment_remove right"><%= t('app.buttons.remove_file') %></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="file_add_button control-group">
+      <div class="controls">
+        <a href="javascript:;" data-type="general" class="file_attachment_add"><%= t('app.buttons.add_file') %></a>
+      </div>
     </div>
   </div>
 
 	<hr />
 
-	<h3><%= "Complaint" %></h3>
+	<h3><%= t('form.headers.complaint') %></h3>
 	<% if @complaint.complaint_additional_infos.length == 1 && @complaint.complaint_additional_infos.first.level.nil? %>
 		<%= render :partial => "complaints/complaint_additional_info_fields",
 				:locals => {:type => 'new', :form => f, :record => @complaint.complaint_additional_infos.first} %>

@@ -1,82 +1,81 @@
 <% if type == "new" %>
 	<% if (@level_editable.nil?) || (!@level_editable.nil? && @level_editable) %>
 	  <div class="control-group">
-	    <%= form.label :level, :class => 'control-label' %>
+	    <%= form.label :level, t('activerecord.attributes.complaint_additional_info.level'), :class => 'control-label' %>
 	    <div class="controls">
 	      <%= form.select :level, Complaint::LEVELS, :include_blank => true %>
 	    </div>
 	  </div>
 	<% end %>
 <% end %>
-
 <%= form.fields_for :complaint_additional_infos, record do |additional_info| %>
   <% attr = (!@complaint.nil? && !@complaint.level.nil? && @complaint.level.length > 0) ? '' : 'style="display: none;"'.html_safe %>
   <div class="after_level_select" <%= attr %>>
 		<% if type == "new" %>
 	    <%= additional_info.hidden_field :level %>
 		<% elsif type == "next_level" %>
-			<h4><%= "Move to Next Level" %></h4>
+			<h4><%= t('form.headers.move_to_next_level') %></h4>
 			<div class="control-group">
-				<%= additional_info.label :level, :class => 'control-label' %>
+				<%= additional_info.label :level, t('activerecord.attributes.complaint_additional_info.level'), :class => 'control-label' %>
 				<div class="controls">
 				  <%= additional_info.select :level, @complaint.available_levels, :include_blank => true %>
 				</div>
 			</div>
 		<% else %>
-			<h4><%= record.level %></h4>
+			<h4><%= (record.level == 'court') ? record.level.humanize : record.level.upcase %></h4>
 		<% end %>
 
 
 		<div class="control-group">
-		  <%= additional_info.label :status_id, :class => 'control-label' %>
+		  <%= additional_info.label :status_id, t('activerecord.attributes.complaint_additional_info.status'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.select :status_id, [[]] + Status.all.collect { |d| [d[:title], d[:id]] } %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :complaint_author_name, :class => 'control-label' %>
+		  <%= additional_info.label :complaint_author_name, t('activerecord.attributes.complaint_additional_info.complaint_author_name'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_field :complaint_author_name, :class => 'text_field' %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :complaint_author_phone, :class => 'control-label' %>
+		  <%= additional_info.label :complaint_author_phone, t('activerecord.attributes.complaint_additional_info.complaint_author_phone'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_field :complaint_author_phone, :class => 'text_field' %>
 		  </div>
 		</div>
 		<div class="hidden court control-group">
-		  <%= additional_info.label :court_name, :class => 'control-label' %>
+		  <%= additional_info.label :court_name, t('activerecord.attributes.complaint_additional_info.court_name'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_area :court_name, :class => 'text_area span6', :rows => 3 %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :complaint_writing_time, :class => 'control-label' %>
+		  <%= additional_info.label :complaint_writing_time, t('activerecord.attributes.complaint_additional_info.complaint_writing_time'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_field :complaint_writing_time %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :request_in_complaint, :class => 'control-label' %>
+		  <%= additional_info.label :request_in_complaint, t('activerecord.attributes.complaint_additional_info.request_in_complaint'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_area :request_in_complaint, :class => 'text_area span6', :rows => 3 %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :response_date, :class => 'control-label' %>
+		  <%= additional_info.label :response_date, t('activerecord.attributes.complaint_additional_info.response_date'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_field :response_date %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :complaint_result, :class => 'control-label' %>
+		  <%= additional_info.label :complaint_result, t('activerecord.attributes.complaint_additional_info.complaint_result'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_area :complaint_result, :class => 'text_area span6', :rows => 3 %>
 		  </div>
 		</div>
 		<div class="control-group">
-		  <%= additional_info.label :additional_comment, :class => 'control-label' %>
+		  <%= additional_info.label :additional_comment, t('activerecord.attributes.complaint_additional_info.additional_comment'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_area :additional_comment, :class => 'text_area span6', :rows => 3 %>
 		  </div>
@@ -84,18 +83,18 @@
 
 
 		<div class="file_attachments">
-		  <h3>File Attachments</h3>
+		  <h4><%= t('form.headers.file_attachments') %></h4>
 
-		  <% files = @complaint.complaint_files.others %>
+		  <% files = @complaint.complaint_files.additional.files_for(record.id) %>
 		  <% files_exist = (!files.nil? && !files.empty?) %>
 
 		  <div class="file_files">
 		    <% if files_exist %>
 		      <% files.each do |file| %>
 		        <div class="file_field control-group">
-		          <div class="controls">
-		            <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
-		            <a href="javascript:;" class="file_attachment_remove perm" data-id="<%= file.id %>"><%= t('app.buttons.remove_file') %></a>
+		          <div class="controls span5">
+		            <%= link_to file.file_file_name, file.file.url, :target => '_blank', :class => 'left' %>
+		            <a href="javascript:;" class="file_attachment_remove perm right" data-id="<%= file.id %>"><%= t('app.buttons.remove_file') %></a>
 		          </div>
 		        </div>
 		      <% end %>
@@ -106,18 +105,20 @@
 		    <% @uniqi = @uniqi + 1  %>
 
 		    <div class="file_field control-group">
-		      <div class="controls">
-		        <input type="hidden" value="other" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][attachment_type]" />
+		      <div class="controls span5">
+		        <input type="hidden" value="additional" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][attachment_type]" />
+		        <% hiddenval = (type == 'edit') ? record.id : 'not_existing' %>
+		        <input type="hidden" value="<%= hiddenval %>" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][additional_info_id]" />
 		        <input type="file" name="complaint[complaint_files_attributes][new_<%= @uniqi %>][file]"
-		               class="text_field" data-uniqi="<%= @uniqi %>" />
-		        <a href="javascript:;" class="file_attachment_remove"><%= t('app.buttons.remove_file') %></a>
+		               class="text_field left" data-uniqi="<%= @uniqi %>" />
+		        <a href="javascript:;" class="file_attachment_remove right"><%= t('app.buttons.remove_file') %></a>
 		      </div>
 		    </div>
 		  </div>
 
 		  <div class="file_add_button control-group">
 		    <div class="controls">
-		      <a href="javascript:;" data-type="other" class="file_attachment_add"><%= t('app.buttons.add_file') %></a>
+		      <a href="javascript:;" data-type="additional" data-additionalid="<%= hiddenval %>" class="file_attachment_add"><%= t('app.buttons.add_file') %></a>
 		    </div>
 		  </div>
 	  </div>

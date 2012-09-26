@@ -4,6 +4,7 @@ ka:
     models:
       category: კატეგორია
       complaint: საჩივარი
+      complaint_additional_info: დამატებითი ინფორმაცია
       election_district_name: საარჩევნო ოლქის სახელი
       election_precinct_number: საარჩევნო უბნის ნომერი
       status: საჩივრის მიმდინარეობა
@@ -32,6 +33,7 @@ ka:
         witness: მოწმე (არსებობის შემთხვევაში)
         violator_info: დამრღვევის დადგენის შემთხვევაში (მისი ის მონაცემები, რომელთა დადგენაც შესაძლებელი გახდა) და დამრღვევის ახსნა-განმარტება (ასეთის არსებობის შემთხვევაში)
         other_info: სხვა დამატებითი ინფორმაცია
+        level: დონე
       complaint_additional_info:
         complaint_writing_time: საჩივრის დაწერის დრო
         status: საჩივრის მიმდინარეობა
@@ -42,6 +44,7 @@ ka:
         response_date: პასუხის მოსვლის დრო
         complaint_result: საჩივრის შედეგი
         additional_comment: დამატებითი კომენტარი
+        level: დონე
       election_district_name:
         title: სახელი
       election_precinct_number:
@@ -141,6 +144,11 @@ ka:
          do_partialy: ნაწილობრივ
          do_yes: დიახ
          do_no: არა
+      headers:
+        file_attachments: დანართი მასალა (ფაილები)
+        general_information: მთავარი ინფორმაცია
+        complaint: საჩივარი
+        move_to_next_level: შემდეგ დონეზე გადასვლა
   app:
     language:
       en: English

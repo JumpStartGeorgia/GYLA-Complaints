@@ -80,7 +80,7 @@
       <%= @complaint.other_info %>
     </div>
     <div class="">
-      <% files = @complaint.complaint_files.observers %>
+      <% files = @complaint.complaint_files.general %>
       <% files_exist = (!files.nil? && !files.empty?) %>
       <% if files_exist %>
         <% files.each do |file| %>
@@ -166,11 +166,8 @@
       <div class="">
         <%= info.additional_comment %>
       </div>
-<!--######################################################
-  let's leave this for now
-  until the nested stuff is done
       <div class="">
-        <% files = @complaint.complaint_files.others %>
+        <% files = @complaint.complaint_files.additional.files_for(info.id) %>
         <% files_exist = (!files.nil? && !files.empty?) %>
         <% if files_exist %>
           <% files.each do |file| %>
@@ -181,7 +178,6 @@
         <% end %>
 
       </div>
--->
     </div>
   </div>
 <% end %>
@@ -198,8 +194,8 @@
               :data => { :confirm => t('app.buttons.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 
-    <% if @complaint.level && @complaint.level.downcase != 'court' %>
-      <%= link_to 'Move to higher level',
+    <% if @complaint.additional.latest.level && @complaint.additional.latest.level.downcase != 'court' %>
+      <%= link_to t('form.headers.move_to_next_level'),
                   edit_complaint_path(@complaint, :next_level => true), :class => 'btn', :style => 'margin-left: 35px;' %>
     <% end %>
 
