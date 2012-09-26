@@ -268,11 +268,11 @@ input::-webkit-inner-spin-button {
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 
-
+/*
 .span12 {
    overflow:
 }
-
+*/
 .complaints {
    background: #CCC;
    border-bottom: 1px solid #000;
