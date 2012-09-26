@@ -24,6 +24,15 @@ class Complaint < ActiveRecord::Base
 			:violator_info,
 			:other_info
 
+  validates :observer_name,
+			:observer_address,
+			:observer_phone,
+			:election_district_name,
+			:election_precinct_number,
+			:category_id,
+			:violation_type_id,
+			:violation_time, :presence => true
+
 	before_create :set_values
 
 	def set_values
