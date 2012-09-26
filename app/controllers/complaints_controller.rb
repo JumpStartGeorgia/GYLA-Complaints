@@ -64,7 +64,7 @@ logger.debug "------- add info records = #{params[:complaint][:complaint_additio
 
     respond_to do |format|
       if saved
-        format.html { redirect_to @complaint, notice: 'Complaint was successfully created.' }
+        format.html { redirect_to @complaint, notice: I18n.t('complaints.notice.create') }
         format.json { render json: @complaint, status: :created, location: @complaint }
       else
 				# to initialize the datetime fields
@@ -88,7 +88,7 @@ logger.debug "------- add info records = #{params[:complaint][:complaint_additio
 
     respond_to do |format|
       if updated
-        format.html { redirect_to @complaint, notice: 'Complaint was successfully updated.' }
+        format.html { redirect_to @complaint, notice: I18n.t('complaints.notice.update') }
         format.json { head :ok }
       else
 				# to initialize the datetime fields

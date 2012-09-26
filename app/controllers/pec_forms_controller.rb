@@ -49,7 +49,7 @@ class PecFormsController < ApplicationController
 
     respond_to do |format|
       if @pec_form.save
-        format.html { redirect_to pec_forms_path, notice: 'Pec form was successfully created.' }
+        format.html { redirect_to pec_forms_path, notice: I18n.t('pec_form.notice.create') }
         format.json { render json: @pec_form, status: :created, location: @pec_form }
       else
 				gon.edit_pec_form = true
@@ -67,7 +67,7 @@ class PecFormsController < ApplicationController
 
     respond_to do |format|
       if @pec_form.update_attributes(params[:pec_form])
-        format.html { redirect_to @pec_form, notice: 'Pec form was successfully updated.' }
+        format.html { redirect_to @pec_form, notice: I18n.t('pec_form.notice.update') }
         format.json { head :ok }
       else
 				gon.edit_pec_form = true

@@ -1,7 +1,62 @@
 <%= nested_form_for @dec_form, :html => { :class => 'form-horizontal' } do |f| %>
+   <%= f.error_messages %>
    <table class="form_table">
       <tr>
          <td>1.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :district_name_id, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.select :district_name_id, DistrictIdName.find(:all, :order => 'district_id').map{ |d|
+                  [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
+               } %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>2.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :observer_name, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.text_field :observer_name, :class => 'number_field' %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>3.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :monitoring_time, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.text_field :monitoring_time, :class => 'number_field' %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>4.</td>
+         <td>
+            <div class="control-group">
+               <%= f.label :organisation_name, :class => 'control-label' %>
+            </div>
+         </td>
+         <td>
+            <div class="controls">
+               <%= f.text_field :organisation_name, :class => 'number_field' %>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>5.</td>
          <td>
             <div class="control-group">
                <%= f.label :dec_total_complaints, :class => 'control-label' %>
@@ -14,7 +69,7 @@
          </td>
       </tr>
       <tr>
-         <td>2.</td>
+         <td>6.</td>
          <td>
             <div class="control-group">
                <%= f.label :dec_journal_registration_yes_no, :class => 'control-label' %>
@@ -30,7 +85,7 @@
          </td>
       </tr>
       <tr>
-         <td>3.</td>
+         <td>7.</td>
          <td>
             <div class="control-group">
                 <%= f.label :ped_entered_with_law, :class => 'control-label' %>
@@ -107,7 +162,7 @@
          </td>
       </tr>
       <tr>
-         <td>4.</td>
+         <td>8.</td>
          <td>
             <div class="control-group">
                 <%= f.label :was_canonical_procedures_done, :class => 'control-label' %>
@@ -188,7 +243,7 @@
          </td>
       </tr>
       <tr>
-         <td>5.</td>
+         <td>9.</td>
          <td>
             <div class="control-group">
                <%= f.label :summed_up_or_not_summary_reports, :class => 'control-label' %>
@@ -206,7 +261,7 @@
    </table>
 
    <%= f.fields_for :dec_form_children %>
-   <p><%= f.link_to_add "Add", :dec_form_children, :class => 'btn btn-primary' %></p>
+   <p><%= f.link_to_add t('form.buttons.add'), :dec_form_children, :class => 'btn btn-primary' %></p>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

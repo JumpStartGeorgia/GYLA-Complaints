@@ -1,5 +1,6 @@
 <%= form_for @complaint, :html => { :class => 'form-horizontal', :enctype => "multipart/form-data" } do |f| %>
 
+  <%= f.error_messages %>
 	<h3><%= t('form.headers.general_information') %></h3>
   <div class="control-group">
     <%= f.label :observer_name, :class => 'control-label' %>

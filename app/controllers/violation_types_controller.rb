@@ -45,7 +45,7 @@ class ViolationTypesController < ApplicationController
 
     respond_to do |format|
       if @violation_type.save
-        format.html { redirect_to @violation_type, notice: 'Violation type was successfully created.' }
+        format.html { redirect_to @violation_type, notice: I18n.t('violation_type.notice.create') }
         format.json { render json: @violation_type, status: :created, location: @violation_type }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ViolationTypesController < ApplicationController
 
     respond_to do |format|
       if @violation_type.update_attributes(params[:violation_type])
-        format.html { redirect_to @violation_type, notice: 'Violation type was successfully updated.' }
+        format.html { redirect_to @violation_type, notice: I18n.t('violation_type.notice.update') }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

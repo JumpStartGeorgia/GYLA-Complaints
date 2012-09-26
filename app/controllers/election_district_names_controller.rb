@@ -45,7 +45,7 @@ class ElectionDistrictNamesController < ApplicationController
 
     respond_to do |format|
       if @election_district_name.save
-        format.html { redirect_to @election_district_name, notice: 'Election district name was successfully created.' }
+        format.html { redirect_to @election_district_name, notice: I18n.t('election_district_name.notice.create') }
         format.json { render json: @election_district_name, status: :created, location: @election_district_name }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ElectionDistrictNamesController < ApplicationController
 
     respond_to do |format|
       if @election_district_name.update_attributes(params[:election_district_name])
-        format.html { redirect_to @election_district_name, notice: 'Election district name was successfully updated.' }
+        format.html { redirect_to @election_district_name, notice: I18n.t('election_district_name.notice.update') }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

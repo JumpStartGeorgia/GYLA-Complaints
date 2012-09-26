@@ -315,3 +315,14 @@ input::-webkit-inner-spin-button {
    border-right: 1px solid #000;
 
 }
+
+
+.overf {
+   overflow: auto;
+}
+
+
+select {
+   margin-top: 10px;
+   padding-top: 4px;
+}

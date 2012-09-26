@@ -45,7 +45,7 @@ class ElectionPrecinctNumbersController < ApplicationController
 
     respond_to do |format|
       if @election_precinct_number.save
-        format.html { redirect_to @election_precinct_number, notice: 'Election precinct number was successfully created.' }
+        format.html { redirect_to @election_precinct_number, notice: I18n.t('election_precinct_number.notice.create') }
         format.json { render json: @election_precinct_number, status: :created, location: @election_precinct_number }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ElectionPrecinctNumbersController < ApplicationController
 
     respond_to do |format|
       if @election_precinct_number.update_attributes(params[:election_precinct_number])
-        format.html { redirect_to @election_precinct_number, notice: 'Election precinct number was successfully updated.' }
+        format.html { redirect_to @election_precinct_number, notice: I18n.t('election_precinct_number.notice.update') }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
