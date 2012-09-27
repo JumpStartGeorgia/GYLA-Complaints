@@ -1,6 +1,7 @@
 class DecForm < ActiveRecord::Base
    has_many :dec_form_children, :dependent => :destroy
-   accepts_nested_attributes_for :dec_form_children, :allow_destroy => true
+   accepts_nested_attributes_for :dec_form_children,
+         :reject_if => lambda { |a| (a[:complaint_author_presentator].blank? && a[:response_precinct_commission].blank? && a[:complaint_district_registration_time].blank? ) }, :allow_destroy => true
 
   validates :district_name_id, :presence => true
 
