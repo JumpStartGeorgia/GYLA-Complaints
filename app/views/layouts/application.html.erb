@@ -32,7 +32,63 @@
           </a>
           <%= link_to(t('app.common.app_name'), root_path,:class=>"brand font")%>
           <div class="container nav-collapse">
-            <ul class="nav">
+
+            <ul class="nav"><!--complaints.nav-->
+		          <% if user_signed_in? %>
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                საჩივრები
+				                <b class="caret"></b>
+				          </a>
+				          <ul class="dropdown-menu">
+						        <li>
+  										<%= link_to 'ახალი საჩივარი', new_complaint_path %>
+										</li>
+						        <li>
+                      <%= link_to 'საჩივრები', complaints_path %>
+										</li>
+						        <li>
+                      <% if @latest_complaint %>
+                         <%= link_to 'უახლესი საჩივარი', complaint_path(@latest_complaint) %>
+                      <% end %>
+										</li>
+				          </ul>
+				        </li>
+		          <% end %>
+            </ul><!--complaints.nav-->
+
+            <ul class="nav"><!--observations.nav-->
+		          <% if user_signed_in? %>
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                დაკვირვებები
+				                <b class="caret"></b>
+				          </a>
+				          <ul class="dropdown-menu">
+						        <li>
+  										<%= link_to 'ახალი PEC', new_pec_form_path %>
+										</li>
+						        <li>
+                      <%= link_to 'უბნების საჩივრების სტატისტიკა', pec_forms_path %>
+										</li>
+						        <li>
+                      <%= link_to 'ახალი DEC', new_dec_form_path %>
+										</li>
+						        <li>
+                      <%= link_to 'ოლქების საჩივრების სტატისტიკა', dec_forms_path %>
+										</li>
+						        <li>
+                      <%= link_to 'ახალი CEC', new_cec_form_path %>
+										</li>
+						        <li>
+                      <%= link_to 'ცესკოს საჩივრების სტატისტიკა', cec_forms_path %>
+										</li>
+				          </ul>
+				        </li>
+		          <% end %>
+            </ul><!--observations.nav-->
+
+            <ul class="nav"><!--user.nav-->
 		          <% if user_signed_in? %>
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -51,7 +107,8 @@
 				          </ul>
 				        </li>
 		          <% end %>
-            </ul>
+            </ul><!--user.nav-->
+
           </div><!--/.nav-collapse -->
         </div>
       </div>
