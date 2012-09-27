@@ -6,8 +6,8 @@
          <td>
              <div class="control-group">
                 <%= f.label :election_district_number, :class => 'control-label' %>
-                <div class="controls">                  
-                  <%= f.select :election_district_number, DistrictIdName.find(:all, :order => 'district_id').map{ |d|
+                <div class="controls">
+                  <%= f.select :election_district_number, DistrictIdName.order('district_id').map{ |d|
                      [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
                   } %>
                 </div>

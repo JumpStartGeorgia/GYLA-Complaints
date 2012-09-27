@@ -1,14 +1,6 @@
 <%- model_class = Complaint -%>
 <div class="page-header">
-
-  <%################## THIS DOESN'T WORK FOR GEORGIAN  #############################%>
-  <!--<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>-->
-  <%################################################################################%>
-
-  <%### it's georgian for complaints, plural ####%>
-  <h1>საჩივრები</h1>
-
-
+	<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -24,7 +16,7 @@
     <% @complaints.each do |complaint| %>
       <tr>
         <td>
-          <% link_text = complaint.additional.latest.level.to_s.length > 0 ? complaint.additional.latest.level.to_s.upcase : t('app.common.empty') %>
+          <% link_text = complaint.additional && complaint.additional.latest && complaint.additional.latest.level.to_s.length > 0 ? complaint.additional.latest.level.to_s.upcase : t('app.common.empty') %>
 					<%= link_to link_text, complaint_path(complaint) %>
 				</td>
 				<td>

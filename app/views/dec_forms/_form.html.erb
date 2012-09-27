@@ -10,7 +10,7 @@
          </td>
          <td>
             <div class="controls">
-               <%= f.select :district_name_id, DistrictIdName.find(:all, :order => 'district_id').map{ |d|
+               <%= f.select :district_name_id, DistrictIdName.order('district_id').map{ |d|
                   [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
                } %>
             </div>
@@ -170,14 +170,14 @@
          </td>
          <td>
 
-            <div class="controls">               
+            <div class="controls">
                <%= f.radio_button :was_canonical_procedures_done, 1 %>
                <%= f.label :was_canonical_procedures_done_1, t("form.radio_buttons.do_yes"), :class => 'radio_label' %>
                <%= f.radio_button :was_canonical_procedures_done, 2 %>
                <%= f.label :was_canonical_procedures_done_2, t("form.radio_buttons.do_partialy"), :class => 'radio_label' %>
                <%= f.radio_button :was_canonical_procedures_done, 0 %>
                <%= f.label :was_canonical_procedures_done_0, t("form.radio_buttons.do_no"), :class => 'radio_label' %>
-             </div>        
+             </div>
 
          </td>
       </tr>

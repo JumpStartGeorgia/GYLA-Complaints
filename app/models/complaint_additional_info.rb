@@ -18,6 +18,8 @@ class ComplaintAdditionalInfo < ActiveRecord::Base
 			:complaint_result,
 			:additional_comment
 
+  validates :level, :status_id, :presence => true
+
   def self.latest
     order('created_at DESC, updated_at DESC').limit(1).first
   end

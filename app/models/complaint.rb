@@ -24,7 +24,8 @@ class Complaint < ActiveRecord::Base
 			:violator_info,
 			:other_info
 
-  validates :observer_name,
+  validates :level,
+			:observer_name,
 			:observer_address,
 			:observer_phone,
 			:election_district_name,
@@ -32,6 +33,11 @@ class Complaint < ActiveRecord::Base
 			:category_id,
 			:violation_type_id,
 			:violation_time, :presence => true
+
+	validates	:election_district_name, :election_precinct_number,	:category_id,
+			:violation_type_id, :numericality => { :only_integer => true }
+
+	validates_associated :complaint_additional_infos
 
 	before_create :set_values
 
@@ -43,29 +49,26 @@ class Complaint < ActiveRecord::Base
     self.complaint_additional_infos
   end
 
+   def district_name
+		district = DistrictIdName.where("district_id = ?", self.election_district_name)
+		if district && !district.empty?
+			return "#{district[0].district_id} - #{district[0].district_name}"
+		else
+			return nil
+		end
+   end
+
+
 	LEVELS = [['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['Court', 'court']]
 	# get all of the levels that are higher than the current one
 	def available_levels
 
     l = ['pec', 'dec', 'cec', 'court']
-    return LEVELS[(l.index(self.additional.latest.level.downcase) + 1)..3]
-
-=begin
-		in_use = self.complaint_additional_infos.collect(&:level)
-		if in_use && !in_use.empty?
-
-			available_levels = []
-			LEVELS.each do |level|
-				if in_use.index(level[1]).nil?
-					available_levels << level
-				end
-			end
-			return available_levels if !available_levels.empty?
+		if self.additional && self.additional.latest
+	    return LEVELS[(l.index(self.additional.latest.level.downcase) + 1)..3]
 		else
-			# all levels are available
 			return LEVELS
 		end
-=end
 	end
 
 end

@@ -10,16 +10,16 @@ class PecForm < ActiveRecord::Base
 		:request,
 		:was_complaint_setisfied,
 		:other_extra_comments
-   
+
    validates :election_district_number, :election_precinct_number, :presence => true
-   
+
    def district_name
-      district = DistrictIdName.where("district_id = ?", self.election_district_number)
-      if district.length > 0
-         return district[0].district_name
-      else
-         return 0
-      end
-   end   
+		district = DistrictIdName.where("district_id = ?", self.election_district_number)
+		if district && !district.empty?
+			return "#{district[0].district_id} - #{district[0].district_name}"
+		else
+			return nil
+		end
+   end
 
 end

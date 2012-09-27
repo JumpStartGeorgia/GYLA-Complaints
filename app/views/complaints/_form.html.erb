@@ -24,26 +24,29 @@
     <%= f.label :election_district_name, :class => 'control-label' %>
     <div class="controls">
       <%#= f.select :election_district_name_id, [[]] + ElectionDistrictName.all.collect { |d| [d[:title], d[:id]] } %>
-      <%= f.text_field :election_district_name, :class => 'text_field' %>
+      <%#= f.number_field :election_district_name, :class => 'number_field' %>
+      <%= f.select :election_district_name, DistrictIdName.order('district_id').map{ |d|
+         [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
+      } %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :election_precinct_number, :class => 'control-label' %>
     <div class="controls">
       <%#= f.select :election_precinct_number_id, [[]] + ElectionPrecinctNumber.all.collect { |d| [d[:title], d[:id]] } %>
-      <%= f.text_field :election_precinct_number, :class => 'text_field' %>
+      <%= f.number_field :election_precinct_number, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :category_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :category_id, [[]] + Category.all.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :category_id, Category.all.collect { |d| [d[:title], d[:id]] }, :include_blank => true %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :violation_type_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :violation_type_id, [[]] + ViolationType.all.collect { |d| [d[:title], d[:id]] } %>
+      <%= f.select :violation_type_id, ViolationType.all.collect { |d| [d[:title], d[:id]] }, :include_blank => true %>
     </div>
   </div>
   <div class="control-group">
@@ -115,14 +118,18 @@
 	<hr />
 
 	<h3><%= t('form.headers.complaint') %></h3>
-	<% if @complaint.complaint_additional_infos.length == 1 && @complaint.complaint_additional_infos.first.level.nil? %>
+<%= "additional info length = #{@complaint.complaint_additional_infos.length} " %>
+	<% if @complaint.complaint_additional_infos.length == 1 &&
+				(@complaint.complaint_additional_infos.first.level.nil? || @complaint.complaint_additional_infos.first.level.empty?)%>
 		<%= render :partial => "complaints/complaint_additional_info_fields",
 				:locals => {:type => 'new', :form => f, :record => @complaint.complaint_additional_infos.first} %>
 	<% else %>
 		<% @complaint.complaint_additional_infos.each do |additional_info| %>
-			<%= render :partial => "complaints/complaint_additional_info_fields",
-					:locals => {:type => 'edit', :form => f, :record => additional_info} %>
-			<hr />
+			<% if !additional_info.level.empty? && !additional_info.status_id.nil? %>
+				<%= render :partial => "complaints/complaint_additional_info_fields",
+						:locals => {:type => 'edit', :form => f, :record => additional_info} %>
+				<hr />
+			<% end %>
 		<% end %>
 		<% if @complaint.available_levels && !@complaint.available_levels.empty? %>
 			<%= render :partial => "complaints/complaint_additional_info_fields",

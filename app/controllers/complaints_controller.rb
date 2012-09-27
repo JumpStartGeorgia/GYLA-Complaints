@@ -62,11 +62,20 @@ logger.debug "------- add info records = #{params[:complaint][:complaint_additio
 
     update_files if saved
 
+
     respond_to do |format|
       if saved
         format.html { redirect_to @complaint, notice: I18n.t('complaints.notice.create') }
         format.json { render json: @complaint, status: :created, location: @complaint }
       else
+				# if the additional info fields were empty, the object was destroyed.
+				# rebuid if necessary
+				if @complaint.complaint_additional_infos.length == 0
+					# create an empty additional info model
+					@complaint.complaint_additional_infos.build
+				end
+logger.debug "------- now add info records = #{@complaint.complaint_additional_infos.length}"
+
 				# to initialize the datetime fields
 				gon.edit_complaint = true
 				gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time
