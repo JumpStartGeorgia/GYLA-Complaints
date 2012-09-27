@@ -19,6 +19,7 @@ ka:
       category:
         title: სახელი
       complaint:
+        complaint_additional_infos: დამატებითი ინფორმაცია
         violation_time: დარღვევის ჩადენის დრო
         original_level: თავდაპირველი დონე
         observer_name: დამკვირვებლის სახელი, გვარი
@@ -237,6 +238,9 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
       destroy: წაშლა
+    titles:
+      new: ახალი %{model}
+      edit: "შეცვალეთ %{model}"
   layouts:
     application:
       admin: ადმინისტრატორი

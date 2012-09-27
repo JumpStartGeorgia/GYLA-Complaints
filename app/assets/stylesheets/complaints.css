@@ -8,4 +8,20 @@
   float: right;
 }
 
+h3.form-header {
+  border-bottom: 1px solid  #D8D8D8;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
 
+.after_level_select h4 {
+  padding: 2px 5px 2px 9px;
+  background: #eee;
+  color: #000;
+}
+
+.form-horizontal .control-label {
+  width: 300px;
+  margin-right: 25px;
+  text-align: left;
+}
