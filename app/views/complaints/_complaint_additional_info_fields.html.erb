@@ -83,7 +83,7 @@
 
 
 		<div class="file_attachments">
-		  <h4><%= t('form.headers.file_attachments') %></h4>
+		  <h5><%= t('form.headers.file_attachments') %></h5>
 
 		  <% files = @complaint.complaint_files.additional.files_for(record.id) %>
 		  <% files_exist = (!files.nil? && !files.empty?) %>
