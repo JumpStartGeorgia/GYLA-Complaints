@@ -56,7 +56,6 @@ class ComplaintsController < ApplicationController
   def create
 
     @complaint = Complaint.new(params[:complaint])
-logger.debug "------- add info records = #{params[:complaint][:complaint_additional_infos_attributes]}"
 
     saved = @complaint.save
 
@@ -74,8 +73,6 @@ logger.debug "------- add info records = #{params[:complaint][:complaint_additio
 					# create an empty additional info model
 					@complaint.complaint_additional_infos.build
 				end
-logger.debug "------- now add info records = #{@complaint.complaint_additional_infos.length}"
-
 				# to initialize the datetime fields
 				gon.edit_complaint = true
 				gon.violation_time = @complaint.violation_time.strftime('%m/%d/%Y %H:%M') if @complaint.violation_time

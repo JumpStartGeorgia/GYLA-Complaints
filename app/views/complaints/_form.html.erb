@@ -118,7 +118,6 @@
 	<hr />
 
 	<h3><%= t('form.headers.complaint') %></h3>
-<%= "additional info length = #{@complaint.complaint_additional_infos.length} " %>
 	<% if @complaint.complaint_additional_infos.length == 1 &&
 				(@complaint.complaint_additional_infos.first.level.nil? || @complaint.complaint_additional_infos.first.level.empty?)%>
 		<%= render :partial => "complaints/complaint_additional_info_fields",
