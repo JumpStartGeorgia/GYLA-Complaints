@@ -354,3 +354,11 @@ select {
 .show_page .row .content {
 	padding: 4px 4px 5px 0;
 }
+
+#total-records {
+   width: 10px;
+   margin: 0;
+   padding: 0;
+   clear: none;
+   display: inline-block;   
+}

@@ -1,15 +1,23 @@
 <%- model_class = DecForm -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => t('dec_form.index.title') %></h1>
 </div>
 <script>
    var ids = new Array;
 </script>
 <div class="overf">
-<table class="table table-striped index_table" id="dec-form-table">
+
+<% districts = DistrictIdName.order('district_id') %>
+<%= select 'district', 'district', districts.map{ |d|
+                     [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
+   }, :include_blank => true %>
+   
+სრული მონაცემთა რაოდენობა არის <p id="total-records"><%= @dec_forms.length %></p> ჩანაწერი
+
+<table class="table table-striped index_table" id="index-table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:district_name_id) %></th>
+      <th><%= model_class.human_attribute_name(:district_name_id)[0..model_class.human_attribute_name(:district_name_id).length-2] %></th>
       <th><%= model_class.human_attribute_name(:dec_total_complaints) %></th>
       <th><%= model_class.human_attribute_name(:dec_journal_registration_yes_no) %></th>
       <th><%= model_class.human_attribute_name(:ped_entered_with_law) %></th>
@@ -34,7 +42,7 @@
       <script>
          ids.push('<%= dec_form.id %>');
       </script>
-      <tr>
+      <tr id="<%= dec_form.district_name_id %>">
          <td><%= dec_form.district_name %></td>
         <td><%= dec_form.dec_total_complaints %></td>
         <%if dec_form.dec_journal_registration_yes_no %>

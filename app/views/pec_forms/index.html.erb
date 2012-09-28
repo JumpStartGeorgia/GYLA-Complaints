@@ -1,16 +1,24 @@
 <%- model_class = PecForm -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => t('pec_form.index.title').humanize %></h1>
+  <h1><%=t '.title', :default => t('pec_form.index.title') %></h1>
 </div>
 <script>
    var ids = new Array;
 </script>
 <div class="overf">
-<table class="table table-striped index_table" id="pec-index-table">
+
+<% districts = DistrictIdName.order('district_id') %>
+<%= select 'district', 'district', districts.map{ |d|
+                     [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
+   }, :include_blank => true %>
+   
+სრული მონაცემთა რაოდენობა არის <p id="total-records"><%= @pec_forms.length %></p> ჩანაწერი
+
+<table class="table table-striped index_table" id="index-table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:election_district_number) %></th>
-      <th><%= model_class.human_attribute_name(:election_precinct_number) %></th>
+      <th><%= model_class.human_attribute_name(:election_district_number)[0..model_class.human_attribute_name(:election_district_number).length-2] %></th>
+      <th><%= model_class.human_attribute_name(:election_precinct_number)[0..model_class.human_attribute_name(:election_district_number).length-2] %></th>
       <th><%= model_class.human_attribute_name(:current_number_of_complaints) %></th>
       <th><%= model_class.human_attribute_name(:was_complaint_setisfied) %></th>
     </tr>
@@ -20,7 +28,7 @@
       <script>
          ids.push('<%= pec_form.id %>');
       </script>
-      <tr>
+      <tr id="<%= pec_form.election_district_number %>">
          <td><%=  pec_form.district_name %></td>
          <td><%= pec_form.election_precinct_number %></td>
         <td><%= pec_form.current_number_of_complaints %></td>
