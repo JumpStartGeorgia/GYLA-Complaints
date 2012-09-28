@@ -24,9 +24,8 @@ class Complaint < ActiveRecord::Base
 			:violator_info,
 			:other_info
 
-  validates :level,
-			:observer_name,
-			:observer_address,
+  validates :observer_address,
+			# level,:observer_name,
 			:observer_phone,
 			:election_district_name,
 			:election_precinct_number,
@@ -40,9 +39,17 @@ class Complaint < ActiveRecord::Base
 	validates_associated :complaint_additional_infos
 
 	before_create :set_values
+	before_save :update_level
 
 	def set_values
 		self.original_level = self.level
+	end
+
+	# make the complaint level = to the latest level
+	def update_level
+		if additional && !additional.empty? && !additional.last.level.empty?
+			self.level = additional.last.level
+		end
 	end
 
   def additional
@@ -58,14 +65,41 @@ class Complaint < ActiveRecord::Base
 		end
    end
 
+	def level_name
+		if self.level
+			index = LEVELS.map{|x| x[1]}.index(self.level)
+			if index
+				return LEVELS[index][0]
+			end
+		end
+	end
 
-	LEVELS = [['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['Court', 'court']]
+	def is_court?
+		if self.level
+			if !(COURTS.map{|x| x[1]}.index(self.level)).nil?
+				return true
+			end
+		end
+		return false
+	end
+
+	def is_last_level?
+		if self.level
+			if LEVELS.last[1] == self.level
+				return true
+			end
+		end
+		return false
+	end
+
+	COURTS = [['City Court', 'court'], ['Court of Appeal', 'appeal']]
+	LEVELS = [['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['City Court', 'court'], ['Court of Appeal', 'appeal']]
 	# get all of the levels that are higher than the current one
 	def available_levels
 
-    l = ['pec', 'dec', 'cec', 'court']
+    l = LEVELS.map{|x| x[1]}
 		if self.additional && self.additional.latest
-	    return LEVELS[(l.index(self.additional.latest.level.downcase) + 1)..3]
+	    return LEVELS[(l.index(self.additional.latest.level.downcase) + 1)..-1]
 		else
 			return LEVELS
 		end

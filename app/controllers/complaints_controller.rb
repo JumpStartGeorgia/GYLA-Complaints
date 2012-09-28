@@ -42,7 +42,10 @@ class ComplaintsController < ApplicationController
   def edit
     @complaint = Complaint.find(params[:id])
 
-    @level_editable = false
+		# create an empty additional info model if one does not exist
+		if @complaint.complaint_additional_infos.nil? || @complaint.complaint_additional_infos.empty?
+			@complaint.complaint_additional_infos.build
+		end
 
 		# to initialize the datetime fields
     gon.edit_complaint = true
@@ -135,7 +138,7 @@ class ComplaintsController < ApplicationController
   def update_files
     attr = params[:complaint][:complaint_additional_infos_attributes]
     level = attr[(attr.length - 1).to_s][:level]
-    if !level.nil? && (['dec', 'pec', 'cec', 'court'].include? level.downcase)
+    if !level.nil? && (Complaint::LEVELS.map{|x| x[1]}.include? level.downcase)
       ne = @complaint.complaint_files.not_existing
       if !ne.empty?
         ne.each do |c|
@@ -154,26 +157,5 @@ class ComplaintsController < ApplicationController
     end
   end
 
-
-  def move_to_higher_level
-    c = Complaint.find(params[:id])
-
-    case c.level.downcase
-    when 'pec'
-      c.level = 'dec'
-    when 'dec'
-      c.level = 'cec'
-    when 'cec'
-      c.level = 'court'
-    when 'court'
-      redirect_to c, :alert => 'Complaint has highest level possible'
-    else
-      c.level = 'pec'
-    end
-
-    c.save
-
-    redirect_to c
-  end
 
 end
