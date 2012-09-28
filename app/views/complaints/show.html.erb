@@ -4,82 +4,103 @@
   <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
 </div>
 
-<h3>ძირითადი ინფორმაცია</h3>
 
-<div class="complaint clear">
-  <div class="span5" style="text-align: right;">
-    <div class="">
+<div class="show_page clear">
+	<h3>ძირითადი ინფორმაცია</h3>
+
+	<div class="row">
+	  <div class="header span3">
       <%= t('activerecord.attributes.complaint.observer_name') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.observer_address') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.observer_phone') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.election_district_name') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.election_precinct_number') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.category') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.violation_type') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.violation_time') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.witness') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.violator_info') %>
-    </div>
-    <div class="">
-      <%= t('activerecord.attributes.complaint.other_info') %>
-    </div>
-    <div class="">
-      მიმაგრებული ფაილები
-    </div>
-  </div>
-  <div class="span4">
-    <div class="">
+		</div>
+	  <div class="content span6">
       <%= @complaint.observer_name %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.observer_address') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.observer_address %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.observer_phone') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.observer_phone %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.election_district_name') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.district_name %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.election_precinct_number') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.election_precinct_number %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.category') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.category.nil? ? '' : @complaint.category.title %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.violation_type') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.violation_type.nil? ? '' : @complaint.violation_type.title %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.violation_time') %>
+		</div>
+	  <div class="content span6">
       <%= l @complaint.violation_time, :format => :long if @complaint.violation_time %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.witness') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.witness %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.violator_info') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.violator_info %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+      <%= t('activerecord.attributes.complaint.other_info') %>
+		</div>
+	  <div class="content span6">
       <%= @complaint.other_info %>
-    </div>
-    <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+	      მიმაგრებული ფაილები
+		</div>
+	  <div class="content span6">
       <% files = @complaint.complaint_files.general %>
       <% files_exist = (!files.nil? && !files.empty?) %>
       <% if files_exist %>
@@ -89,98 +110,105 @@
             </div>
         <% end %>
       <% end %>
-
-    </div>
-  </div>
-</div>
-
+		</div>
+	</div>
 
 <% @complaint.additional.each do |info| %>
   <% status = (info.status.nil?) ? '' : info.status.title %>
   <h3><%= info.level.upcase + ' ' + status %></h3>
 
-  <div class="complaint clear">
-    <div class="span5" style="text-align: right;">
-      <div class="">
+	<div class="row">
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.status') %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
+        <%= status %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.complaint_author_name') %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
+        <%= info.complaint_author_name %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.complaint_author_phone') %>
-      </div>
-      <% attr = (!info.level.nil? && info.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
-      <div class="" <%= attr %>>
+		</div>
+	  <div class="content span6">
+        <%= info.complaint_author_phone %>
+		</div>
+	</div>
+  <% attr = (!info.level.nil? && info.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
+	<div class="row" <%= attr %>>
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.court_name') %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
+        <%= info.court_name %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.complaint_writing_time') %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
+        <%= l info.complaint_writing_time, :format => :long if info.complaint_writing_time %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.request_in_complaint') %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
+        <%= info.request_in_complaint %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.response_date') %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
+        <%= l info.response_date, :format => :long if info.response_date %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
         საჩივრის შედეგი
         <%= t('activerecord.attributes.complaint_additional_info.complaint_result') %>
-      </div>
-      <div class="">
-        <%= t('activerecord.attributes.complaint_additional_info.additional_comment') %>
-      </div>
-<!--################################################
-  let's leave this for now
-  until the nested stuff is done
-      <div class="">
-        მიმაგრებული ფაილები
-      </div>
--->
-    </div>
-    <div class="span4">
-      <div class="">
-        <%= status %>
-      </div>
-      <div class="">
-        <%= info.complaint_author_name %>
-      </div>
-      <div class="">
-        <%= info.complaint_author_phone %>
-      </div>
-      <div class="" <%= attr %>>
-        <%= info.court_name %>
-      </div>
-      <div class="">
-        <%= l info.complaint_writing_time, :format => :long if info.complaint_writing_time %>
-      </div>
-      <div class="">
-        <%= info.request_in_complaint %>
-      </div>
-      <div class="">
-        <%= l info.response_date, :format => :long if info.response_date %>
-      </div>
-      <div class="">
+		</div>
+	  <div class="content span6">
         <%= info.complaint_result %>
-      </div>
-      <div class="">
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+        <%= t('activerecord.attributes.complaint_additional_info.additional_comment') %>
+		</div>
+	  <div class="content span6">
         <%= info.additional_comment %>
-      </div>
-      <div class="">
-        <% files = @complaint.complaint_files.additional.files_for(info.id) %>
-        <% files_exist = (!files.nil? && !files.empty?) %>
-        <% if files_exist %>
-          <% files.each do |file| %>
-              <div class="">
-                <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
-              </div>
-          <% end %>
-        <% end %>
-
-      </div>
-    </div>
-  </div>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+	      მიმაგრებული ფაილები
+		</div>
+	  <div class="content span6">
+		  <% files = @complaint.complaint_files.additional.files_for(info.id) %>
+		  <% files_exist = (!files.nil? && !files.empty?) %>
+		  <% if files_exist %>
+		    <% files.each do |file| %>
+		        <div class="">
+		          <%= link_to file.file_file_name, file.file.url, :target => '_blank' %>
+		        </div>
+		    <% end %>
+		  <% end %>
+		</div>
+	</div>
 <% end %>
+</div>
 
 
 <div class="form-actions">

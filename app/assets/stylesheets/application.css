@@ -331,3 +331,23 @@ select {
 #ui-datepicker-div {
   display: none;
 }
+
+/* show page */
+.show_page h3 {
+	margin: 10px 0;
+	padding: 5px 0;
+	border-bottom: solid 3px #a8a8a8;
+}
+.show_page .row {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-bottom: solid 1px #d8d8d8;
+}
+.show_page .row .header {
+	border-right: solid 1px #d8d8d8;
+	background-color: #eee;
+	padding: 4px;
+}
+.show_page .row .content {
+	padding: 4px 4px 5px 0;
+}
