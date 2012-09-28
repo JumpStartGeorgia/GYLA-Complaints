@@ -1,6 +1,6 @@
 <%- model_class = Complaint -%>
 <div class="page-header">
-  <% status = (@complaint.additional.latest.nil? || @complaint.additional.latest.status.nil?) ? '' : @complaint.additional.latest.status.title %>
+  <% status = (@complaint.additional.latest.nil? || @complaint.additional.latest.status.nil?) ? '' : @complaint.additional.latest.status.title; %>
   <h1><%= @complaint.level_name + ' ' + status %></h1>
 </div>
 

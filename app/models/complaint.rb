@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Complaint < ActiveRecord::Base
   has_many :complaint_files, :dependent => :destroy
   has_many :complaint_additional_infos, :dependent => :destroy
@@ -15,6 +16,7 @@ class Complaint < ActiveRecord::Base
 			:observer_name,
 			:observer_address,
 			:observer_phone,
+			:description,
 			:election_district_name,
 			:election_precinct_number,
 			:category_id,
@@ -30,6 +32,7 @@ class Complaint < ActiveRecord::Base
 			:election_district_name,
 			:election_precinct_number,
 			:category_id,
+			:description,
 			:violation_type_id,
 			:violation_time, :presence => true
 
@@ -72,6 +75,7 @@ class Complaint < ActiveRecord::Base
 				return LEVELS[index][0]
 			end
 		end
+		''
 	end
 
 	def is_court?
@@ -92,8 +96,8 @@ class Complaint < ActiveRecord::Base
 		return false
 	end
 
-	COURTS = [['City Court', 'court'], ['Court of Appeal', 'appeal']]
-	LEVELS = [['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['City Court', 'court'], ['Court of Appeal', 'appeal']]
+	COURTS = [['საქალაქო სასამართლო', 'court'], ['სააპელაციო სასამართლო', 'appeal']]
+	LEVELS = [['PEC', 'pec'], ['DEC', 'dec'], ['CEC', 'cec'], ['საქალაქო სასამართლო', 'court'], ['სააპელაციო სასამართლო', 'appeal']]
 	# get all of the levels that are higher than the current one
 	def available_levels
 

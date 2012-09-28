@@ -43,6 +43,52 @@ function file_attachment_remove_perm_handler ()
   });
 }
 
+
+$.prototype.summary_filter = function (tableselector)
+{
+  window.summaries_selectors = {};
+
+  for (i = 0; i < this.length; i ++)
+  {
+    var t = this[i];
+    if (typeof t != 'object' || typeof t.tagName != 'string' || t.tagName.toLowerCase() != 'select')
+    {
+      continue;
+    }
+
+    $(t).change(function ()
+    {
+      var el = $(this);
+      var id = el.attr('id').replace('summary_', '');
+      var tbody = tableselector.children('tbody');
+      var val = el.val();
+      var children = tbody.children('tr');
+
+      if (typeof val == 'undefined' || val.length == 0)
+      {
+        window.summaries_selectors[id] = '';
+      }
+      else
+      {
+        window.summaries_selectors[id] = '[data-' + id + '="' + val + '"]';
+      }
+
+      var needed = 'tr';
+      for (j in window.summaries_selectors)
+      {
+        needed += window.summaries_selectors[j];
+      }
+
+      children = children.hide(0).filter(needed).show(0);
+
+      $('#index_summaries .total .amount').html(children.length);
+    });
+  }
+
+  return $(this);
+}
+
+
 $(function ()
 {
 
@@ -159,5 +205,7 @@ $(function ()
 
   }
 
+
+  $('#summary_district, #summary_category, #summary_status').summary_filter($('#complaint_index_table'));
 
 });

@@ -21,12 +21,15 @@ ka:
       complaint:
         complaint_additional_infos: დამატებითი ინფორმაცია
         violation_time: დარღვევის ჩადენის დრო
+        description: დარღვევის აღწერა
         original_level: თავდაპირველი დონე
         observer_name: დამკვირვებლის სახელი, გვარი
         observer_phone: დამკვირვებლის საკონტაქტო ტელეფონის ნომერი
         observer_address: დამკვირვებლის მისამართი რეგისტრაციის ადგილის მიხედვით
         election_district_name: საარჩევნო ოლქის სახელი
         election_precinct_number: საარჩევნო უბნის ნომერი
+        election_district_name_short: საარჩევნო ოლქი
+        election_precinct_number_short: საარჩევნო უბანი
         category: კატეგორია
         category_id: კატეგორია
         violation_type: დარღვევის ტიპი

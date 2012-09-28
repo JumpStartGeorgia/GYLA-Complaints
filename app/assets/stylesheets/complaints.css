@@ -25,3 +25,31 @@ h3.form-header {
   margin-right: 25px;
   text-align: left;
 }
+
+
+#index_summaries {
+  border-bottom: 1px solid #eee;
+  background: #DFDFDF;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+}
+
+#index_summaries > div {
+  margin-left: 15px;
+}
+
+#index_summaries > div > span {
+  display: block;
+}
+
+#index_summaries .total {
+  padding-top: 5px;
+}
+
+#index_summaries .total span {
+  display: inline-block;
+}
+
+#index_summaries .total .amount {
+  color: #006DCC;
+}
