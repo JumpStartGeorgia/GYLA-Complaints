@@ -60,8 +60,8 @@ ka:
       violation_type:
         title: დასახელება
       pec_form:
-        election_district_number: 'საოლქო საარჩევნო კომისიის ნომერი:'
-        election_precinct_number: 'საუბნო საარჩევნო კომისიის ნომერი:'
+        election_district_number: 'საოლქო საარჩევნო კომისიის ნომერი: *'
+        election_precinct_number: 'საუბნო საარჩევნო კომისიის ნომერი: *'
         observer_name: 'სიის დამკვირვებელი:'
         current_number_of_complaints: ფორმის შევსების დროისათვის სულ რამდენი საჩივარი დაიწერა უბანზე?
         complaint_author: 'საჩივრის ავტორი და მისი წარმდგენი სუბიექტი:'
@@ -73,7 +73,7 @@ ka:
         was_complaint_setisfied: დაკმაყოფილდა თუ არა საჩივარი?
         other_extra_comments: 'სხვა დამატებითი კომენტარები:'
       dec_form:
-        district_name_id: 'ოლქის დასახელება და ნომერი:'
+        district_name_id: 'ოლქის დასახელება და ნომერი: *'
         observer_name: 'დამკვირვებლის სახელი და გვარი:'
         monitoring_time: 'ცვლის მონიტორინგის დრო:'
         organisation_name: 'ორგანიზაციის სახელწოდება:'
@@ -93,9 +93,9 @@ ka:
       dec_form_child:
         the_dec_complaint: 'საოლქო საარჩევნო კომისიაში წარდეგენილი საჩივარი:'
         important_aspect_of_complaint_dicussion: საჩივრის განხილვის მნიშვნელოვანი ასპექტები
-        complaint_author_presentator: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი'
-        response_precinct_commission: 'ბ) მოპასუხე საუბნო საარჩევნო კომისია'
-        complaint_district_registration_time: საჩივრის ოლქში რეგისტრაციის დრო
+        complaint_author_presentator: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი *'
+        response_precinct_commission: 'ბ) მოპასუხე საუბნო საარჩევნო კომისია *'
+        complaint_district_registration_time: საჩივრის ოლქში რეგისტრაციის დრო *
         violation_essence: დარღვევის არსი
         request: მოთხოვნა
         complaint_disscusion_time: საჩივრის ოლქში განხილვის დრო
@@ -126,9 +126,9 @@ ka:
         was_complaint_satisfied: დაკმაყოფილდა თუ არა საჩივარი?
         complaint_important_aspect: საჩივრის განხილვის მნიშვნელოვანი ასპექტები
         cec_complaint: 'ცენტრალურ საარჩევნო კომისიაში წარდგენილი საჩივარი:'
-        cesko_complaint_author_sender: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი'
-        responder_district_election_commission: 'ბ) მოპასუხე საოლქო საარჩევნო კომისია'
-        cesko_complaint_registration_time: საჩივრის ცესკოში რეგისტრაციის დრო
+        cesko_complaint_author_sender: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი *'
+        responder_district_election_commission: 'ბ) მოპასუხე საოლქო საარჩევნო კომისია *'
+        cesko_complaint_registration_time: საჩივრის ცესკოში რეგისტრაციის დრო *
         veiolation_essence: დარღვევის არსი
         request: მოთხოვნა
         cesko_complaint_discation_time: საჩივრის ცესკოში განხილვის დრო
@@ -146,15 +146,19 @@ ka:
         describe_other_extra_environments: აღწერეთ სხვა დამატებითი გარემოებანი
   pec_form:
       index:
-         title: უბნის საჩივრების სტატისტიკა
+         title: PEC საჩივრების სტატისტიკა
       notice:
          update: PEC მონაცემები წარმატებით განახლდა.
          create: PEC მონაცემები წარმატებით შეიქმნა.
   dec_form:
+      index:
+         title: DEC საჩივრების სტატისტიკა
       notice:
          update: DEC მონაცემები წარმატებით განახლდა.
          create: DEC მონაცემები წარმატებით შეიქმნა.
   cec_form:
+      index:
+         title: CEC საჩივრების სტატისტიკა
       notice:
          update: CEC მონაცემები წარმატებით განახლდა.
          create: CEC მონაცემები წარმატებით შეიქმნა.
@@ -188,7 +192,7 @@ ka:
       buttons:
          cancel: გაუქმება
          new: ახალი
-         add: დამატება
+         add: დაამატე საჩივრის შესახებ ინფორმაცია
       radio_buttons:
          do_partialy: ნაწილობრივ
          do_yes: დიახ

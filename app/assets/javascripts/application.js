@@ -29,3 +29,30 @@ $(function(){
    });
 });
 
+
+function filterByDistrict(form)
+{
+   var district = $('#district_district'),
+       index_table = $('#'+form+' tbody'),
+       total_records = $('#total-records');       
+   district.change(function(){
+      var ths = this, i = 0;      
+      index_table.children('tr').each(function(){     
+         if ($(this).attr('id') === $(ths).val() ||
+             !$(ths).val())  
+         {
+            $(this).css('display', 'table-row');
+            i++;
+         }         
+         else
+         {
+            $(this).css('display', 'none');
+         }
+      });
+      total_records.html(i);
+   });
+}
+
+$(function(){
+   filterByDistrict('index-table');      
+});
