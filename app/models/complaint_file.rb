@@ -3,6 +3,8 @@ class ComplaintFile < ActiveRecord::Base
     :url => "/system/complaint_files/:attachment/:complaint_id/:style/:filename",
     :path => ":rails_root/public/system/complaint_files/:attachment/:complaint_id/:style/:filename"
 
+	validates_attachment_size :file, :less_than => 10.megabytes
+
 	belongs_to :complaint
   attr_accessible :complaint_id, :file, :attachment_type, :additional_info_id
 
