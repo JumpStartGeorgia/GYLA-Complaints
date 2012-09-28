@@ -90,7 +90,7 @@ $(function ()
 			$("input[id*='_level']").val($(this).val());
 
 			// show/hide fields
-      if (val == 'court')
+      if (gon.courts.indexOf(val) > -1)
       {
         c.find('.court').removeClass('hidden');
       }

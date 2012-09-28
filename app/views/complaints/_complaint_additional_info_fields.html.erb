@@ -1,12 +1,10 @@
 <% if type == "new" %>
-	<% if (@level_editable.nil?) || (!@level_editable.nil? && @level_editable) %>
-	  <div class="control-group">
-	    <%= form.label :level, t('activerecord.attributes.complaint_additional_info.level'), :class => 'control-label' %>
-	    <div class="controls">
-	      <%= form.select :level, Complaint::LEVELS, :include_blank => true %>
-	    </div>
-	  </div>
-	<% end %>
+  <div class="control-group">
+    <%= form.label :level, t('activerecord.attributes.complaint_additional_info.level'), :class => 'control-label' %>
+    <div class="controls">
+      <%= form.select :level, Complaint::LEVELS, :include_blank => true %>
+    </div>
+  </div>
 <% end %>
 <%= form.fields_for :complaint_additional_infos, record do |additional_info| %>
   <% attr = (!@complaint.nil? && !@complaint.level.nil? && @complaint.level.length > 0) ? '' : 'style="display: none;"'.html_safe %>
@@ -22,7 +20,7 @@
 				</div>
 			</div>
 		<% else %>
-			<h4><%= (record.level == 'court') ? record.level.humanize : record.level.upcase %></h4>
+			<h4><%= record.level_name %></h4>
 		<% end %>
 
 
@@ -44,7 +42,8 @@
 		    <%= additional_info.text_field :complaint_author_phone, :class => 'text_field' %>
 		  </div>
 		</div>
-		<div class="hidden court control-group">
+		<% attr = record.created_at.nil? || (record.level && !record.is_court?)  ? "hidden": "" %>
+		<div class="<%= attr %> court control-group">
 		  <%= additional_info.label :court_name, t('activerecord.attributes.complaint_additional_info.court_name'), :class => 'control-label' %>
 		  <div class="controls">
 		    <%= additional_info.text_area :court_name, :class => 'text_area span6', :rows => 3 %>

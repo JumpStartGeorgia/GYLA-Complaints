@@ -20,8 +20,37 @@ class ComplaintAdditionalInfo < ActiveRecord::Base
 
   validates :level, :status_id, :presence => true
 
+	def level_name
+		if self.level
+			index = Complaint::LEVELS.map{|x| x[1]}.index(self.level)
+			if index
+				return Complaint::LEVELS[index][0]
+			end
+		end
+	end
+
+	def is_court?
+		if self.level
+			if !(Complaint::COURTS.map{|x| x[1]}.index(self.level)).nil?
+				return true
+			end
+		end
+		return false
+	end
+
+	def is_last_level?
+		if self.level
+			if Complaint::LEVELS.last[1] == self.level
+				return true
+			end
+		end
+		return false
+	end
+
+
   def self.latest
     order('created_at DESC, updated_at DESC').limit(1).first
   end
+
 
 end

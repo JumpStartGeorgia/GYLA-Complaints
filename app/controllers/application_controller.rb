@@ -46,6 +46,7 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 		gon.set = true
 		gon.highlight_first_form_field = true
 		gon.alread_set_focus = nil
+		gon.courts = Complaint::COURTS.map{|x| x[1]}
 	end
 
 	# after user logs in, go to admin page

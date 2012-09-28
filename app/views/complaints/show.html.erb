@@ -1,7 +1,7 @@
 <%- model_class = Complaint -%>
 <div class="page-header">
   <% status = (@complaint.additional.latest.nil? || @complaint.additional.latest.status.nil?) ? '' : @complaint.additional.latest.status.title %>
-  <h1><%= @complaint.level.to_s.upcase + ' ' + status %></h1>
+  <h1><%= @complaint.level_name + ' ' + status %></h1>
 </div>
 
 
@@ -115,7 +115,7 @@
 
 <% @complaint.additional.each do |info| %>
   <% status = (info.status.nil?) ? '' : info.status.title %>
-  <h3><%= info.level.upcase + ' ' + status %></h3>
+  <h3><%= info.level_name + ' ' + status %></h3>
 
 	<div class="row">
 	  <div class="header span3">
@@ -141,7 +141,7 @@
         <%= info.complaint_author_phone %>
 		</div>
 	</div>
-  <% attr = (!info.level.nil? && info.level == 'court') ? '' : 'style="display: none;"'.html_safe %>
+  <% attr = (!info.level.nil? && info.is_court?) ? '' : 'style="display: none;"'.html_safe %>
 	<div class="row" <%= attr %>>
 	  <div class="header span3">
         <%= t('activerecord.attributes.complaint_additional_info.court_name') %>
@@ -222,7 +222,7 @@
               :data => { :confirm => t('app.buttons.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 
-    <% if @complaint.additional.latest.level && @complaint.additional.latest.level.downcase != 'court' %>
+    <% if !@complaint.additional.empty? && @complaint.additional.latest.level && !@complaint.additional.latest.is_last_level? %>
       <%= link_to t('form.headers.move_to_next_level'),
                   edit_complaint_path(@complaint, :next_level => true), :class => 'btn', :style => 'margin-left: 35px;' %>
     <% end %>
