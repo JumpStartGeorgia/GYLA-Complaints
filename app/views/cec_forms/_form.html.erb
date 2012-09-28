@@ -1,3 +1,4 @@
+<div id="cec_form">
 <%= nested_form_for @cec_form, :html => { :class => 'form-horizontal' } do |f| %>
    <%= f.error_messages :header_message => '' %>
    <table class="form_table">
@@ -8,7 +9,7 @@
                 <%= f.label :cesko_list_observer, :class => 'control-label' %>
             </div>
          </td>
-         <td>  
+         <td>
             <div class="controls">
                 <%= f.text_field :cesko_list_observer, :class => 'text_field' %>
             </div>
@@ -21,7 +22,7 @@
                 <%= f.label :monitoring_time, :class => 'control-label' %>
             </div>
          </td>
-         <td>  
+         <td>
             <div class="controls">
                 <%= f.text_field :monitoring_time, :class => 'text_field' %>
             </div>
@@ -34,7 +35,7 @@
                 <%= f.label :organization_name, :class => 'control-label' %>
             </div>
          </td>
-         <td>  
+         <td>
             <div class="controls">
                 <%= f.text_field :organization_name, :class => 'text_field' %>
             </div>
@@ -167,3 +168,4 @@
                 cec_forms_path, :class => 'btn' %>
   </div>
 <% end %>
+</div>

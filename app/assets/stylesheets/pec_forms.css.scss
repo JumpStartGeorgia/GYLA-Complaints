@@ -7,7 +7,7 @@
    color: #555 !important;
 }
 
-.form_table, .index_table { 
+.form_table, .index_table {
    width: 100%;
    font-size: 15px;
 }
@@ -18,7 +18,7 @@
 }
 
 .index_table th, .index_table td, .form_table td {
-   border: 1px solid #000 !important;   
+   border: 1px solid #000 !important;
    font-size: 12px;
 }
 
@@ -33,11 +33,14 @@ input[type=radio] {
 
 label.radio_label {
    width: 30px;
-   margin: 0;   
+   margin: 0;
    padding-left: 20px;
    margin-top: -17px;
 }
 
+#pec_form .form-horizontal .controls {
+	margin-left: 330px;
+}
 
 
 .dl-show dt {
@@ -53,4 +56,3 @@ label.radio_label {
 .dl-show {
    line-height: 20px;
 }
-
