@@ -5,13 +5,14 @@
 <script>
    var ids = new Array;
 </script>
+<div class="overf">
 <table class="table table-striped index_table" id="pec-index-table">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:election_district_number) %></th>
       <th><%= model_class.human_attribute_name(:election_precinct_number) %></th>
       <th><%= model_class.human_attribute_name(:current_number_of_complaints) %></th>
-      <th><%= model_class.human_attribute_name(:was_complaint_setisfied) %></th>      
+      <th><%= model_class.human_attribute_name(:was_complaint_setisfied) %></th>
     </tr>
   </thead>
   <tbody>
@@ -43,7 +44,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <% if false %>
 <%= link_to t('pec_form.buttons.new'),
             new_pec_form_path,

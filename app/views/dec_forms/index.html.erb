@@ -5,11 +5,12 @@
 <script>
    var ids = new Array;
 </script>
+<div class="overf">
 <table class="table table-striped index_table" id="dec-form-table">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:district_name_id) %></th>
-      <th><%= model_class.human_attribute_name(:dec_total_complaints) %></th>      
+      <th><%= model_class.human_attribute_name(:dec_total_complaints) %></th>
       <th><%= model_class.human_attribute_name(:dec_journal_registration_yes_no) %></th>
       <th><%= model_class.human_attribute_name(:ped_entered_with_law) %></th>
       <th><%= model_class.human_attribute_name(:lonked_election_lists) %></th>
@@ -55,13 +56,13 @@
              <td><%= t('form.radio_buttons.do_yes') %></td>
         <% else %>
              <td><%= t('form.radio_buttons.do_no') %></td>
-        <% end %>        
+        <% end %>
         <%if dec_form.get_send_act %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
         <% else %>
              <td><%= t('form.radio_buttons.do_no') %></td>
         <% end %>
-             
+
         <td><%= dec_form.describe_extra_env %></td>
         <%if dec_form.was_canonical_procedures_done === 1 %>
             <td><%= t('form.radio_buttons.do_yes') %></td>
@@ -79,16 +80,16 @@
              <td><%= t('form.radio_buttons.do_yes') %></td>
         <% else %>
              <td><%= t('form.radio_buttons.do_no') %></td>
-        <% end %>        
+        <% end %>
         <%if dec_form.commission_summary_report_publicity %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
         <% else %>
              <td><%= t('form.radio_buttons.do_no') %></td>
         <% end %>
         <td><%= dec_form.extra_env_describe %></td>
-        
-        
-        <% 
+
+
+        <%
          i=0
          j=0
          dec_form.dec_form_children.each do |dec_form_child|
@@ -97,13 +98,13 @@
             end
             if dec_form_child.was_desision_grounded
                j=j+1
-            end 
+            end
          end
         %>
-        
+
         <td><%= i.to_s+'/'+dec_form.dec_form_children.length.to_s %></td>
         <td><%= j.to_s+'/'+dec_form.dec_form_children.length.to_s %></td>
-        
+
         <% if false %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -119,7 +120,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <% if false %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_dec_form_path,

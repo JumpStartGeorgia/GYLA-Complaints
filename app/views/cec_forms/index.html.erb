@@ -5,6 +5,7 @@
 <script>
    var ids = new Array;
 </script>
+<div class="overf">
 <table class="table table-striped index_table" id="cec-form-table">
   <thead>
     <tr>
@@ -24,7 +25,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @cec_forms.each do |cec_form| %>      
+    <% @cec_forms.each do |cec_form| %>
       <script>
          ids.push('<%= cec_form.id %>');
       </script>
@@ -34,32 +35,32 @@
         <% else %>
             <td>არა</td>
         <% end %>
-        
+
         <td><%= cec_form.if_not_precinct_name_and_num %></td>
-        
+
         <% if cec_form.cesko_election_summary_after_one_day %>
             <td>დიახ</td>
         <% else %>
             <td>არა</td>
         <% end %>
-        
+
         <td><%= cec_form.if_not_after_one_day_precinct_name_num %></td>
         <% if cec_form.cesko_report_web_translition %>
             <td>დიახ</td>
         <% else %>
             <td>არა</td>
         <% end %>
-        
+
         <td><%= cec_form.if_not_the_reason %></td>
         <% if cec_form.cesko_summary_process_transparently %>
             <td>დიახ</td>
         <% else %>
             <td>არა</td>
         <% end %>
-        
+
         <td><%= cec_form.description_how_transparent %></td>
-        
-        <% 
+
+        <%
          i=0
          j=0
          cec_form.cec_form_children.each do |cec_form_child|
@@ -68,13 +69,13 @@
             end
             if cec_form_child.was_desision_grounded
                j=j+1
-            end 
+            end
          end
         %>
-        
+
         <td><%= i.to_s+'/'+cec_form.cec_form_children.length.to_s %></td>
         <td><%= j.to_s+'/'+cec_form.cec_form_children.length.to_s %></td>
-        
+
         <% if false %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -90,7 +91,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <% if false %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_cec_form_path,
