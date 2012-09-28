@@ -348,6 +348,9 @@ select {
 	background-color: #eee;
 	padding: 4px;
 }
+.show_page .row .header .indent {
+	padding-left: 15px;
+}
 .show_page .row .content {
 	padding: 4px 4px 5px 0;
 }

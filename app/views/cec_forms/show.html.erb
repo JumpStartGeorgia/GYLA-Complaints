@@ -3,68 +3,118 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal dl-show cec-dl-show">
-  <dt><strong><%= model_class.human_attribute_name(:cesko_summary_report_input) %>:</strong></dt>  
-  <% if @cec_form.cesko_summary_report_input %>
-      <dd>დიახ</dd>
-  <% else %>
-      <dd>არა</dd>
-  <% end %>
-  
-  <dt><strong><%= model_class.human_attribute_name(:if_not_precinct_name_and_num) %>:</strong></dt>
-  <dd><%= @cec_form.if_not_precinct_name_and_num %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cesko_election_summary_after_one_day) %>:</strong></dt>
-  <% if @cec_form.cesko_election_summary_after_one_day %>
-      <dd>დიახ</dd>
-  <% else %>
-      <dd>არა</dd>
-  <% end %>
-  
-  
-  <dt><strong><%= model_class.human_attribute_name(:if_not_after_one_day_precinct_name_num) %>:</strong></dt>
-  <dd><%= @cec_form.if_not_after_one_day_precinct_name_num %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cesko_report_web_translition) %>:</strong></dt>
-  <% if @cec_form.cesko_report_web_translition %>
-      <dd>დიახ</dd>
-  <% else %>
-      <dd>არა</dd>
-  <% end %>
-  
-  <dt><strong><%= model_class.human_attribute_name(:if_not_the_reason) %>:</strong></dt>
-  <dd><%= @cec_form.if_not_the_reason %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cesko_summary_process_transparently) %></strong></dt>
-  <% if @cec_form.cesko_summary_process_transparently %>
-      <dd>დიახ</dd>
-  <% else %>
-      <dd>არა</dd>
-  <% end %>
-  
-  <dt><strong><%= model_class.human_attribute_name(:description_how_transparent) %>:</strong></dt>
-  <dd><%= @cec_form.description_how_transparent %></dd>
-  
-  
-  <% 
-         i=0
-         j=0
-         @cec_form.cec_form_children.each do |cec_form_child|
-            if cec_form_child.was_complaint_satisfied
-               i=i+1
-            end
-            if cec_form_child.was_desision_grounded
-               j=j+1
-            end 
-         end
-        %>
-  
-  <dt><strong>რამდენი საჩივარი დაკმაყოფილდა?</strong></dt>
-  <dd><%= i.to_s+'/'+@cec_form.cec_form_children.length.to_s %></dd>
-  
-  <dt><strong>იყო თუ არა გადაწყვეტილება დასაბუთებული?</strong></dt>
-  <dd><%= j.to_s+'/'+@cec_form.cec_form_children.length.to_s %></dd>
-  
-</dl>
+<div class="show_page clear">
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:cesko_summary_report_input) %>
+		</div>
+	  <div class="content span6">
+			<% if @cec_form.cesko_summary_report_input %>
+				  <dd>დიახ</dd>
+			<% else %>
+				  <dd>არა</dd>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:if_not_precinct_name_and_num) %>
+		</div>
+	  <div class="content span6">
+			<%= @cec_form.if_not_precinct_name_and_num %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:cesko_election_summary_after_one_day) %>
+		</div>
+	  <div class="content span6">
+			<% if @cec_form.cesko_election_summary_after_one_day %>
+				  <dd>დიახ</dd>
+			<% else %>
+				  <dd>არა</dd>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:if_not_after_one_day_precinct_name_num) %>
+		</div>
+	  <div class="content span6">
+			<%= @cec_form.if_not_after_one_day_precinct_name_num %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:cesko_report_web_translition) %>
+		</div>
+	  <div class="content span6">
+			<% if @cec_form.cesko_report_web_translition %>
+				  <dd>დიახ</dd>
+			<% else %>
+				  <dd>არა</dd>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:if_not_the_reason) %>
+		</div>
+	  <div class="content span6">
+			<%= @cec_form.if_not_the_reason %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:cesko_summary_process_transparently) %>
+		</div>
+	  <div class="content span6">
+			<% if @cec_form.cesko_summary_process_transparently %>
+				  <dd>დიახ</dd>
+			<% else %>
+				  <dd>არა</dd>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			<%= model_class.human_attribute_name(:description_how_transparent) %>
+		</div>
+	  <div class="content span6">
+			<%= @cec_form.description_how_transparent %>
+		</div>
+	</div>
 
+  <%
+   i=0
+   j=0
+   @cec_form.cec_form_children.each do |cec_form_child|
+      if cec_form_child.was_complaint_satisfied
+         i=i+1
+      end
+      if cec_form_child.was_desision_grounded
+         j=j+1
+      end
+   end
+  %>
 
+	<div class="row">
+	  <div class="header span3">
+			რამდენი საჩივარი დაკმაყოფილდა?
+		</div>
+	  <div class="content span6">
+			<%= i.to_s+'/'+@cec_form.cec_form_children.length.to_s %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			იყო თუ არა გადაწყვეტილება დასაბუთებული?
+		</div>
+	  <div class="content span6">
+			<%= j.to_s+'/'+@cec_form.cec_form_children.length.to_s %>
+		</div>
+	</div>
+</div>
 
 
 <div class="form-actions">
@@ -78,4 +128,3 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
-
