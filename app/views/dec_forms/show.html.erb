@@ -26,9 +26,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.dec_journal_registration_yes_no %>
-			  დიახ
-			<% else %>
-			  არა
+			  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.dec_journal_registration_yes_no.nil? %>
+			  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -38,9 +38,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.ped_entered_with_law %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.ped_entered_with_law.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -52,9 +52,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.lonked_election_lists %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.lonked_election_lists.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -66,9 +66,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.complaints %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.complaints.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -80,9 +80,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.get_send_act %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.get_send_act.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -102,11 +102,11 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.was_canonical_procedures_done === 1 %>
-				  დიახ
+				  <%= t('form.radio_buttons.do_yes') %>
 			<% elsif @dec_form.was_canonical_procedures_done === 2 %>
 				  ნაწილობრივ
-			<% else %>
-				  არა
+			<% elsif !@dec_form.was_canonical_procedures_done.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -118,9 +118,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.where_props_filled %>
-					დიახ
-			<% else %>
-					არა
+					<%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.where_props_filled.nil? %>
+					<%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -132,9 +132,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.precinct_results_canel_proc %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.precinct_results_canel_proc.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -146,9 +146,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.commission_summary_report_publicity %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.commission_summary_report_publicity.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -168,9 +168,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @dec_form.summed_up_or_not_summary_reports %>
-				  დიახ
-			<% else %>
-				  არა
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@dec_form.summed_up_or_not_summary_reports.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>

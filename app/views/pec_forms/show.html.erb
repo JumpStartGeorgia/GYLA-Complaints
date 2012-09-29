@@ -51,7 +51,7 @@
 				<%= model_class.human_attribute_name(:registered_or_not_complaint) %>
 			</div>
 			<div class="content span6">
-				დიახ
+				<%= t('form.radio_buttons.do_yes') %>
 			</div>
 		</div>
 		<div class="row">
@@ -68,7 +68,7 @@
 				<%= model_class.human_attribute_name(:registered_or_not_complaint) %>
 			</div>
 			<div class="content span6">
-				არა
+				<%= t('form.radio_buttons.do_no') %>
 			</div>
 		</div>
 		<div class="row">
@@ -77,9 +77,9 @@
 			</div>
 			<div class="content span6">
 			 <% if @pec_form.do_you_give_complaint_to_higher_commission %>
-			    დიახ
-			 <% else %>
-			    არა
+			    <%= t('form.radio_buttons.do_yes') %>
+			 <% elsif !@pec_form.do_you_give_complaint_to_higher_commission.nil? %>
+			    <%= t('form.radio_buttons.do_no') %>
 			 <% end %>
 			</div>
 		</div>
@@ -106,9 +106,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @pec_form.was_complaint_setisfied %>
-				 დიახ
-			<% else %>
-				 არა
+				 <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@pec_form.was_complaint_setisfied.nil? %>
+				 <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>

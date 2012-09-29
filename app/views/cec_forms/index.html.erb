@@ -31,31 +31,39 @@
       <tr>
          <td><%=  link_to t('app.buttons.show'), cec_form_path(cec_form), :class => 'btn btn-mini btn-primary' %></td>
         <% if cec_form.cesko_summary_report_input %>
-            <td>დიახ</td>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% elsif !cec_form.cesko_summary_report_input.nil? %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
         <% else %>
-            <td>არა</td>
+          <td></td>
         <% end %>
 
         <td><%= cec_form.if_not_precinct_name_and_num %></td>
 
         <% if cec_form.cesko_election_summary_after_one_day %>
-            <td>დიახ</td>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% elsif !cec_form.cesko_election_summary_after_one_day.nil? %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
         <% else %>
-            <td>არა</td>
+          <td></td>
         <% end %>
 
         <td><%= cec_form.if_not_after_one_day_precinct_name_num %></td>
         <% if cec_form.cesko_report_web_translition %>
-            <td>დიახ</td>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% elsif !cec_form.if_not_after_one_day_precinct_name_num.nil? %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
         <% else %>
-            <td>არა</td>
+          <td></td>
         <% end %>
 
         <td><%= cec_form.if_not_the_reason %></td>
         <% if cec_form.cesko_summary_process_transparently %>
-            <td>დიახ</td>
+             <td><%= t('form.radio_buttons.do_yes') %></td>
+        <% elsif !cec_form.cesko_summary_process_transparently.nil? %>
+             <td><%= t('form.radio_buttons.do_no') %></td>
         <% else %>
-            <td>არა</td>
+          <td></td>
         <% end %>
 
         <td><%= cec_form.description_how_transparent %></td>

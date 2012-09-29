@@ -51,28 +51,38 @@
         <td><%= dec_form.dec_total_complaints %></td>
         <%if dec_form.dec_journal_registration_yes_no %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <%elsif !dec_form.dec_journal_registration_yes_no.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.ped_entered_with_law %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.ped_entered_with_law.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.lonked_election_lists %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.lonked_election_lists.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.complaints %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.complaints.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.get_send_act %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.get_send_act.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
 
         <td><%= dec_form.describe_extra_env %></td>
@@ -80,23 +90,31 @@
             <td><%= t('form.radio_buttons.do_yes') %></td>
         <% elsif dec_form.was_canonical_procedures_done === 2 %>
             <td><%= t('form.radio_buttons.do_partialy') %></td>
-        <% else %>
+        <% elsif !dec_form.was_canonical_procedures_done.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.where_props_filled %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.where_props_filled.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.precinct_results_canel_proc %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.precinct_results_canel_proc.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <%if dec_form.commission_summary_report_publicity %>
              <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+        <% elsif !dec_form.commission_summary_report_publicity.nil? %>
              <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <td><%= dec_form.extra_env_describe %></td>
 

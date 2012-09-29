@@ -41,9 +41,11 @@
          <td><%= pec_form.election_precinct_number %></td>
         <td><%= pec_form.current_number_of_complaints %></td>
         <%if pec_form.was_complaint_setisfied %>
-           <td><%= t('form.radio_buttons.do_yes') %></td>
-        <% else %>
+           <%= t('form.radio_buttons.do_yes') %></td>
+        <% elsif !pec_form.was_complaint_setisfied.nil? %>
             <td><%= t('form.radio_buttons.do_no') %></td>
+        <% else %>
+          <td></td>
         <% end %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

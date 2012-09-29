@@ -1,4 +1,4 @@
-<%- model_class = CecForm -%>
+<%= t('form.radio_buttons.do_yes') %><%- model_class = CecForm -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
@@ -10,9 +10,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @cec_form.cesko_summary_report_input %>
-				  <dd>დიახ</dd>
-			<% else %>
-				  <dd>არა</dd>
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@cec_form.cesko_summary_report_input.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -30,9 +30,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @cec_form.cesko_election_summary_after_one_day %>
-				  <dd>დიახ</dd>
-			<% else %>
-				  <dd>არა</dd>
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@cec_form.cesko_election_summary_after_one_day.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -50,9 +50,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @cec_form.cesko_report_web_translition %>
-				  <dd>დიახ</dd>
-			<% else %>
-				  <dd>არა</dd>
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@cec_form.cesko_report_web_translition.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
@@ -70,9 +70,9 @@
 		</div>
 	  <div class="content span6">
 			<% if @cec_form.cesko_summary_process_transparently %>
-				  <dd>დიახ</dd>
-			<% else %>
-				  <dd>არა</dd>
+				  <%= t('form.radio_buttons.do_yes') %>
+			<% elsif !@cec_form.cesko_summary_process_transparently.nil? %>
+				  <%= t('form.radio_buttons.do_no') %>
 			<% end %>
 		</div>
 	</div>
