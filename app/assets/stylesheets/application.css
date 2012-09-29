@@ -356,9 +356,5 @@ select {
 }
 
 #total-records {
-   width: 10px;
-   margin: 0;
-   padding: 0;
-   clear: none;
-   display: inline-block;   
+  color: #006DCC;
 }

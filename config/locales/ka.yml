@@ -20,27 +20,27 @@ ka:
         title: სახელი
       complaint:
         complaint_additional_infos: დამატებითი ინფორმაცია
-        violation_time: დარღვევის ჩადენის დრო
-        description: დარღვევის აღწერა
+        violation_time: დარღვევის ჩადენის დრო *
+        description: დარღვევის აღწერა *
         original_level: თავდაპირველი დონე
-        observer_name: დამკვირვებლის სახელი, გვარი
-        observer_phone: დამკვირვებლის საკონტაქტო ტელეფონის ნომერი
-        observer_address: დამკვირვებლის მისამართი რეგისტრაციის ადგილის მიხედვით
-        election_district_name: საარჩევნო ოლქის სახელი
-        election_precinct_number: საარჩევნო უბნის ნომერი
+        observer_name: დამკვირვებლის სახელი, გვარი *
+        observer_phone: დამკვირვებლის საკონტაქტო ტელეფონის ნომერი *
+        observer_address: დამკვირვებლის მისამართი რეგისტრაციის ადგილის მიხედვით *
+        election_district_name: საარჩევნო ოლქის სახელი *
+        election_precinct_number: საარჩევნო უბნის ნომერი *
         election_district_name_short: საარჩევნო ოლქი
         election_precinct_number_short: საარჩევნო უბანი
         category: კატეგორია
-        category_id: კატეგორია
+        category_id: კატეგორია *
         violation_type: დარღვევის ტიპი
-        violation_type_id: დარღვევის ტიპი
+        violation_type_id: დარღვევის ტიპი *
         witness: მოწმე (არსებობის შემთხვევაში)
         violator_info: დამრღვევის დადგენის შემთხვევაში (მისი ის მონაცემები, რომელთა დადგენაც შესაძლებელი გახდა) და დამრღვევის ახსნა-განმარტება (ასეთის არსებობის შემთხვევაში)
         other_info: სხვა დამატებითი ინფორმაცია
         level: დონე
       complaint_additional_info:
         complaint_writing_time: საჩივრის დაწერის დრო
-        status: საჩივრის მიმდინარეობა
+        status: საჩივრის მიმდინარეობა *
         complaint_author_name: საჩივრის ავტორი
         complaint_author_phone: საჩივრის ავტორის ტელეფონის ნომერი
         court_name: საქალაქო/სააპელაციო სასამართლოს დასახელება
@@ -48,7 +48,7 @@ ka:
         response_date: პასუხის მოსვლის დრო
         complaint_result: საჩივრის შედეგი
         additional_comment: დამატებითი კომენტარი
-        level: დონე
+        level: დონე *
       election_district_name:
         title: სახელი
       election_precinct_number:
@@ -60,26 +60,26 @@ ka:
       violation_type:
         title: დასახელება
       pec_form:
-        election_district_number: 'საოლქო საარჩევნო კომისიის ნომერი: *'
-        election_precinct_number: 'საუბნო საარჩევნო კომისიის ნომერი: *'
-        observer_name: 'სიის დამკვირვებელი:'
+        election_district_number: 'საოლქო საარჩევნო კომისიის ნომერი *'
+        election_precinct_number: 'საუბნო საარჩევნო კომისიის ნომერი *'
+        observer_name: 'სიის დამკვირვებელი'
         current_number_of_complaints: ფორმის შევსების დროისათვის სულ რამდენი საჩივარი დაიწერა უბანზე?
-        complaint_author: 'საჩივრის ავტორი და მისი წარმდგენი სუბიექტი:'
+        complaint_author: 'საჩივრის ავტორი და მისი წარმდგენი სუბიექტი'
         registered_or_not_complaint: დაარეგისტრირა თუ არა საუბნო საარჩევნო კომისიამ საჩივარი?
-        registration_time: 'თუ დიახ, მიუთითეთ რეგისტრაციის დრო:'
+        registration_time: 'თუ დიახ, მიუთითეთ რეგისტრაციის დრო'
         do_you_give_complaint_to_higher_commission: თუ არა, აპირებდა თუ არა მომჩივანი გასაჩივრებას ზემდგომ საოლქო საარჩევნო კომისიაში?
-        violation_essence: 'დარღვევის არსი:'
+        violation_essence: 'დარღვევის არსი'
         request: 'მოთხოვნა:'
         was_complaint_setisfied: დაკმაყოფილდა თუ არა საჩივარი?
-        other_extra_comments: 'სხვა დამატებითი კომენტარები:'
+        other_extra_comments: 'სხვა დამატებითი კომენტარები'
       dec_form:
-        district_name_id: 'ოლქის დასახელება და ნომერი: *'
-        observer_name: 'დამკვირვებლის სახელი და გვარი:'
-        monitoring_time: 'ცვლის მონიტორინგის დრო:'
-        organisation_name: 'ორგანიზაციის სახელწოდება:'
+        district_name_id: 'ოლქის დასახელება და ნომერი *'
+        observer_name: 'დამკვირვებლის სახელი და გვარი'
+        monitoring_time: 'ცვლის მონიტორინგის დრო'
+        organisation_name: 'ორგანიზაციის სახელწოდება'
         dec_total_complaints: რამდენი საჩივარი იქნა შეტანილი საოლქო საარჩევნო კომისიაში?
         dec_journal_registration_yes_no: ხდება თუ არა საჩივრების რეგისტრაცია საოლქო საარჩევნო კომისიის სარეგისტრაციო ჟურნალში?
-        ped_entered_with_law: 'შემოვიდა თუ არა საარჩევნო უბნებიდან საარჩევნო დოკუმენტაცია კანონის მოთხოვნათა დაცვით, კერძოდ:'
+        ped_entered_with_law: 'შემოვიდა თუ არა საარჩევნო უბნებიდან საარჩევნო დოკუმენტაცია კანონის მოთხოვნათა დაცვით, კერძოდ'
         lonked_election_lists: 1. დალუქული საარჩევნო სიები, ბიულეტენები, ბეჭდები და სხვა
         complaints: 2. საჩივრები
         get_send_act: 3. შედგა თუ არა მიღება-ჩაბარების აქტი?
@@ -91,7 +91,7 @@ ka:
         extra_env_describe: 4. აღწერეთ დამატებითი გარემოება
         summed_up_or_not_summary_reports: საარჩევნო კოდექსით დადგენილ ვადებში, არა უგვიანეს 12 ოქტომბრისა, შეაჯამა თუ არა საოლქო საარჩევნო კომისიამ ოლქის შედეგები, საუბნო საარჩევნო კომისიების შემაჯამებელი ოქმების საფუძველზე, საარჩევნო კანონმდებლობის დარღვევის შედეგების გათვალისწინებით?
       dec_form_child:
-        the_dec_complaint: 'საოლქო საარჩევნო კომისიაში წარდეგენილი საჩივარი:'
+        the_dec_complaint: 'საოლქო საარჩევნო კომისიაში წარდეგენილი საჩივარი'
         important_aspect_of_complaint_dicussion: საჩივრის განხილვის მნიშვნელოვანი ასპექტები
         complaint_author_presentator: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი *'
         response_precinct_commission: 'ბ) მოპასუხე საუბნო საარჩევნო კომისია *'
@@ -105,15 +105,15 @@ ka:
         report_while_meeting: საოლქო საარჩევნო კომისიის სხდომის დროს ხორციელდებოდა სხდომის ოქმის წარმოება
         testimonies_investigation_evaluation: საოლქო საარჩევნო კომისიის სხდომის დროს ხდებოდა მტკიცებულებათა ჯეროვანი გამოკვლევა/შეფასება
         extra_comments: 'დამატებითი კომენტარი:'
-        dec_desision: 'საოლქო საარჩევნო კიმისიის მიერ მეღებული გადაწყვეტილება:'
+        dec_desision: 'საოლქო საარჩევნო კიმისიის მიერ მეღებული გადაწყვეტილება'
         was_desision_grounded: იყო თუ არა გადაწყვეტილება დასაბუთებული?
         does_pary_plans_to_complaint: აპირებს თუ არა მხარე გადაწყვეტილების გასაჩივერაბას?
-        describe_other_extra_env: 'აღწერეთ სხვა დამატებითი გარემოებანი:'
+        describe_other_extra_env: 'აღწერეთ სხვა დამატებითი გარემოებანი'
         complaint_satisfied: დაკმაყოფილდა თუ არა საჩივარი?
       cec_form:
-        cesko_list_observer: 'ცესკში სიის დამკვირვებელი:'
-        monitoring_time: 'ცვლის მონიტორინგის დრო:'
-        organization_name: 'ორგანიზაციის სახელწოდება:'
+        cesko_list_observer: 'ცესკში სიის დამკვირვებელი'
+        monitoring_time: 'ცვლის მონიტორინგის დრო'
+        organization_name: 'ორგანიზაციის სახელწოდება'
         cesko_summary_report_input: არჩევნების დგეს შემოვიდა თუ არა ცესკოში შემაჯამებალი ოქმები ყველა საარჩევნო უბნიდან ფაქსის/სხვა ტექნიკური საშუალებების მეშვეობით?
         if_not_precinct_name_and_num: უარყოფითი პასუხის შემთხვევაში, მიუთითეთ უბნის სახელწოდება და ნომერი
         cesko_election_summary_after_one_day: შემოვიდა თუ არა ცესკოში კენჭისყრისა და არჩევნების შედეგების შემაჯამებელი ოქმები ოლქში შეჯამებიდან არა უგვიანეს მომდევნო დღისა(13 ოქტომბრისა)?
@@ -125,7 +125,7 @@ ka:
       cec_form_child:
         was_complaint_satisfied: დაკმაყოფილდა თუ არა საჩივარი?
         complaint_important_aspect: საჩივრის განხილვის მნიშვნელოვანი ასპექტები
-        cec_complaint: 'ცენტრალურ საარჩევნო კომისიაში წარდგენილი საჩივარი:'
+        cec_complaint: 'ცენტრალურ საარჩევნო კომისიაში წარდგენილი საჩივარი'
         cesko_complaint_author_sender: 'ა) საჩივრის ავტორი/მისი წარმომადგენელი *'
         responder_district_election_commission: 'ბ) მოპასუხე საოლქო საარჩევნო კომისია *'
         cesko_complaint_registration_time: საჩივრის ცესკოში რეგისტრაციის დრო *
@@ -137,8 +137,8 @@ ka:
         cesko_meeting_all_commission_members: ცესკოს სხდომას ესწრებოდა ყველა კომისიის წევრი
         cesko_meeting_report: ცესკოს სხდომის დროს ხორციელდებოდა სხდომის ოქმის წარმოება
         cesko_meeting_testimony_research: ცესკოს სხდომის დროს ხდებოდა მტკიცებულებათა ჯეროვანი გამოკვლევა/შეფასება
-        extra_comment: 'დამატებითი კომენტარი:'
-        cesko_desision: 'ცენტრალური საარჩევო კომისიის მიერ მიღებული გადაწყვეტილება:'
+        extra_comment: 'დამატებითი კომენტარი'
+        cesko_desision: 'ცენტრალური საარჩევო კომისიის მიერ მიღებული გადაწყვეტილება'
         was_desision_grounded: იყო თუ არა გადაწყვეტილება დასაბუთებული?
         was_complained_the_desision: გასაჩივრდა თუ არა გადაწყვეტილება?
         was_web_announcement_made_on_complaint: გააკეთა თუ არა ცესკომ წებ-გვერდზე შენიშვნა ის საუბნო საარჩევნო კომისიის შემაჯამებელ ოქმებზე, რომლებიც სასამართლოში გასაჩივრდა?

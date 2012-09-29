@@ -7,7 +7,7 @@
 
   <div class="span4">
     <span><%= t('activerecord.attributes.complaint.election_district_name_short') %></span>
-    <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.all.map { |d| [d.district_name, d.district_id] }) %>
+    <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.all.map { |d| ["#{d.district_id} - #{d.district_name}", d.district_id] }) %>
   </div>
 
   <div class="span4">
@@ -31,6 +31,7 @@
 <table id="complaint_index_table" class="table table-striped">
   <thead>
     <tr>
+      <th></th>
       <th><%= t('activerecord.attributes.complaint.category') %></th>
       <th><%= t('activerecord.attributes.complaint_additional_info.status') %></th>
       <th><%= t('activerecord.attributes.complaint.election_district_name_short') %></th>
@@ -45,8 +46,10 @@
       <% status = (complaint.additional.latest && complaint.additional.latest.status) ? complaint.additional.latest.status : false %>
       <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id %>" data-status="<%= status.id if status %>">
 				<td>
-          <% link_text = complaint.category && complaint.category.title.to_s.length > 0 ? complaint.category.title : t('app.common.empty') %>
-					<%= link_to link_text, complaint_path(complaint) %>
+					<%= link_to t('app.buttons.show'), complaint_path(complaint), :class => 'btn btn-mini btn-primary' %>
+				</td>
+				<td>
+          <%= complaint.category && complaint.category.title.to_s.length > 0 ? complaint.category.title : t('app.common.empty') %>
 				</td>
 				<td>
 				  <%= status.title if status %>
@@ -58,7 +61,7 @@
 				  <%= complaint.election_precinct_number %>
 				</td>
         <td>
-          <% text = complaint.additional && complaint.additional.latest && complaint.additional.latest.level.to_s.length > 0 ? complaint.additional.latest.level.to_s.upcase : t('app.common.empty') %>
+          <% text = complaint.additional && complaint.additional.latest && complaint.additional.latest.level.to_s.length > 0 ? complaint.additional.latest.level_name : t('app.common.empty') %>
 					<%= text %>
 				</td>
 				<td>
@@ -78,7 +81,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('app.buttons.new', :default => t("helpers.links.new")),
-            new_complaint_path,
-            :class => 'btn btn-primary' %>

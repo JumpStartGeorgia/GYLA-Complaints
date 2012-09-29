@@ -27,7 +27,8 @@ class Complaint < ActiveRecord::Base
 			:other_info
 
   validates :observer_address,
-			# level,:observer_name,
+			# level,
+			:observer_name,
 			:observer_phone,
 			:election_district_name,
 			:election_precinct_number,
