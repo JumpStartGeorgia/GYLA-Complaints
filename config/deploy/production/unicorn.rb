@@ -1,7 +1,7 @@
 ##################################
 ##### SET THESE VARIABLES ########
 ##################################
-root = "/home/gylacomplaints/GYLA-Complaints/current" # path to application current folder
+root = "/home/gyla-complaints/GYLA-Complaints/current" # path to application current folder
 sock_name = "unicorn_GYLA-Complaints" # must be unique name with no '.'
 port_num = 8093 # must be a unique port number for this application
 tout = 30 # time in seconds before process dies - need a long time for data uploads

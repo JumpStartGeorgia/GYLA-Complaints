@@ -4,8 +4,8 @@ set -e
 ##################################
 ##### SET THESE VARIABLES ########
 ##################################
-AS_USER=gylacomplaints # name of user on server
-APP_ROOT=/home/gylacomplaints/GYLA-Complaints/current # path to application current folder
+AS_USER=gyla-complaints # name of user on server
+APP_ROOT=/home/gyla-complaints/GYLA-Complaints/current # path to application current folder
 # update the name of the enviroment at '-E _____' to production, staging, etc
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/deploy/production/unicorn.rb -E production"
 ##################################
