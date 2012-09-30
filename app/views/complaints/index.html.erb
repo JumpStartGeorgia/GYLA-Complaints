@@ -44,7 +44,7 @@
   <tbody>
     <% @complaints.each do |complaint| %>
       <% status = (complaint.additional.latest && complaint.additional.latest.status) ? complaint.additional.latest.status : false %>
-      <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id %>" data-status="<%= status.id if status %>">
+      <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id if complaint.category_id %>" data-status="<%= status.id if status %>">
 				<td>
 					<%= link_to t('app.buttons.show'), complaint_path(complaint), :class => 'btn btn-mini btn-primary' %>
 				</td>
@@ -66,7 +66,7 @@
 				</td>
 				<td>
 				  <% edate = (complaint.additional.latest && complaint.additional.latest.complaint_writing_time) ? complaint.additional.latest.complaint_writing_time : complaint.violation_time %>
-				  <%= l edate, :format => :long %>
+				  <%= l edate, :format => :long if edate %>
 				</td>
         <td>
           <%= link_to t('app.buttons.edit', :default => t("helpers.links.edit")),

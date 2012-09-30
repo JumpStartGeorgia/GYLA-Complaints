@@ -1,7 +1,7 @@
 class ComplaintAdditionalInfo < ActiveRecord::Base
 
-  has_many :complaint_additional_files, :dependent => :destroy
-  accepts_nested_attributes_for :complaint_additional_files, :reject_if => lambda { |a| a[:file].blank? }, :allow_destroy => true
+ # has_many :complaint_additional_files, :dependent => :destroy
+ # accepts_nested_attributes_for :complaint_additional_files, :reject_if => lambda { |a| a[:file].blank? }, :allow_destroy => true
 
   belongs_to :complaint
   belongs_to :status
