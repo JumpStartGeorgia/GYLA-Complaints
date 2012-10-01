@@ -5,9 +5,15 @@
 
  *= require formtastic
  *= require formtastic-bootstrap
+ *= require bootstrap_and_overrides
  *= require vendor
- *= require_tree .
- *= require vendor
+ *= require cec_form_children
+ *= require cec_forms
+ *= require complaints
+ *= require dec_form_children
+ *= require dec_forms
+ *= require pec_forms
+ *= require scaffolds
  *= require_self
 */
 
