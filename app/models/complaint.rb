@@ -24,7 +24,8 @@ class Complaint < ActiveRecord::Base
 			:violation_time,
 			:witness,
 			:violator_info,
-			:other_info
+			:other_info,
+			:status_old
 
   validates :observer_address,
 			# level,

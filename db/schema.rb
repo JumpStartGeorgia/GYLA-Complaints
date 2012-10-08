@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928143922) do
+ActiveRecord::Schema.define(:version => 20121008163143) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(:version => 20120928143922) do
     t.text     "violator_info"
     t.text     "other_info"
     t.text     "description"
+    t.string   "status_old"
+    t.string   "komisia_old"
   end
 
   create_table "dec_form_children", :force => true do |t|
