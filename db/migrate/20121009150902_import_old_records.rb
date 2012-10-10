@@ -3,6 +3,7 @@
 class ImportOldRecords < ActiveRecord::Migration
   def up
 
+    add_column :complaints, :status_old, :string
     Complaint.update_all('`status_old` = NULL')
 
 
@@ -480,5 +481,6 @@ class ImportOldRecords < ActiveRecord::Migration
 
   def down
     Complaint.destroy_all('`status_old` IS NOT NULL')
+    remove_column :complaints, :status_old
   end
 end

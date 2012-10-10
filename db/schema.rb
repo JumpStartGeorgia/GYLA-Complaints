@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20121008163143) do
     t.text     "violator_info"
     t.text     "other_info"
     t.text     "description"
-    t.string   "status_old"
   end
 
   create_table "dec_form_children", :force => true do |t|
