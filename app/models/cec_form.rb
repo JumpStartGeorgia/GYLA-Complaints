@@ -14,5 +14,7 @@ class CecForm < ActiveRecord::Base
 		:if_not_the_reason,
 		:cesko_summary_process_transparently,
 		:description_how_transparent
+
+  scope :sorted, order('updated_at DESC')
    
 end

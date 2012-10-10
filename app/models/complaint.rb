@@ -43,6 +43,8 @@ class Complaint < ActiveRecord::Base
 
 	validates_associated :complaint_additional_infos
 
+  scope :sorted, order('updated_at DESC, level')
+
 	before_create :set_values
 	before_save :update_level
 
@@ -71,12 +73,18 @@ class Complaint < ActiveRecord::Base
    end
 
 	def level_name
+	  l = ''
 		if self.level
-			index = LEVELS.map{|x| x[1]}.index(self.level)
-			if index
-				return LEVELS[index][0]
-			end
+		  l = self.level
+		elsif self.additional && self.additional.latest && self.additional.latest.level && self.additional.latest.level.to_s.length > 0
+		  l = self.additional.latest.level
 		end
+
+		index = LEVELS.map{|x| x[1]}.index(l)
+		if index
+			return LEVELS[index][0]
+		end
+
 		''
 	end
 

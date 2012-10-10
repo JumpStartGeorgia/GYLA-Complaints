@@ -5,6 +5,8 @@ class DecForm < ActiveRecord::Base
 
   validates :district_name_id, :presence => true
 
+  scope :sorted, order('updated_at DESC')
+
   attr_accessible :district_name_id,
       :observer_name,
       :monitoring_time,

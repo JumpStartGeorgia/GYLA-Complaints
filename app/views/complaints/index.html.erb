@@ -55,13 +55,13 @@
 				  <%= status.title if status %>
 				</td>
 				<td>
-				  <%= complaint.district_name %>
+				  <%= complaint.updated_at %>
 				</td>
 				<td>
 				  <%= complaint.election_precinct_number %>
 				</td>
         <td>
-          <% text = complaint.additional && complaint.additional.latest && complaint.additional.latest.level.to_s.length > 0 ? complaint.additional.latest.level_name : t('app.common.empty') %>
+          <% text = complaint.level_name.to_s.length > 0 ? complaint.level_name : t('app.common.empty') %>
 					<%= text %>
 				</td>
 				<td>

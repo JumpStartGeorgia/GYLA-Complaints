@@ -3,7 +3,7 @@ class PecFormsController < ApplicationController
   # GET /pec_forms
   # GET /pec_forms.json
   def index
-    @pec_forms = PecForm.all
+    @pec_forms = PecForm.sorted
 
     respond_to do |format|
       format.html # index.html.erb

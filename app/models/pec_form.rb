@@ -13,6 +13,8 @@ class PecForm < ActiveRecord::Base
 
    validates :election_district_number, :election_precinct_number, :presence => true
 
+  scope :sorted, order('updated_at DESC')
+
    def district_name
 		district = DistrictIdName.where("district_id = ?", self.election_district_number)
 		if district && !district.empty?
