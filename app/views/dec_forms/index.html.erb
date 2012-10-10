@@ -7,11 +7,8 @@
 </script>
 <div class="overf">
 
-<% districts = DistrictIdName.order('district_id') %>
-<%= select 'district', 'district', districts.map{ |d|
-                     [d.district_id.to_s + ' - ' + d.district_name.to_s, d.district_id.to_s]
-   }, :include_blank => true %>
-   
+    <%= select_tag :district, options_for_select([nil] + DistrictIdName.with_dec_count.map { |d| ["#{d.district_id} - #{d.district_name} (#{d.record_count})", d.district_id] }) %>
+
 <span class="total">
   <span>სულ: </span>
   <span id="total-records"><%= @dec_forms.length %></span>

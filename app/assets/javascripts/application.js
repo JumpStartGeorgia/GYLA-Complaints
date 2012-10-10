@@ -32,18 +32,18 @@ $(function(){
 
 function filterByDistrict(form)
 {
-   var district = $('#district_district'),
+   var district = $('#district'),
        index_table = $('#'+form+' tbody'),
-       total_records = $('#total-records');       
+       total_records = $('#total-records');
    district.change(function(){
-      var ths = this, i = 0;      
-      index_table.children('tr').each(function(){     
+      var ths = this, i = 0;
+      index_table.children('tr').each(function(){
          if ($(this).attr('id') === $(ths).val() ||
-             !$(ths).val())  
+             !$(ths).val())
          {
             $(this).css('display', 'table-row');
             i++;
-         }         
+         }
          else
          {
             $(this).css('display', 'none');
@@ -54,5 +54,5 @@ function filterByDistrict(form)
 }
 
 $(function(){
-   filterByDistrict('index-table');      
+   filterByDistrict('index-table');
 });

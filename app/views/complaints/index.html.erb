@@ -7,7 +7,7 @@
 
   <div class="span4">
     <span><%= t('activerecord.attributes.complaint.election_district_name_short') %></span>
-    <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.all.map { |d| ["#{d.district_id} - #{d.district_name}", d.district_id] }) %>
+    <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.with_complaints_count.map { |d| ["#{d.district_id} - #{d.district_name} (#{d.record_count})", d.district_id] }) %>
   </div>
 
   <div class="span4">
