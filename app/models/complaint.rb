@@ -111,4 +111,8 @@ class Complaint < ActiveRecord::Base
 		end
 	end
 
+  def is_old?
+    (self.attributes.has_key? 'status_old') && !self.status_old.nil?
+  end
+
 end
