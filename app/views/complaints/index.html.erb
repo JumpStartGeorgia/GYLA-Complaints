@@ -7,7 +7,7 @@
 
   <div class="span3">
     <span><%= t('activerecord.attributes.complaint.elections') %></span>
-    <% latest_election = Complaint::ELECTIONS[Complaint::ELECTIONS.length - 1][1] %>
+    <% latest_election = Complaint::ELECTIONS[0][1] %>
     <%= select_tag :summary_election, options_for_select(Complaint::ELECTIONS, latest_election) %>
   </div>
 

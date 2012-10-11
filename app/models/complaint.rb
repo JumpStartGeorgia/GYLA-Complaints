@@ -27,7 +27,8 @@ class Complaint < ActiveRecord::Base
 			:other_info,
 			:status_old,
 			:created_at,
-			:updated_at
+			:updated_at,
+			:election
 
   validates :observer_address,
 			# level,
@@ -63,7 +64,7 @@ class Complaint < ActiveRecord::Base
 	end
 
 	def set_election_name
-		self.election = ELECTIONS[ELECTIONS.length - 1][1]
+		self.election = ELECTIONS[ELECTIONS.length - 1][1] if (self.attributes.has_key? 'election')
 	end
 
   def additional
@@ -102,7 +103,7 @@ class Complaint < ActiveRecord::Base
 	end
 
   # add a new election at the end
-  ELECTIONS = [['2010 წლის ადგილობრივი თვითმმართველობის არჩევნები', '2010_local'], ['2012 წლის საპარლამენტო არჩევნები', '2012_parl']]
+  ELECTIONS = [['2012 წლის საპარლამენტო არჩევნები', '2012_parl'],['2010 წლის ადგილობრივი თვითმმართველობის არჩევნები', '2010_local']]
 
 	def election_name
 	  if self.election

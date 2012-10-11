@@ -5,6 +5,8 @@ class PecFormsController < ApplicationController
   def index
     @pec_forms = PecForm.sorted
 
+		gon.highlight_first_form_field = false
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pec_forms }

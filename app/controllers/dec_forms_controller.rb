@@ -5,6 +5,8 @@ class DecFormsController < ApplicationController
   def index
     @dec_forms = DecForm.sorted
 
+		gon.highlight_first_form_field = false
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @dec_forms }
