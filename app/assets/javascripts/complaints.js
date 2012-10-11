@@ -58,6 +58,7 @@ $.prototype.summary_filter = function (tableselector)
 
     $(t).change(function ()
     {
+console.log("ddl change fn start");
       var el = $(this);
       var id = el.attr('id').replace('summary_', '');
       var tbody = tableselector.children('tbody');
@@ -72,7 +73,7 @@ $.prototype.summary_filter = function (tableselector)
       {
         window.summaries_selectors[id] = '[data-' + id + '="' + val + '"]';
       }
-
+console.log('window.summaries_selectors[id] = ' + window.summaries_selectors[id]);
       var needed = 'tr';
       for (j in window.summaries_selectors)
       {
@@ -206,6 +207,6 @@ $(function ()
   }
 
 
-  $('#summary_district, #summary_category, #summary_status').summary_filter($('#complaint_index_table'));
+  $('#summary_district, #summary_category, #summary_status, #summary_level').summary_filter($('#complaint_index_table'));
 
 });

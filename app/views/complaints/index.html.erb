@@ -5,17 +5,22 @@
 
 <div id="index_summaries" class="clear">
 
-  <div class="span4">
+  <div class="span3">
     <span><%= t('activerecord.attributes.complaint.election_district_name_short') %></span>
     <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.with_complaints_count.map { |d| ["#{d.district_id} - #{d.district_name} (#{d.record_count})", d.district_id] }) %>
   </div>
 
-  <div class="span4">
+  <div class="span3">
+    <span><%= t('activerecord.attributes.complaint.level') %></span>
+    <%= select_tag :summary_level, options_for_select([nil] + [t('app.common.empty')] + Complaint::LEVELS.map{|d| [d[0], d[0]]}) %>
+  </div>
+
+  <div class="span3">
     <span><%= t('activerecord.attributes.complaint.category') %></span>
     <%= select_tag :summary_category, options_for_select([nil] + Category.all.map { |d| [d.title, d.id] }) %>
   </div>
 
-  <div class="span4">
+  <div class="span3">
     <span><%= t('activerecord.attributes.complaint_additional_info.status') %></span>
     <%= select_tag :summary_status, options_for_select([nil] + Status.all.map { |d| [d.title, d.id] }) %>
   </div>
@@ -44,7 +49,8 @@
   <tbody>
     <% @complaints.each do |complaint| %>
       <% status = (complaint.additional.latest && complaint.additional.latest.status) ? complaint.additional.latest.status : false %>
-      <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id if complaint.category_id %>" data-status="<%= status.id if status %>">
+      <% level = complaint.level_name.to_s.length > 0 ? complaint.level_name : t('app.common.empty') %>
+      <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id if complaint.category_id %>" data-status="<%= status.id if status %>" data-level="<%= level %>">
 				<td>
 					<%= link_to t('app.buttons.show'), complaint_path(complaint), :class => 'btn btn-mini btn-primary' %>
 				</td>
@@ -55,14 +61,13 @@
 				  <%= status.title if status %>
 				</td>
 				<td>
-				  <%= complaint.updated_at %>
+				  <%= complaint.district_name %>
 				</td>
 				<td>
 				  <%= complaint.election_precinct_number %>
 				</td>
         <td>
-          <% text = complaint.level_name.to_s.length > 0 ? complaint.level_name : t('app.common.empty') %>
-					<%= text %>
+					<%= level %>
 				</td>
 				<td>
 				  <% edate = (complaint.additional.latest && complaint.additional.latest.complaint_writing_time) ? complaint.additional.latest.complaint_writing_time : complaint.violation_time %>

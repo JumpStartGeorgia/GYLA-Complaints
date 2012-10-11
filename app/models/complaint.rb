@@ -43,7 +43,7 @@ class Complaint < ActiveRecord::Base
 
 	validates_associated :complaint_additional_infos
 
-  scope :sorted, order('updated_at DESC, level')
+  scope :sorted, order('date(updated_at) DESC, level asc, election_district_name asc, election_precinct_number asc')
 
 	before_create :set_values
 	before_save :update_level

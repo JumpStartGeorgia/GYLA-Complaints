@@ -9,7 +9,6 @@
 
     <%= select_tag :district, options_for_select([nil] + DistrictIdName.with_pec_count.map { |d| ["#{d.district_id} - #{d.district_name} (#{d.record_count})", d.district_id] }) %>
 
-
 <span class="total">
   <span>სულ: </span>
   <span id="total-records"><%= @pec_forms.length %></span>
@@ -38,13 +37,13 @@
          <td><%=  pec_form.district_name %></td>
          <td><%= pec_form.election_precinct_number %></td>
         <td><%= pec_form.current_number_of_complaints %></td>
-        <%if pec_form.was_complaint_setisfied %>
-           <%= t('form.radio_buttons.do_yes') %></td>
-        <% elsif !pec_form.was_complaint_setisfied.nil? %>
-            <td><%= t('form.radio_buttons.do_no') %></td>
-        <% else %>
-          <td></td>
-        <% end %>
+				<td>
+		      <%if pec_form.was_complaint_setisfied %>
+		         <%= t('form.radio_buttons.do_yes') %>
+		      <% elsif !pec_form.was_complaint_setisfied.nil? %>
+		          <%= t('form.radio_buttons.do_no') %>
+		      <% end %>
+				</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_pec_form_path(pec_form), :class => 'btn btn-mini' %>
