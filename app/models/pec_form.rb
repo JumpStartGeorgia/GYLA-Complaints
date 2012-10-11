@@ -13,7 +13,7 @@ class PecForm < ActiveRecord::Base
 
    validates :election_district_number, :election_precinct_number, :presence => true
 
-  scope :sorted, order('date(updated_at) DESC, election_district_number asc, election_precinct_number asc')
+  scope :sorted, order('date(registration_time) DESC, election_district_number asc, election_precinct_number asc')
 
    def district_name
 		district = DistrictIdName.where("district_id = ?", self.election_district_number)

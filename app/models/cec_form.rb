@@ -15,6 +15,6 @@ class CecForm < ActiveRecord::Base
 		:cesko_summary_process_transparently,
 		:description_how_transparent
 
-  scope :sorted, order('date(updated_at) DESC, id asc')
+  scope :sorted, order('date(monitoring_time) DESC, id asc')
 
 end
