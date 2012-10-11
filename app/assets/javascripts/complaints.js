@@ -73,7 +73,7 @@ console.log("ddl change fn start");
       {
         window.summaries_selectors[id] = '[data-' + id + '="' + val + '"]';
       }
-console.log('window.summaries_selectors[id] = ' + window.summaries_selectors[id]);
+console.log('window.summaries_selectors[' + id + '] = ' + window.summaries_selectors[id]);
       var needed = 'tr';
       for (j in window.summaries_selectors)
       {
@@ -207,6 +207,6 @@ $(function ()
   }
 
 
-  $('#summary_district, #summary_category, #summary_status, #summary_level').summary_filter($('#complaint_index_table'));
+  $('select[id*="summary_"]').summary_filter($('#complaint_index_table'));
 
 });

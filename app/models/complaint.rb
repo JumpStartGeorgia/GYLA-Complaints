@@ -49,6 +49,7 @@ class Complaint < ActiveRecord::Base
 
 	before_create :set_values
 	before_save :update_level
+	before_save :set_election_name
 
 	def set_values
 		self.original_level = self.level
@@ -59,6 +60,10 @@ class Complaint < ActiveRecord::Base
 		if additional && !additional.empty? && !additional.last.level.empty?
 			self.level = additional.last.level
 		end
+	end
+
+	def set_election_name
+		self.election = ELECTIONS[ELECTIONS.length - 1][1]
 	end
 
   def additional
@@ -82,9 +87,9 @@ class Complaint < ActiveRecord::Base
 
 	def level_name
 	  l = ''
-		if self.level
+		if self.level.to_s.length > 0
 		  l = self.level
-		elsif self.additional && self.additional.latest && self.additional.latest.level && self.additional.latest.level.to_s.length > 0
+		elsif self.additional.latest
 		  l = self.additional.latest.level
 		end
 
@@ -93,6 +98,19 @@ class Complaint < ActiveRecord::Base
 			return LEVELS[index][0]
 		end
 
+		''
+	end
+
+  # add a new election at the end
+  ELECTIONS = [['2010 წლის ადგილობრივი თვითმმართველობის არჩევნები', '2010_local'], ['2012 წლის საპარლამენტო არჩევნები', '2012_parl']]
+
+	def election_name
+	  if self.election
+		  index = ELECTIONS.map{|x| x[1]}.index(self.election)
+		  if index
+			  return ELECTIONS[index][0]
+		  end
+	  end
 		''
 	end
 

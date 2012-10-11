@@ -6,8 +6,15 @@
 <div id="index_summaries" class="clear">
 
   <div class="span3">
+    <span><%= t('activerecord.attributes.complaint.elections') %></span>
+    <% latest_election = Complaint::ELECTIONS[Complaint::ELECTIONS.length - 1][1] %>
+    <%= select_tag :summary_election, options_for_select(Complaint::ELECTIONS, latest_election) %>
+  </div>
+
+  <div class="span3">
     <span><%= t('activerecord.attributes.complaint.election_district_name_short') %></span>
-    <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.with_complaints_count.map { |d| ["#{d.district_id} - #{d.district_name} (#{d.record_count})", d.district_id] }) %>
+    <%= select_tag :summary_district, options_for_select([nil] + DistrictIdName.with_complaints_count.map { |d| ["#{d.district_id} - #{d.district_name}", d.district_id] }) %>
+    <%#= select_tag :summary_district, options_for_select([nil] + DistrictIdName.with_complaints_count.map { |d| ["#{d.district_id} - #{d.district_name} (#{d.record_count})", d.district_id] }) %>
   </div>
 
   <div class="span3">
@@ -25,9 +32,9 @@
     <%= select_tag :summary_status, options_for_select([nil] + Status.all.map { |d| [d.title, d.id] }) %>
   </div>
 
-  <div class="total">
+  <div class="span11 total">
     <span>სულ: </span>
-    <span class="amount"><%= @complaints.count %></span>
+    <span class="amount"><%= @complaints.select {|x| x.election == latest_election }.count %></span>
     <span>ჩანაწერი</span>
   </div>
 
@@ -48,10 +55,12 @@
     </tr>
   </thead>
   <tbody>
+    <%  %>
     <% @complaints.each do |complaint| %>
+      <% attr = (complaint.election != latest_election) ? 'style="display: none;"'.html_safe : '' %>
       <% status = (complaint.additional.latest && complaint.additional.latest.status) ? complaint.additional.latest.status : false %>
       <% level = complaint.level_name.to_s.length > 0 ? complaint.level_name : t('app.common.empty') %>
-      <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id if complaint.category_id %>" data-status="<%= status.id if status %>" data-level="<%= level %>">
+      <tr data-district="<%= complaint.election_district_name %>" data-category="<%= complaint.category.id if complaint.category_id %>" data-status="<%= status.id if status %>" data-level="<%= level %>" data-election="<%= complaint.election %>" <%= attr %>>
 				<td>
 					<%= link_to t('app.buttons.show'), complaint_path(complaint), :class => 'btn btn-mini btn-primary' %>
 				</td>
