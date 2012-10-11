@@ -161,7 +161,7 @@ function query($sql, $data = NULL, $fetch_single = FALSE)
 
 
 
- print_r($text);
+ print_r(str_replace(array("\n\n", "\n"), '<br />', $text));
  die;
 
 
