@@ -43,7 +43,7 @@ class Complaint < ActiveRecord::Base
 
 	validates_associated :complaint_additional_infos
 
-  scope :sorted, order('date(updated_at) DESC, level asc, election_district_name asc, election_precinct_number asc')
+  scope :sorted, order('date(violation_time) DESC, level asc, election_district_name asc, election_precinct_number asc')
 
 	before_create :set_values
 	before_save :update_level
@@ -62,6 +62,12 @@ class Complaint < ActiveRecord::Base
   def additional
     self.complaint_additional_infos
   end
+
+	# get the latest date associated with the complaint record
+	def latest_writing_date
+		(self.additional.latest && self.additional.latest.complaint_writing_time) ?
+				self.additional.latest.complaint_writing_time : nil
+	end
 
    def district_name
 		district = DistrictIdName.where("district_id = ?", self.election_district_name)

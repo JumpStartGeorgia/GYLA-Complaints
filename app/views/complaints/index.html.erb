@@ -11,13 +11,13 @@
   </div>
 
   <div class="span3">
-    <span><%= t('activerecord.attributes.complaint.level') %></span>
-    <%= select_tag :summary_level, options_for_select([nil] + [t('app.common.empty')] + Complaint::LEVELS.map{|d| [d[0], d[0]]}) %>
+    <span><%= t('activerecord.attributes.complaint.category') %></span>
+    <%= select_tag :summary_category, options_for_select([nil] + Category.all.map { |d| [d.title, d.id] }) %>
   </div>
 
   <div class="span3">
-    <span><%= t('activerecord.attributes.complaint.category') %></span>
-    <%= select_tag :summary_category, options_for_select([nil] + Category.all.map { |d| [d.title, d.id] }) %>
+    <span><%= t('activerecord.attributes.complaint.level') %></span>
+    <%= select_tag :summary_level, options_for_select([nil] + [t('app.common.empty')] + Complaint::LEVELS.map{|d| [d[0], d[0]]}) %>
   </div>
 
   <div class="span3">
@@ -37,12 +37,13 @@
   <thead>
     <tr>
       <th></th>
-      <th><%= t('activerecord.attributes.complaint.category') %></th>
-      <th><%= t('activerecord.attributes.complaint_additional_info.status') %></th>
+      <th><%= t('activerecord.attributes.complaint.violation_time') %></th>
       <th><%= t('activerecord.attributes.complaint.election_district_name_short') %></th>
       <th><%= t('activerecord.attributes.complaint.election_precinct_number_short') %></th>
+      <th><%= t('activerecord.attributes.complaint.category') %></th>
       <th><%= t('activerecord.attributes.complaint.level') %></th>
-      <th>თარიღი</th>
+      <th><%= t('activerecord.attributes.complaint_additional_info.complaint_writing_time') %></th>
+      <th><%= t('activerecord.attributes.complaint_additional_info.status') %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -55,10 +56,7 @@
 					<%= link_to t('app.buttons.show'), complaint_path(complaint), :class => 'btn btn-mini btn-primary' %>
 				</td>
 				<td>
-          <%= complaint.category && complaint.category.title.to_s.length > 0 ? complaint.category.title : t('app.common.empty') %>
-				</td>
-				<td>
-				  <%= status.title if status %>
+				  <%= l complaint.violation_time, :format => :long if complaint.violation_time %>
 				</td>
 				<td>
 				  <%= complaint.district_name %>
@@ -66,12 +64,17 @@
 				<td>
 				  <%= complaint.election_precinct_number %>
 				</td>
+				<td>
+          <%= complaint.category && complaint.category.title.to_s.length > 0 ? complaint.category.title : t('app.common.empty') %>
+				</td>
         <td>
 					<%= level %>
 				</td>
 				<td>
-				  <% edate = (complaint.additional.latest && complaint.additional.latest.complaint_writing_time) ? complaint.additional.latest.complaint_writing_time : complaint.violation_time %>
-				  <%= l edate, :format => :long if edate %>
+				  <%= l complaint.latest_writing_date, :format => :long if complaint.latest_writing_date %>
+				</td>
+				<td>
+				  <%= status.title if status %>
 				</td>
         <td>
           <%= link_to t('app.buttons.edit', :default => t("helpers.links.edit")),
