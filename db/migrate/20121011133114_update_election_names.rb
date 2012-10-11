@@ -6,6 +6,6 @@ class UpdateElectionNames < ActiveRecord::Migration
   end
 
   def down
-		Complaint.all.update_all(:election => nil)
+		Complaint.update_all(:election => nil)
   end
 end
