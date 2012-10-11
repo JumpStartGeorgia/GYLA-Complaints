@@ -85,6 +85,8 @@ function query($sql, $data = NULL, $fetch_single = FALSE)
 
    $rs = query('select * from gyla_' . $level);
 
+   ($level == 'dec') && $keys['komisia'] = 'election_district_name';
+
    foreach ($rs as $r)
    {
      $c = "c = Complaint.create(";
@@ -97,6 +99,8 @@ function query($sql, $data = NULL, $fetch_single = FALSE)
 
      foreach ($r as $key => $val)
      {
+       $val = trim($val);
+
        if (in_array($key, $id_keys) && strlen($val) > 0)
        {
          switch ($key)
@@ -161,7 +165,8 @@ function query($sql, $data = NULL, $fetch_single = FALSE)
 
 
 
- print_r(str_replace(array("\n\n", "\n"), '<br />', $text));
+ //$text = str_replace(array("\n\n", "\n"), '<br />', $text);
+ print_r(str_replace("\n\n", "\n", $text));
  die;
 
 
