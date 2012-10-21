@@ -14,6 +14,30 @@
 	</div>
 	<div class="row">
 	  <div class="header span3">
+			დამკვირვებლის სახელი და გვარი:
+		</div>
+	  <div class="content span6">
+			<%= @dec_form.observer_name %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			ცვლის მონიტორინგის დრო:
+		</div>
+	  <div class="content span6">
+			<%= @dec_form.monitoring_time %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			ორგანიზაციის სახელწოდება:
+		</div>
+	  <div class="content span6">
+			<%= @dec_form.organisation_name %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
 			<%= model_class.human_attribute_name(:dec_total_complaints) %>
 		</div>
 	  <div class="content span6">
