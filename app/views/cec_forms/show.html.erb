@@ -1,9 +1,33 @@
-<%= t('form.radio_buttons.do_yes') %><%- model_class = CecForm -%>
+<%- model_class = CecForm -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
 <div class="show_page clear">
+	<div class="row">
+	  <div class="header span3">
+			ცესკოში სიის დამკვირვებელი
+		</div>
+	  <div class="content span6">
+			  <%= @cec_form.cesko_list_observer %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			ცვლის მონიტორინგის დრო
+		</div>
+	  <div class="content span6">
+			  <%= @cec_form.monitoring_time %>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="header span3">
+			ორგანიზაციის სახელწოდება
+		</div>
+	  <div class="content span6">
+			  <%= @cec_form.organization_name %>
+		</div>
+	</div>
 	<div class="row">
 	  <div class="header span3">
 			<%= model_class.human_attribute_name(:cesko_summary_report_input) %>

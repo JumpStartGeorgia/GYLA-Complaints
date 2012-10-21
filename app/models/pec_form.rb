@@ -9,7 +9,8 @@ class PecForm < ActiveRecord::Base
 		:violation_essence,
 		:request,
 		:was_complaint_setisfied,
-		:other_extra_comments
+		:other_extra_comments,
+		:registered_or_not_complaint
 
    validates :election_district_number, :election_precinct_number, :presence => true
 
