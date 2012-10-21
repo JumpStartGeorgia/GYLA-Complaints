@@ -5,6 +5,8 @@ class CecFormsController < ApplicationController
   def index
     @cec_forms = CecForm.sorted
 
+		gon.highlight_first_form_field = false
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cec_forms }
