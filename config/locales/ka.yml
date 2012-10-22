@@ -1,6 +1,6 @@
 # encoding: utf-8
 ka:
-  activerecord:       
+  activerecord:
     models:
       category: კატეგორია
       complaint: საჩივარი
@@ -70,7 +70,7 @@ ka:
         registration_time: 'თუ დიახ, მიუთითეთ რეგისტრაციის დრო'
         do_you_give_complaint_to_higher_commission: თუ არა, აპირებდა თუ არა მომჩივანი გასაჩივრებას ზემდგომ საოლქო საარჩევნო კომისიაში?
         violation_essence: 'დარღვევის არსი'
-        request: 'მოთხოვნა:'
+        request: 'მოთხოვნა'
         was_complaint_setisfied: დაკმაყოფილდა თუ არა საჩივარი?
         other_extra_comments: 'სხვა დამატებითი კომენტარები'
       dec_form:
