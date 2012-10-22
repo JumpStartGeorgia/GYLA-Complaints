@@ -59,7 +59,7 @@
 				რეგისტრაციის დრო
 			</div>
 			<div class="content span6">
-				<%= @pec_form.registration_time %>
+				<%= l @pec_form.registration_time, :format => :long if @pec_form.registration_time %>
 			</div>
 		</div>
 	<% else %>
