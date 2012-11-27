@@ -200,10 +200,10 @@ class MergeStagProdDbs < ActiveRecord::Migration
 
 
 				end
-
-				puts " -copying complaint files under system folder from prod to staging"
+# since there are no differences in complaint id numbers, I can just do cp statement on the server
+#				puts " -copying complaint files under system folder from prod to staging"
 				# copy all files from prod to staging
-				FileUtils.cp_r("#{production_path}/.", staging_path)
+#				FileUtils.cp_r("#{production_path}/.", staging_path)
 
 				puts "*****************"
 				puts "done moving complaints"
