@@ -6,7 +6,16 @@ class ComplaintFile < ActiveRecord::Base
 	validates_attachment_size :file, :less_than => 10.megabytes
 
 	belongs_to :complaint
-  attr_accessible :complaint_id, :file, :attachment_type, :additional_info_id
+  attr_accessible :file,
+    :complaint_id,
+    :file_file_name,
+    :file_content_type,
+    :file_file_size,
+    :file_updated_at,
+    :created_at,
+    :updated_at,
+    :attachment_type,
+    :additional_info_id
 
   def self.general
     where(:attachment_type => 'general')

@@ -24,7 +24,8 @@ class DecForm < ActiveRecord::Base
 		:precinct_results_canel_proc,
 		:commission_summary_report_publicity,
 		:extra_env_describe,
-		:summed_up_or_not_summary_reports
+		:summed_up_or_not_summary_reports,
+		:created_at, :updated_at
 
    def district_name
       district = DistrictIdName.where("district_id = ?", self.district_name_id)

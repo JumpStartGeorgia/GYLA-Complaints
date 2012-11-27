@@ -16,7 +16,8 @@ class ComplaintAdditionalInfo < ActiveRecord::Base
 			:request_in_complaint,
 			:response_date,
 			:complaint_result,
-			:additional_comment
+			:additional_comment,
+			:created_at, :updated_at
 
   validates :level, :status_id, :presence => true
 
