@@ -34,6 +34,7 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users/new.json
   def new
     @user = User.new
+    @roles = current_user.accessible_roles
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +45,8 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users/1/edit
   def edit
     @user = User.find(params[:id])
+    @roles = current_user.accessible_roles
+
     if @user.role == User::ROLES[2] && current_user.role != User::ROLES[2]
       redirect_to admin_users_path
     end
@@ -59,6 +62,7 @@ class Admin::UsersController < ApplicationController
         format.html { redirect_to admin_users_path, notice: t('app.msgs.success_created', :obj => t('app.common.user')) }
         format.json { render json: @user, status: :created, location: @user }
       else
+        @roles = current_user.accessible_roles
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -71,10 +75,17 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      success = if params[:user][:password].present? || params[:user][:password_confirmation].present?
+        @user.update_attributes(params[:user])
+      else
+        @user.update_without_password(params[:user])
+      end
+
+      if success
         format.html { redirect_to admin_users_path, notice: t('app.msgs.success_updated', :obj => t('app.common.user')) }
         format.json { head :ok }
       else
+        @roles = current_user.accessible_roles
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

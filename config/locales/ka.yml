@@ -228,6 +228,11 @@ ka:
     common:
       app_name: GYLA-ს საარჩევნო საჩივრები/დაკვირვებები
       empty: ცარიელია
+    msgs:
+      does_not_exist: თქვენ ცდილობთ იხილოთ გვერდი, რომელიც არ არსებობს.
+      not_authorized: თქვენ არ გაქვთ უფლება იხილოთ ეს გვერდი.
+      success_created: "%{obj} შექმნილია."
+      success_updated: "%{obj} განახლებულია."
   helpers:
     actions: მოქმედებები
     links:

@@ -14,6 +14,13 @@ class User < ActiveRecord::Base
     where("role != ?", ROLES[2])
   end
 
+  # get list of roles that user has access to
+  # format: [ [name, value] ]
+  def accessible_roles
+    index = ROLES.index(self.role)
+    roles = User::ROLES[0..index].map{|x| [x.humanize, x]} if index
+    return roles
+  end
 
   # use role inheritence
   ROLES = %w[author user_manager admin]
